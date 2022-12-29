@@ -66,10 +66,10 @@ export default function Hero() {
                                 }
                                 </div>
                             }
+            
                             <HeroSelector 
                                 heroState={heroState}
                                 setHeroState={setHeroState}
-            
                             />
                         </div>
                     )
@@ -86,7 +86,6 @@ function HeroSelector(props) {
     
 
     function handleHero(event) {
-        
         const changeHero = heroState.map(hero => {
             return hero.isActive && hero.id != event.target.id ? 
                 {...hero, isActive: false} : 
@@ -109,10 +108,10 @@ function HeroSelector(props) {
                                 {element.id}
                                 {
                                     element.isActive && 
-                                    <svg >
-                                        <circle cx="18" cy="18" r="18"></circle>
-                                        <circle cx="18" cy="18" r="18"></circle>
-                                    </svg>
+                                        <svg /*onClick={e => e.stopPropagation()}*/ >
+                                            <circle cx="18" cy="18" r="18"></circle>
+                                            <circle cx="18" cy="18" r="18"></circle>
+                                        </svg>
                                 }
 
                             </div>

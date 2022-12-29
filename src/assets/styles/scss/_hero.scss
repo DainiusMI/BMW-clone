@@ -92,18 +92,24 @@
         aspect-ratio: 1 / 1;
         @include flex(row, center, center);
 
+        cursor: pointer;
+
+        &:hover {
+            color: $project-blue;
+        }
         svg {
             position: absolute;
             transform: rotate(-90deg);
             width: 2.5rem;
             aspect-ratio: 1 / 1;
+            pointer-events: none;
             circle {
                 width: 2.5rem;
                 aspect-ratio: 1 / 1;
                 fill: none;
                 stroke: #fff;
-                stroke-width: 4px;
-                transform: translate(2px, 2px);
+                stroke-width: 2px;
+                transform: translate(1px, 1px);
 
                 stroke-dasharray: 113;
                 stroke-dashoffset: 113;
@@ -118,24 +124,8 @@
             }
         }
     }
-    .circular__progress {
-
-        @include flex(row, center, center);
-
-        .circle__inner {
-
-
-        }
-    }
-
-    cursor: pointer;
-    .hero__option {
-        
-        &:hover {
-            color: $project-blue;
-        }
-    }
 }
+
 
 .hero__1 {
     background-image: url("../../../../public/hero-1.jpg");

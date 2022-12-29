@@ -142,7 +142,6 @@
   position: absolute;
   bottom: 16%;
   left: 4%;
-  cursor: pointer;
 }
 .hero__selector .hero__option {
   position: relative;
@@ -152,20 +151,25 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+}
+.hero__selector .hero__option:hover {
+  color: #1C69D3;
 }
 .hero__selector .hero__option svg {
   position: absolute;
   transform: rotate(-90deg);
   width: 2.5rem;
   aspect-ratio: 1/1;
+  pointer-events: none;
 }
 .hero__selector .hero__option svg circle {
   width: 2.5rem;
   aspect-ratio: 1/1;
   fill: none;
   stroke: #fff;
-  stroke-width: 4px;
-  transform: translate(2px, 2px);
+  stroke-width: 2px;
+  transform: translate(1px, 1px);
   stroke-dasharray: 113;
   stroke-dashoffset: 113;
 }
@@ -176,15 +180,6 @@
 .hero__selector .hero__option svg circle:nth-child(2) {
   stroke: #1C69D3;
   stroke-dashoffset: 11.3;
-}
-.hero__selector .circular__progress {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-.hero__selector .hero__option:hover {
-  color: #1C69D3;
 }
 
 .hero__1 {
