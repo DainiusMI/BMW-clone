@@ -82,8 +82,12 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+  gap: 1.4rem;
 }
 .hero .hero__left .hero__title {
+  font-weight: 300;
+}
+.hero .hero__left .hero__text {
   font-weight: 300;
 }
 .hero .hero__left .hero__buttons {
@@ -94,14 +98,15 @@
   gap: 1.3rem;
 }
 .hero .hero__left .hero__buttons button {
-  width: 9rem;
-  height: 3.5rem;
   border: none;
-  border-radius: 0.2rem;
-  text-align: center;
+  border-radius: 0.1rem;
   font-family: "Roboto", sans-serif;
   font-size: 1rem;
   font-weight: 700;
+  cursor: pointer;
+}
+.hero .hero__left .hero__buttons button:hover {
+  filter: brightness(0.9);
 }
 .hero .hero__left .hero__buttons :first-child {
   background-color: #1C69D3;
@@ -123,18 +128,41 @@
 .hero .hero__right :nth-child(2) {
   font-weight: 700;
 }
+.hero .hero__selector {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.5rem;
+  position: absolute;
+  bottom: 16%;
+  left: 4%;
+  cursor: pointer;
+}
+.hero .hero__selector .hero__option:hover {
+  color: #1C69D3;
+}
 
 .hero__0 {
   background-image: url("../../../../public/hero-1.jpg");
 }
+.hero__0 .hero__left {
+  gap: 1.4rem;
+}
 .hero__0 .hero__left .hero__title {
-  font-size: 2.5rem;
+  width: 20ch;
+  font-size: 2.6rem;
+  margin-bottom: -0.7rem;
 }
 .hero__0 .hero__left .hero__text {
-  width: 40ch;
-  font-size: 1.5rem;
+  width: 38ch;
+  font-size: 1.3rem;
+  line-height: 2rem;
 }
-
+.hero__0 .hero__left .hero__buttons button {
+  width: 8.8rem;
+  height: 3.5rem;
+}
 .hero__1 {
   background-image: url("../../../../public/hero-2.jpg");
 }
@@ -149,9 +177,10 @@
 .hero__1 .hero__left .hero__text {
   width: 40ch;
   font-size: 2rem;
-  font-weight: 300;
 }
-
+.hero__1 .hero__left .hero__buttons button {
+  padding: 1.2rem 2rem;
+}
 * {
   box-sizing: border-box;
   margin: 0;

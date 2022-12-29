@@ -23,25 +23,31 @@
 
     .hero__left {
         @include flex(column, flex-start, flex-start);
+        gap: 1.4rem;
         .hero__title {
             font-weight: 300;
             
+        }
+        .hero__text {
+            font-weight: 300;
         }
         .hero__buttons {
             @include flex(row, center, flex-start);
             gap: 1.3rem;
             button {
-                width: 9rem;
-                height: 3.5rem;
 
                 border:none;
-                border-radius: .2rem;
+                border-radius: .1rem;
 
-                text-align: center;
+
                 font-family: 'Roboto', sans-serif;
                 font-size: 1rem;
                 font-weight: 700;
-                
+
+                cursor: pointer;
+                &:hover {
+                    filter: brightness(0.9);
+                }
             }
             :first-child {
                 background-color: $project-blue;
@@ -65,6 +71,22 @@
             font-weight: 700;
         }
     }
+    .hero__selector {
+        @include flex(row, center, flex-start);
+        gap: 1.5rem;
+        
+        position: absolute;
+        bottom: 16%;
+        left: 4%;
+
+        cursor: pointer;
+        .hero__option {
+            
+            &:hover {
+                color: $project-blue;
+            }
+        }
+    }
 }
 
 .hero__0 {
@@ -72,15 +94,28 @@
     background-image: url("../../../../public/hero-1.jpg");
 
     .hero__left {
+        gap: 1.4rem;
         .hero__title {
-            font-size: 2.5rem;
+            width: 20ch;
+            font-size: 2.6rem;
+            margin-bottom: -.7rem;
         }
         .hero__text {
-            width: 40ch;
-    
-            font-size: 1.5rem;
+            width: 38ch;
+            
+            font-size: 1.3rem;
+            line-height: 2rem;
         }
-    
+        .hero__buttons {
+            button {
+                
+                width: 8.8rem;
+                height: 3.5rem;
+            }
+        }
+    }
+    .hero__right {
+
     }
 }
 
@@ -100,9 +135,17 @@
             width: 40ch;
             
             font-size: 2rem;
-            font-weight: 300;
+
         }
-    
+        .hero__buttons {
+            button {
+                padding: 1.2rem 2rem;
+            }
+        }
     }
+    .hero__right {
+
+    }
+
 
 }

@@ -36,7 +36,7 @@ const heroData = [
 
 export default function Hero() {
 
-    const [heroState, setHeroState] = React.useState(1)
+    const [heroState, setHeroState] = React.useState(0)
 
 
     return (
@@ -66,6 +66,31 @@ export default function Hero() {
                     </div>
                 }
                 
+                <HeroSelector setHeroState={setHeroState} />
             </div>
+    )
+}
+
+
+function HeroSelector(props) {
+    const {setHeroState} = props
+
+    function handleHero(event) {
+        setHeroState(event.target.dataset.value)
+    }
+    return (
+        <div className="hero__selector">
+            {
+                heroData.map((element, idx) => {
+                    return <div 
+                                key={element.id}
+                                className="hero__option"
+                                data-value={idx}
+                                onClick={handleHero}
+                            >
+                            {element.id}</div>
+                })
+            }
+        </div>
     )
 }
