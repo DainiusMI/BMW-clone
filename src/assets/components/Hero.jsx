@@ -8,6 +8,7 @@ const heroData = [
         text: "The BMW Road Home Sales Event offers a credit of up to $3.250 on select BMW models - now through Janury 3rd",
         buttons: ["Offers Details", "Build Your Own"],
         slogan: [],
+        isActive: true
     },
     {   
         id: 2,
@@ -15,6 +16,7 @@ const heroData = [
         text: "THE FIRST EVER BMW XM",
         buttons: ["Learn More", "Pre-Order"],
         slogan: ["The", "Ultimate", "Driving Machine ©"],
+        isActive: false
     },
     {   
         id: 3,
@@ -22,6 +24,7 @@ const heroData = [
         text: "iX shown on left, i4 shown on the right",
         buttons: ["Explore the iX", "Explore the i4"],
         slogan: ["The Ultimate", "Electric", "Driving Machine"],
+        isActive: false
     },
     {   
         id: 4,
@@ -29,66 +32,90 @@ const heroData = [
         text: "DISCOVER THE 2023 BMW M2 COUPE",
         buttons: ["Build Yours", "Learn More"],
         slogan: ["The", "Ultimate", "Driving Machine ©"],
-    },
-
+        isActive: false
+    }
 ]
 
 
 export default function Hero() {
 
-    const [heroState, setHeroState] = React.useState(0)
+    const [heroState, setHeroState] = React.useState(heroData)
 
+    return (    
+                heroState.filter(hero => hero.isActive).map(hero => {
+                    return (
+                        <div key={hero.id} className={`hero hero__${hero.id}`}>
+                            <div className="hero__left">
+                                <h1 className="hero__title">{hero.title}</h1>
+                                <p className="hero__text">{hero.text}</p>
+                                <div className="hero__buttons">
+                                    {
+                                        hero.buttons.map((button, idx) => {
+                                            return <button key={idx}>{button}</button>
+                                        })
+                                    }
+                                </div>
+                            </div>
 
-    return (
-            <div className={`hero hero__${heroState}`}>
-
-                <div className="hero__left">
-                    <h1 className="hero__title">{heroData[heroState].title}</h1>
-                    <p className="hero__text">{heroData[heroState].text}</p>
-                    <div className="hero__buttons">
-                        {
-                            heroData[heroState].buttons.map((button, idx) => {
-                                return <button key={idx}>{button}</button>
-                            })
-                        }
-                    </div>
-                </div>
-
-
-                {
-                    heroData[heroState].slogan !== [] && 
-                    <div className="hero__right">
-                        {
-                            heroData[heroState].slogan.map((slogan, idx) => {
-                                return <p key={idx} className="slogan__text">{slogan}</p>
-                            })
-                        }
-                    </div>
-                }
-                
-                <HeroSelector setHeroState={setHeroState} />
-            </div>
+                            {hero.slogan !== [] && 
+                                <div className="hero__right">
+                                {
+                                    hero.slogan.map((slogan, idx) => {
+                                        return <p key={idx} className="slogan__text">{slogan}</p>
+                                    })
+                                }
+                                </div>
+                            }
+                            <HeroSelector 
+                                heroState={heroState}
+                                setHeroState={setHeroState}
+            
+                            />
+                        </div>
+                    )
+                })
     )
 }
 
 
+
+
 function HeroSelector(props) {
-    const {setHeroState} = props
+    const {heroState, setHeroState} = props
+    
+    
 
     function handleHero(event) {
-        setHeroState(event.target.dataset.value)
+        
+        const changeHero = heroState.map(hero => {
+            return hero.isActive && hero.id != event.target.id ? 
+                {...hero, isActive: false} : 
+                hero.id == event.target.id ? 
+                    {...hero, isActive: true} : hero
+        })
+        setHeroState(changeHero)
+
     }
     return (
         <div className="hero__selector">
             {
-                heroData.map((element, idx) => {
+                heroData.map(element => {
                     return <div 
+                                id={element.id}
                                 key={element.id}
                                 className="hero__option"
-                                data-value={idx}
                                 onClick={handleHero}
-                            >
-                            {element.id}</div>
+                            >   
+                                {element.id}
+                                {
+                                    element.isActive && 
+                                    <svg >
+                                        <circle cx="18" cy="18" r="18"></circle>
+                                        <circle cx="18" cy="18" r="18"></circle>
+                                    </svg>
+                                }
+
+                            </div>
                 })
             }
         </div>

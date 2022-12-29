@@ -132,7 +132,8 @@
 .hero .hero__right :nth-child(2) {
   font-weight: 700;
 }
-.hero .hero__selector {
+
+.hero__selector {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -143,76 +144,115 @@
   left: 4%;
   cursor: pointer;
 }
-.hero .hero__selector .hero__option:hover {
+.hero__selector .hero__option {
+  position: relative;
+  width: 3rem;
+  aspect-ratio: 1/1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.hero__selector .hero__option svg {
+  position: absolute;
+  transform: rotate(-90deg);
+  width: 2.5rem;
+  aspect-ratio: 1/1;
+}
+.hero__selector .hero__option svg circle {
+  width: 2.5rem;
+  aspect-ratio: 1/1;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 4px;
+  transform: translate(2px, 2px);
+  stroke-dasharray: 113;
+  stroke-dashoffset: 113;
+}
+.hero__selector .hero__option svg circle:nth-child(1) {
+  stroke: #fff;
+  stroke-dashoffset: 0;
+}
+.hero__selector .hero__option svg circle:nth-child(2) {
+  stroke: #1C69D3;
+  stroke-dashoffset: 11.3;
+}
+.hero__selector .circular__progress {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.hero__selector .hero__option:hover {
   color: #1C69D3;
 }
 
-.hero__0 {
-  background-image: url("../../../../public/hero-1.jpg");
-}
-.hero__0 .hero__left {
-  gap: 1.4rem;
-}
-.hero__0 .hero__left .hero__title {
-  width: 20ch;
-  font-size: 2.6rem;
-  margin-bottom: -0.7rem;
-}
-.hero__0 .hero__left .hero__text {
-  width: 38ch;
-  font-size: 1.3rem;
-  line-height: 2rem;
-}
-.hero__0 .hero__left .hero__buttons button {
-  width: 8.8rem;
-  height: 3.5rem;
-}
-
 .hero__1 {
-  background-image: url("../../../../public/hero-2.jpg");
+  background-image: url("../../../../public/hero-1.jpg");
 }
 .hero__1 .hero__left {
   gap: 1.4rem;
 }
 .hero__1 .hero__left .hero__title {
+  width: 20ch;
+  font-size: 2.6rem;
+  margin-bottom: -0.7rem;
+}
+.hero__1 .hero__left .hero__text {
+  width: 38ch;
+  font-size: 1.3rem;
+  line-height: 2rem;
+}
+.hero__1 .hero__left .hero__buttons button {
+  width: 8.8rem;
+  height: 3.5rem;
+}
+
+.hero__2 {
+  background-image: url("../../../../public/hero-2.jpg");
+}
+.hero__2 .hero__left {
+  gap: 1.4rem;
+}
+.hero__2 .hero__left .hero__title {
   font-size: 3.7rem;
   line-height: 4.3rem;
   margin-bottom: -0.7rem;
 }
-.hero__1 .hero__left .hero__text {
+.hero__2 .hero__left .hero__text {
   width: 40ch;
   font-size: 2rem;
 }
-.hero__1 .hero__left .hero__buttons button {
+.hero__2 .hero__left .hero__buttons button {
   padding: 1.2rem 2rem;
 }
-.hero__2 {
+.hero__3 {
   background-image: url("../../../../public/hero-3.jpg");
 }
-.hero__2 .hero__left {
+.hero__3 .hero__left {
   gap: 2.2rem;
-}
-.hero__2 .hero__left .hero__title {
-  width: 12ch;
-}
-.hero__2 .hero__left .hero__text {
-  font-size: 0.9rem;
-  order: 3;
-}
-.hero__2 .hero__buttons button {
-  padding: 1.2rem 1.4rem;
-}
-
-.hero__3 {
-  background-image: url("../../../../public/hero-4.jpg");
 }
 .hero__3 .hero__left .hero__title {
   width: 12ch;
 }
 .hero__3 .hero__left .hero__text {
-  width: 30ch;
+  font-size: 0.9rem;
+  order: 3;
 }
 .hero__3 .hero__buttons button {
+  padding: 1.2rem 1.4rem;
+}
+
+.hero__4 {
+  background-image: url("../../../../public/hero-4.jpg");
+}
+.hero__4 .hero__left .hero__title {
+  width: 12ch;
+}
+.hero__4 .hero__left .hero__text {
+  width: 30ch;
+}
+.hero__4 .hero__buttons button {
   padding: 1.1rem 1.8rem;
 }
 

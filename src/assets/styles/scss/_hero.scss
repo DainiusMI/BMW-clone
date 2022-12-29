@@ -77,25 +77,67 @@
             font-weight: 700;
         }
     }
-    .hero__selector {
-        @include flex(row, center, flex-start);
-        gap: 1.3rem;
-        
-        position: absolute;
-        bottom: 16%;
-        left: 4%;
+}
 
-        cursor: pointer;
-        .hero__option {
-            
-            &:hover {
-                color: $project-blue;
+.hero__selector {
+    @include flex(row, center, flex-start);
+    gap: 1.3rem;
+    
+    position: absolute;
+    bottom: 16%;
+    left: 4%;
+    .hero__option {
+        position: relative;
+        width: 3rem;
+        aspect-ratio: 1 / 1;
+        @include flex(row, center, center);
+
+        svg {
+            position: absolute;
+            transform: rotate(-90deg);
+            width: 2.5rem;
+            aspect-ratio: 1 / 1;
+            circle {
+                width: 2.5rem;
+                aspect-ratio: 1 / 1;
+                fill: none;
+                stroke: #fff;
+                stroke-width: 4px;
+                transform: translate(2px, 2px);
+
+                stroke-dasharray: 113;
+                stroke-dashoffset: 113;
+                &:nth-child(1) {
+                    stroke: #fff;
+                    stroke-dashoffset: 0;
+                }
+                &:nth-child(2) {
+                    stroke: $project-blue;
+                    stroke-dashoffset: calc(113 - (113   * 90 ) / 100);
+                }
             }
+        }
+    }
+    .circular__progress {
+
+        @include flex(row, center, center);
+
+        .circle__inner {
+
+
+        }
+    }
+
+    cursor: pointer;
+    .hero__option {
+        
+        &:hover {
+            color: $project-blue;
         }
     }
 }
 
-.hero__0 {
+.hero__1 {
     background-image: url("../../../../public/hero-1.jpg");
 
     .hero__left {
@@ -122,7 +164,7 @@
 }
 
 
-.hero__1 {
+.hero__2 {
     background-image: url("../../../../public/hero-2.jpg");
 
     .hero__left {
@@ -150,7 +192,7 @@
 }
 
 
-.hero__2 {
+.hero__3 {
     background-image: url("../../../../public/hero-3.jpg");
     .hero__left {
         gap: 2.2rem;
@@ -169,7 +211,7 @@
     }
 
 }
-.hero__3 {
+.hero__4 {
     background-image: url("../../../../public/hero-4.jpg");
     .hero__left {
 
