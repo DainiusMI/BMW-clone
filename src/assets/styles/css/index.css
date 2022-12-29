@@ -86,9 +86,13 @@
 }
 .hero .hero__left .hero__title {
   font-weight: 300;
+  font-size: 3.7rem;
+  line-height: 4.3rem;
+  margin-bottom: -0.7rem;
 }
 .hero .hero__left .hero__text {
   font-weight: 300;
+  font-size: 2rem;
 }
 .hero .hero__left .hero__buttons {
   display: flex;
@@ -133,7 +137,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  gap: 1.5rem;
+  gap: 1.3rem;
   position: absolute;
   bottom: 16%;
   left: 4%;
@@ -163,6 +167,7 @@
   width: 8.8rem;
   height: 3.5rem;
 }
+
 .hero__1 {
   background-image: url("../../../../public/hero-2.jpg");
 }
@@ -181,6 +186,36 @@
 .hero__1 .hero__left .hero__buttons button {
   padding: 1.2rem 2rem;
 }
+.hero__2 {
+  background-image: url("../../../../public/hero-3.jpg");
+}
+.hero__2 .hero__left {
+  gap: 2.2rem;
+}
+.hero__2 .hero__left .hero__title {
+  width: 12ch;
+}
+.hero__2 .hero__left .hero__text {
+  font-size: 0.9rem;
+  order: 3;
+}
+.hero__2 .hero__buttons button {
+  padding: 1.2rem 1.4rem;
+}
+
+.hero__3 {
+  background-image: url("../../../../public/hero-4.jpg");
+}
+.hero__3 .hero__left .hero__title {
+  width: 12ch;
+}
+.hero__3 .hero__left .hero__text {
+  width: 30ch;
+}
+.hero__3 .hero__buttons button {
+  padding: 1.1rem 1.8rem;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;

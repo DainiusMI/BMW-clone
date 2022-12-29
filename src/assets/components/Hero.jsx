@@ -26,8 +26,8 @@ const heroData = [
     {   
         id: 4,
         title: "THE M2",
-        text: "DISCOVER THE 2023 M2 COUPE",
-        buttons: ["Learn More", "Pre-Order"],
+        text: "DISCOVER THE 2023 BMW M2 COUPE",
+        buttons: ["Build Yours", "Learn More"],
         slogan: ["The", "Ultimate", "Driving Machine ©"],
     },
 

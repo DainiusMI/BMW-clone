@@ -26,10 +26,16 @@
         gap: 1.4rem;
         .hero__title {
             font-weight: 300;
-            
+
+            font-size: 3.7rem;
+            line-height: 4.3rem;
+            margin-bottom: -.7rem;
         }
         .hero__text {
             font-weight: 300;
+
+            font-size: 2rem;
+
         }
         .hero__buttons {
             @include flex(row, center, flex-start);
@@ -73,7 +79,7 @@
     }
     .hero__selector {
         @include flex(row, center, flex-start);
-        gap: 1.5rem;
+        gap: 1.3rem;
         
         position: absolute;
         bottom: 16%;
@@ -90,7 +96,6 @@
 }
 
 .hero__0 {
-    
     background-image: url("../../../../public/hero-1.jpg");
 
     .hero__left {
@@ -114,9 +119,6 @@
             }
         }
     }
-    .hero__right {
-
-    }
 }
 
 
@@ -133,7 +135,6 @@
         }
         .hero__text {
             width: 40ch;
-            
             font-size: 2rem;
 
         }
@@ -146,6 +147,43 @@
     .hero__right {
 
     }
+}
 
+
+.hero__2 {
+    background-image: url("../../../../public/hero-3.jpg");
+    .hero__left {
+        gap: 2.2rem;
+        .hero__title {
+         width: 12ch;
+        }
+        .hero__text {
+            font-size: .9rem;
+            order:3;
+        }
+    }
+    .hero__buttons {
+        button {
+            padding: 1.2rem 1.4rem;
+        }
+    }
+
+}
+.hero__3 {
+    background-image: url("../../../../public/hero-4.jpg");
+    .hero__left {
+
+        .hero__title {
+         width: 12ch;
+        }
+        .hero__text {
+            width: 30ch;
+        }
+    }
+    .hero__buttons {
+        button {
+            padding: 1.1rem 1.8rem;
+        }
+    }
 
 }
