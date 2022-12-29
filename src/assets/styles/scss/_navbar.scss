@@ -1,0 +1,64 @@
+@use "./mixin" as *;
+
+.navbar {
+    width: 100%;
+    @include flex(row, center, space-between);
+    padding: 1.5rem 3rem;
+
+    background-color: black;
+
+
+    color: #DAD9D9;
+    font-weight: 600;
+
+
+    &>*{
+        @include flex(row, center, space-around);
+        gap: 1.6rem;
+    }
+    &>*>* {
+        @include flex(row, center, center);
+        gap: .5rem;
+
+        cursor: pointer;
+        &:not(.fa-magnifying-glass):hover {
+            color: #fff;
+        }
+    }
+
+}
+.navbar__left {
+
+    .nav__logo {
+        width: 3.2rem;
+        aspect-ratio: 1 / 1;
+        border: 1.5px solid white;
+        border-radius: 50%;
+    }
+    .left__item {
+        font-size: 1.1rem;
+        i {
+            font-size: .8rem;
+        }
+    }
+
+}
+.navbar__right {
+    font-size: .8rem;
+    .right__item {
+
+    }
+    .navbar__search {
+        width: 3rem;
+        aspect-ratio: 1 / 1;
+        border-radius: 50%;
+        background-color: #1D1C1C;
+
+        font-weight: 700;
+
+        &:hover {
+            background-color: #DAD9D9;
+            color: #1D1C1C;
+        }
+    }
+}
