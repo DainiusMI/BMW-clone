@@ -1,29 +1,81 @@
 @use "./mixin" as *;
 @use "./variables" as *;
+
+
+
 .hero {
     width: 100%;
     height: 100vh;
     padding: 3rem;
-    padding-top: 8rem;
+    padding-top: 7.5rem;
 
     @include flex(row, flex-start, space-between);
-    
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    color: #fff;
+
     position: relative;
+
     &>* {
         width: 50%;
     }
+
+    .hero__left {
+        @include flex(column, flex-start, flex-start);
+        .hero__title {
+            font-weight: 300;
+            
+        }
+        .hero__buttons {
+            @include flex(row, center, flex-start);
+            gap: 1.3rem;
+            button {
+                width: 9rem;
+                height: 3.5rem;
+
+                border:none;
+                border-radius: .2rem;
+
+                text-align: center;
+                font-family: 'Roboto', sans-serif;
+                font-size: 1rem;
+                font-weight: 700;
+                
+            }
+            :first-child {
+                background-color: $project-blue;
+                color: #fff;
+
+            }
+            :last-child {
+                background-color: #fff;
+            }
+        }
+    }
+    .hero__right {
+        height: 94%;
+        @include flex(row, flex-end, flex-end);
+        gap: .2rem;
+
+        font-size: 1.4rem;
+        font-weight: 300;
+
+        :nth-child(2) {
+            font-weight: 700;
+        }
+    }
 }
 
-.hero__1 {
+.hero__0 {
     
     background-image: url("../../../../public/hero-1.jpg");
-    background-size: contain;
-    color: $text-white;
+
     .hero__left {
-        .hero__title, h1 {
+        .hero__title {
             font-size: 2.5rem;
         }
-        .hero__text, p {
+        .hero__text {
             width: 40ch;
     
             font-size: 1.5rem;
@@ -32,3 +84,25 @@
     }
 }
 
+
+.hero__1 {
+    background-image: url("../../../../public/hero-2.jpg");
+
+    .hero__left {
+        gap: 1.4rem;
+
+        .hero__title {
+            font-size: 3.7rem;
+            line-height: 4.3rem;
+            margin-bottom: -.7rem;
+        }
+        .hero__text {
+            width: 40ch;
+            
+            font-size: 2rem;
+            font-weight: 300;
+        }
+    
+    }
+
+}

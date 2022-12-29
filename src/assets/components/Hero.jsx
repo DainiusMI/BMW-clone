@@ -11,7 +11,7 @@ const heroData = [
     },
     {   
         id: 2,
-        title: "EMOBDY THE MAXIMUM",
+        title: "EMBODY THE MAXIMUM",
         text: "THE FIRST EVER BMW XM",
         buttons: ["Learn More", "Pre-Order"],
         slogan: ["The", "Ultimate", "Driving Machine ©"],
@@ -36,22 +36,36 @@ const heroData = [
 
 export default function Hero() {
 
-    return (
+    const [heroState, setHeroState] = React.useState(1)
 
-        <div className="hero hero__1">
-            <div className="hero__left">
-                <h1>PACK A SURPIZE THIS SEASON</h1>
-                <p>The BMW Road Home Sales Event offers a credit of up to $3.250 on select BMW models - now through Janury 3rd</p>
-                <div className="hero__buttons">
-                    <button>Offers Details</button>
-                    <button>Build Your Own</button>
+
+    return (
+            <div className={`hero hero__${heroState}`}>
+
+                <div className="hero__left">
+                    <h1 className="hero__title">{heroData[heroState].title}</h1>
+                    <p className="hero__text">{heroData[heroState].text}</p>
+                    <div className="hero__buttons">
+                        {
+                            heroData[heroState].buttons.map((button, idx) => {
+                                return <button key={idx}>{button}</button>
+                            })
+                        }
+                    </div>
                 </div>
+
+
+                {
+                    heroData[heroState].slogan !== [] && 
+                    <div className="hero__right">
+                        {
+                            heroData[heroState].slogan.map((slogan, idx) => {
+                                return <p key={idx} className="slogan__text">{slogan}</p>
+                            })
+                        }
+                    </div>
+                }
+                
             </div>
-            <div className="hero__right">
-                <div>THE BMW</div>
-                <div className="highlight">ROAD HOME</div>
-                <div>SALES EVENT</div>
-            </div>
-        </div>
     )
 }

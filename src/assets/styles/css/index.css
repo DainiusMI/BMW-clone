@@ -5,7 +5,8 @@
   align-items: center;
   justify-content: space-between;
   padding: 1.5rem 3rem;
-  color: #F8F8F8;
+  background-color: black;
+  color: #CACACA;
   font-weight: 600;
   position: fixed;
   top: 0;
@@ -16,7 +17,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  gap: 1.6rem;
+  gap: 1.8rem;
 }
 .navbar > * > * {
   display: flex;
@@ -33,7 +34,7 @@
 .navbar__left .nav__logo {
   width: 3.2rem;
   aspect-ratio: 1/1;
-  border: 1.5px solid #F8F8F8;
+  border: 1.5px solid #CACACA;
   border-radius: 50%;
 }
 .navbar__left .left__item {
@@ -47,43 +48,108 @@
   font-size: 0.8rem;
 }
 .navbar__right .navbar__search {
-  width: 3rem;
+  width: 2.2rem;
   aspect-ratio: 1/1;
   border-radius: 50%;
-  background-color: #1D1C1C;
+  background-color: #32302F;
   font-weight: 700;
+  margin-right: 1rem;
 }
 .navbar__right .navbar__search:hover {
-  background-color: #F8F8F8;
-  color: #1D1C1C;
+  background-color: #CACACA;
+  color: #32302F;
 }
 
 .hero {
   width: 100%;
   height: 100vh;
   padding: 3rem;
-  padding-top: 8rem;
+  padding-top: 7.5rem;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-between;
+  background-size: contain;
+  background-repeat: no-repeat;
+  color: #fff;
   position: relative;
 }
 .hero > * {
   width: 50%;
 }
-
-.hero__1 {
-  background-image: url("../../../../public/hero-1.jpg");
-  background-size: contain;
-  color: #F8F8F8;
+.hero .hero__left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
-.hero__1 .hero__left .hero__title, .hero__1 .hero__left h1 {
+.hero .hero__left .hero__title {
+  font-weight: 300;
+}
+.hero .hero__left .hero__buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.3rem;
+}
+.hero .hero__left .hero__buttons button {
+  width: 9rem;
+  height: 3.5rem;
+  border: none;
+  border-radius: 0.2rem;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.hero .hero__left .hero__buttons :first-child {
+  background-color: #1C69D3;
+  color: #fff;
+}
+.hero .hero__left .hero__buttons :last-child {
+  background-color: #fff;
+}
+.hero .hero__right {
+  height: 94%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 0.2rem;
+  font-size: 1.4rem;
+  font-weight: 300;
+}
+.hero .hero__right :nth-child(2) {
+  font-weight: 700;
+}
+
+.hero__0 {
+  background-image: url("../../../../public/hero-1.jpg");
+}
+.hero__0 .hero__left .hero__title {
   font-size: 2.5rem;
 }
-.hero__1 .hero__left .hero__text, .hero__1 .hero__left p {
+.hero__0 .hero__left .hero__text {
   width: 40ch;
   font-size: 1.5rem;
+}
+
+.hero__1 {
+  background-image: url("../../../../public/hero-2.jpg");
+}
+.hero__1 .hero__left {
+  gap: 1.4rem;
+}
+.hero__1 .hero__left .hero__title {
+  font-size: 3.7rem;
+  line-height: 4.3rem;
+  margin-bottom: -0.7rem;
+}
+.hero__1 .hero__left .hero__text {
+  width: 40ch;
+  font-size: 2rem;
+  font-weight: 300;
 }
 
 * {
@@ -93,4 +159,9 @@
 
 #root {
   width: 100vw;
+}
+
+body {
+  /* 300 400 500 700 900 */
+  font-family: "Roboto", sans-serif;
 }/*# sourceMappingURL=index.css.map */
