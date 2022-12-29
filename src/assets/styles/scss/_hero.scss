@@ -1,0 +1,34 @@
+@use "./mixin" as *;
+@use "./variables" as *;
+.hero {
+    width: 100%;
+    height: 100vh;
+    padding: 3rem;
+    padding-top: 8rem;
+
+    @include flex(row, flex-start, space-between);
+    
+    position: relative;
+    &>* {
+        width: 50%;
+    }
+}
+
+.hero__1 {
+    
+    background-image: url("../../../../public/hero-1.jpg");
+    background-size: contain;
+    color: $text-white;
+    .hero__left {
+        .hero__title, h1 {
+            font-size: 2.5rem;
+        }
+        .hero__text, p {
+            width: 40ch;
+    
+            font-size: 1.5rem;
+        }
+    
+    }
+}
+

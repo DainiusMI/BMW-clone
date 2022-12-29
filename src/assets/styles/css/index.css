@@ -5,9 +5,11 @@
   align-items: center;
   justify-content: space-between;
   padding: 1.5rem 3rem;
-  background-color: black;
-  color: #DAD9D9;
+  color: #F8F8F8;
   font-weight: 600;
+  position: fixed;
+  top: 0;
+  z-index: 999;
 }
 .navbar > * {
   display: flex;
@@ -31,7 +33,7 @@
 .navbar__left .nav__logo {
   width: 3.2rem;
   aspect-ratio: 1/1;
-  border: 1.5px solid white;
+  border: 1.5px solid #F8F8F8;
   border-radius: 50%;
 }
 .navbar__left .left__item {
@@ -52,8 +54,36 @@
   font-weight: 700;
 }
 .navbar__right .navbar__search:hover {
-  background-color: #DAD9D9;
+  background-color: #F8F8F8;
   color: #1D1C1C;
+}
+
+.hero {
+  width: 100%;
+  height: 100vh;
+  padding: 3rem;
+  padding-top: 8rem;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  position: relative;
+}
+.hero > * {
+  width: 50%;
+}
+
+.hero__1 {
+  background-image: url("../../../../public/hero-1.jpg");
+  background-size: contain;
+  color: #F8F8F8;
+}
+.hero__1 .hero__left .hero__title, .hero__1 .hero__left h1 {
+  font-size: 2.5rem;
+}
+.hero__1 .hero__left .hero__text, .hero__1 .hero__left p {
+  width: 40ch;
+  font-size: 1.5rem;
 }
 
 * {

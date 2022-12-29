@@ -1,10 +1,11 @@
 @use "./navbar";
+@use "./hero";
 
 
 * {
     box-sizing: border-box;
     margin: 0;
-    
+
 }
 
 #root {

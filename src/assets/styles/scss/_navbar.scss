@@ -1,17 +1,19 @@
 @use "./mixin" as *;
 
+@use "./variables" as *;
+
 .navbar {
     width: 100%;
     @include flex(row, center, space-between);
     padding: 1.5rem 3rem;
 
-    background-color: black;
-
-
-    color: #DAD9D9;
+    color: $text-white;
     font-weight: 600;
 
+    position: fixed;
+    top: 0;
 
+    z-index: 999;
     &>*{
         @include flex(row, center, space-around);
         gap: 1.6rem;
@@ -28,11 +30,11 @@
 
 }
 .navbar__left {
-
+    
     .nav__logo {
         width: 3.2rem;
         aspect-ratio: 1 / 1;
-        border: 1.5px solid white;
+        border: 1.5px solid $text-white;
         border-radius: 50%;
     }
     .left__item {
@@ -57,7 +59,7 @@
         font-weight: 700;
 
         &:hover {
-            background-color: #DAD9D9;
+            background-color: $text-white;
             color: #1D1C1C;
         }
     }
