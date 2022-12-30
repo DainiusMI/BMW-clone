@@ -105,7 +105,7 @@ function useInterval(callback, delay) {
         return () => clearInterval(id);
       }
     }, [delay]);
-  }
+}
 
 
 
@@ -143,44 +143,19 @@ function HeroSelector(props) {
             isPaused: prevStata.id == event.target.id ? !prevStata.isPaused : false
         }))
     }
-
-/*
-    function handleHeroOLD(event) {
-        const changeHero = heroState.map(hero => {
-            return hero.isActive && hero.id != event.target.id ? 
-                {...hero, isActive: false} : 
-                hero.id == event.target.id ? 
-                    {...hero, isActive: true} : hero
-        })
-        setHeroState(changeHero)
+    function selectHero(id) {
         setActiveHero(prevStata => ({
-            ...prevStata,
-            id: event.target.id,
-            isPaused: prevStata.id != event.target.id ? false : !prevStata.isPaused
+            id: parseInt(id),
+            duration: prevStata.id == id ? prevStata.duration : 0,
+            isPaused: prevStata.id == id ? !prevStata.isPaused : false
         }))
     }
-*/
 
     return (
         <div className="hero__selector">
             {
-                heroData.map(hero => {
-                    return <div 
-                                id={hero.id}
-                                key={hero.id}
-                                className="hero__option"
-                                onClick={handleHero}
-                            >   
-                                {hero.id}
-                                {
-                                    hero.isActive && 
-                                        <svg /*onClick={e => e.stopPropagation()}*/ >
-                                            <circle cx="18" cy="18" r="18"></circle>
-                                            <circle cx="18" cy="18" r="18"></circle>
-                                        </svg>
-                                }
-
-                            </div>
+                heroState.map(hero => {
+                    return <HeroOption key={hero.id} id={hero.id} isActive={hero.isActive} selectHero={selectHero} />
                 })
             }
         </div>
@@ -188,3 +163,17 @@ function HeroSelector(props) {
 }
 
 
+function HeroOption(props) {
+    return (
+        <div className="hero__option" onClick={() => {props.selectHero(props.id)}}>
+            {props.id}
+            {
+                props.isActive &&
+                    <svg /*onClick={e => e.stopPropagation()}*/ >
+                        <circle cx="18" cy="18" r="18"></circle>
+                        <circle cx="18" cy="18" r="18"></circle>
+                    </svg>
+            }
+        </div>
+    )
+}
