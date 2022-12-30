@@ -113,15 +113,17 @@ function HeroSelector(props) {
     const {heroState, setHeroState, activeHero, setActiveHero} = props
 
     useInterval(() => {
-        setActiveHero(prevState => ({
-            ...prevState,
-            id: prevState.duration <= 5 ? 
-                prevState.id :
-                prevState.id === 4 ?
-                1 : prevState.id + 1 ,
-            duration: prevState.duration <= 5 ?
-                prevState.duration + 1 : 0
-        }))
+        if (activeHero.isPaused === false) {
+            setActiveHero(prevState => ({
+                ...prevState,
+                id: prevState.duration <= 5 ? 
+                    prevState.id :
+                    prevState.id === 4 ?
+                    1 : prevState.id + 1 ,
+                duration: prevState.duration <= 5 ?
+                    prevState.duration + 1 : 0
+            }))
+        }
     }, 1000)
 
     React.useEffect(() => {
@@ -136,9 +138,9 @@ function HeroSelector(props) {
 
     function handleHero(event) {
         setActiveHero(prevStata => ({
-            ...prevStata,
             id: parseInt(event.target.id),
-            isPaused: prevStata.id != event.target.id ? false : !prevStata.isPaused
+            duration: prevStata.id == event.target.id ? prevStata.duration : 0,
+            isPaused: prevStata.id == event.target.id ? !prevStata.isPaused : false
         }))
     }
 
