@@ -1,58 +1,31 @@
 import React from "react";
 
-const leftItems = [
-    {
-        name: "Models",
-        hasDropdown: false,
-        isOpened: false
-    },
-    {
-        name: "Build Your Own",
-        hasDropdown: false,
-        isOpened: false
-    },
-    {
-        name: "Shopping",
-        hasDropdown: true,
-        isOpened: false
-    },
-    {
-        name: "BMW Certified",
-        hasDropdown: false,
-        isOpened: false
-    },
-    {
-        name: "Owners",
-        hasDropdown: true,
-        isOpened: false
-    },
-]
 
 const navbarItems = {
     left : [
         {
             name: "Models",
-            hasDropdown: false,
+            downIcon: false,
             isOpened: false
         },
         {
             name: "Build Your Own",
-            hasDropdown: false,
+            downIcon: false,
             isOpened: false
         },
         {
             name: "Shopping",
-            hasDropdown: true,
+            downIcon: true,
             isOpened: false
         },
         {
             name: "BMW Certified",
-            hasDropdown: false,
+            downIcon: false,
             isOpened: false
         },
         {
             name: "Owners",
-            hasDropdown: true,
+            downIcon: true,
             isOpened: false
         },
     ],
@@ -77,20 +50,15 @@ const logo = "../../../../public/nav-logo.png"
 
 export default function Navbar() {
 
-
     return (
         <nav className="navbar">
             <div className="navbar__left">
                 <img src={logo} className="nav__logo" />
-                {
-                    leftItems.map((item, idx) => {
-                        return (
-                            <div key={idx} className="left__item"> 
-                                <p className="left__text">{item.name}</p>
-                                {item.hasDropdown && <i className={item.isOpened ? "fa-sharp fa-solid fa-chevron-up" : "fa-sharp fa-solid fa-chevron-down"}></i>}
-                            </div>
-                        )
+                {   
+                    navbarItems.left.map((item, idx) => {
+                        return <NavLeftItem key={idx} item={item} idx={idx} />
                     })
+
                 }
             </div>
             <div className="navbar__right">
@@ -114,4 +82,21 @@ export default function Navbar() {
     )
 }
 
-<i class="fa-sharp fa-solid fa-chevron-down"></i>
+function NavLeftItem(props) {
+    const {item} = props
+
+    const [itemState, setItemState] = React.useState(item)
+
+    function henadleOpen() {
+        setItemState(prevState => ({
+            ...prevState,
+            isOpened: prevState.downIcon && !prevState.isOpened
+        }))
+    }
+    return (
+        <div className="left__item" onClick={henadleOpen}> 
+            <p className="left__text">{itemState.name}</p>
+            {itemState.downIcon && <i className={itemState.isOpened ? "fa-sharp fa-solid fa-chevron-up" : "fa-sharp fa-solid fa-chevron-down"}></i>}
+        </div>
+    )
+}

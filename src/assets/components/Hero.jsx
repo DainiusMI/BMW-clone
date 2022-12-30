@@ -40,6 +40,11 @@ const heroData = [
 export default function Hero() {
 
     const [heroState, setHeroState] = React.useState(heroData)
+    const [activeHero, setActiveHero] = React.useState({
+        id: 1,
+        duration: 0,
+        isPaused: false
+    })
 
     return (    
                 heroState.filter(hero => hero.isActive).map(hero => {
@@ -57,7 +62,7 @@ export default function Hero() {
                                 </div>
                             </div>
 
-                            {hero.slogan !== [] && 
+                            {hero.slogan.length > 0 && 
                                 <div className="hero__right">
                                 {
                                     hero.slogan.map((slogan, idx) => {
@@ -70,6 +75,9 @@ export default function Hero() {
                             <HeroSelector 
                                 heroState={heroState}
                                 setHeroState={setHeroState}
+
+                                activeHero={activeHero}
+                                setActiveHero={setActiveHero}
                             />
                         </div>
                     )
@@ -78,14 +86,64 @@ export default function Hero() {
 }
 
 
+// 3rd party custom function to replace setInterval
+function useInterval(callback, delay) {
+    const savedCallback = React.useRef();
+  
+    // Remember the latest callback.
+    React.useEffect(() => {
+      savedCallback.current = callback;
+    }, [callback]);
+  
+    // Set up the interval.
+    React.useEffect(() => {
+      function tick() {
+        savedCallback.current();
+      }
+      if (delay !== null) {
+        let id = setInterval(tick, delay);
+        return () => clearInterval(id);
+      }
+    }, [delay]);
+  }
+
 
 
 function HeroSelector(props) {
-    const {heroState, setHeroState} = props
-    
-    
+    const {heroState, setHeroState, activeHero, setActiveHero} = props
+
+    useInterval(() => {
+        setActiveHero(prevState => ({
+            ...prevState,
+            id: prevState.duration <= 5 ? 
+                prevState.id :
+                prevState.id === 4 ?
+                1 : prevState.id + 1 ,
+            duration: prevState.duration <= 5 ?
+                prevState.duration + 1 : 0
+        }))
+    }, 1000)
+
+    React.useEffect(() => {
+        const changeHero = heroState.map(hero => {
+            return hero.id == activeHero.id ? 
+                {...hero, isActive: true} :
+                {...hero, isActive: false}
+        })
+        setHeroState(changeHero)
+
+    }, [activeHero.id])
 
     function handleHero(event) {
+        setActiveHero(prevStata => ({
+            ...prevStata,
+            id: parseInt(event.target.id),
+            isPaused: prevStata.id != event.target.id ? false : !prevStata.isPaused
+        }))
+    }
+
+/*
+    function handleHeroOLD(event) {
         const changeHero = heroState.map(hero => {
             return hero.isActive && hero.id != event.target.id ? 
                 {...hero, isActive: false} : 
@@ -93,21 +151,27 @@ function HeroSelector(props) {
                     {...hero, isActive: true} : hero
         })
         setHeroState(changeHero)
-
+        setActiveHero(prevStata => ({
+            ...prevStata,
+            id: event.target.id,
+            isPaused: prevStata.id != event.target.id ? false : !prevStata.isPaused
+        }))
     }
+*/
+
     return (
         <div className="hero__selector">
             {
-                heroData.map(element => {
+                heroData.map(hero => {
                     return <div 
-                                id={element.id}
-                                key={element.id}
+                                id={hero.id}
+                                key={hero.id}
                                 className="hero__option"
                                 onClick={handleHero}
                             >   
-                                {element.id}
+                                {hero.id}
                                 {
-                                    element.isActive && 
+                                    hero.isActive && 
                                         <svg /*onClick={e => e.stopPropagation()}*/ >
                                             <circle cx="18" cy="18" r="18"></circle>
                                             <circle cx="18" cy="18" r="18"></circle>
@@ -120,3 +184,5 @@ function HeroSelector(props) {
         </div>
     )
 }
+
+

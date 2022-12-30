@@ -23,7 +23,6 @@
 
     .hero__left {
         @include flex(column, flex-start, flex-start);
-        gap: 1.4rem;
         .hero__title {
             font-weight: 300;
 
@@ -81,7 +80,6 @@
 
 .hero__selector {
     @include flex(row, center, flex-start);
-    gap: 1.3rem;
     
     position: absolute;
     bottom: 16%;
@@ -131,10 +129,11 @@
     background-image: url("../../../../public/hero-1.jpg");
 
     .hero__left {
-        gap: 1.4rem;
+        gap: 1rem;
         .hero__title {
             width: 20ch;
             font-size: 2.6rem;
+            line-height: 3rem;
             margin-bottom: -.7rem;
         }
         .hero__text {
@@ -162,8 +161,10 @@
 
         .hero__title {
             font-size: 3.7rem;
+
+            font-size: 3.7rem;
             line-height: 4.3rem;
-            margin-bottom: -.7rem;
+            
         }
         .hero__text {
             width: 40ch;
@@ -176,9 +177,6 @@
             }
         }
     }
-    .hero__right {
-
-    }
 }
 
 
@@ -188,15 +186,21 @@
         gap: 2.2rem;
         .hero__title {
          width: 12ch;
+
+         font-size: 3.7rem;
+         line-height: 4.3rem;
+         margin-bottom: -.7rem;
         }
         .hero__text {
-            font-size: .9rem;
+            font-size: .85rem;
             order:3;
+
+            margin-top: -.4rem;
         }
     }
     .hero__buttons {
         button {
-            padding: 1.2rem 1.4rem;
+            padding: 1.1rem 1.3rem;
         }
     }
 
@@ -204,9 +208,13 @@
 .hero__4 {
     background-image: url("../../../../public/hero-4.jpg");
     .hero__left {
-
+        gap: 1.4rem;
         .hero__title {
          width: 12ch;
+
+         font-size: 3.7rem;
+         line-height: 4.3rem;
+         margin-bottom: -.7rem;
         }
         .hero__text {
             width: 30ch;

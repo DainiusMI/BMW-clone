@@ -4,8 +4,9 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 1.5rem 3rem;
-  background-color: black;
+  padding: 1.4rem 3rem;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.1) 100%);
   color: #CACACA;
   font-weight: 600;
   position: fixed;
@@ -24,7 +25,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 0.3rem;
   cursor: pointer;
 }
 .navbar > * > *:not(.fa-magnifying-glass):hover {
@@ -82,7 +83,6 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: 1.4rem;
 }
 .hero .hero__left .hero__title {
   font-weight: 300;
@@ -138,7 +138,6 @@
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  gap: 1.3rem;
   position: absolute;
   bottom: 16%;
   left: 4%;
@@ -186,11 +185,12 @@
   background-image: url("../../../../public/hero-1.jpg");
 }
 .hero__1 .hero__left {
-  gap: 1.4rem;
+  gap: 1rem;
 }
 .hero__1 .hero__left .hero__title {
   width: 20ch;
   font-size: 2.6rem;
+  line-height: 3rem;
   margin-bottom: -0.7rem;
 }
 .hero__1 .hero__left .hero__text {
@@ -211,8 +211,8 @@
 }
 .hero__2 .hero__left .hero__title {
   font-size: 3.7rem;
+  font-size: 3.7rem;
   line-height: 4.3rem;
-  margin-bottom: -0.7rem;
 }
 .hero__2 .hero__left .hero__text {
   width: 40ch;
@@ -221,6 +221,7 @@
 .hero__2 .hero__left .hero__buttons button {
   padding: 1.2rem 2rem;
 }
+
 .hero__3 {
   background-image: url("../../../../public/hero-3.jpg");
 }
@@ -229,20 +230,30 @@
 }
 .hero__3 .hero__left .hero__title {
   width: 12ch;
+  font-size: 3.7rem;
+  line-height: 4.3rem;
+  margin-bottom: -0.7rem;
 }
 .hero__3 .hero__left .hero__text {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   order: 3;
+  margin-top: -0.4rem;
 }
 .hero__3 .hero__buttons button {
-  padding: 1.2rem 1.4rem;
+  padding: 1.1rem 1.3rem;
 }
 
 .hero__4 {
   background-image: url("../../../../public/hero-4.jpg");
 }
+.hero__4 .hero__left {
+  gap: 1.4rem;
+}
 .hero__4 .hero__left .hero__title {
   width: 12ch;
+  font-size: 3.7rem;
+  line-height: 4.3rem;
+  margin-bottom: -0.7rem;
 }
 .hero__4 .hero__left .hero__text {
   width: 30ch;

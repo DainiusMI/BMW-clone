@@ -5,9 +5,10 @@
 .navbar {
     width: 100%;
     @include flex(row, center, space-between);
-    padding: 1.5rem 3rem;
+    padding: 1.4rem 3rem;
 
-    background-color: black;
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 100%);
     color: $text-white;
     font-weight: 600;
 
@@ -21,7 +22,7 @@
     }
     &>*>* {
         @include flex(row, center, center);
-        gap: .5rem;
+        gap: .3rem;
 
         cursor: pointer;
         &:not(.fa-magnifying-glass):hover {
