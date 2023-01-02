@@ -5,47 +5,50 @@ const navbarItems = {
     left : [
         {
             name: "Models",
-            downIcon: false,
+            hasIcon: false,
             isOpened: false
         },
         {
             name: "Build Your Own",
-            downIcon: false,
+            hasIcon: false,
             isOpened: false
         },
         {
             name: "Shopping",
-            downIcon: true,
+            hasIcon: true,
             isOpened: false
         },
         {
             name: "BMW Certified",
-            downIcon: false,
+            hasIcon: false,
             isOpened: false
         },
         {
             name: "Owners",
-            downIcon: true,
+            hasIcon: true,
             isOpened: false
         },
     ],
     right: [
         {
             name: "Choose your local BMW center",
+            hasIcon: true,
             className: "fa-sharp fa-solid fa-location-dot",
         },
         {
             name: "My BMW",
+            hasIcon: true,
             className: "fa-solid fa-user",
         },
         {
             name: "",
+            hasIcon: true,
             className: "fa-solid fa-magnifying-glass",
         },
     ]
 }
+import logo from "../../../public/nav-logo.png"
 
-const logo = "../../../../public/nav-logo.png"
 
 
 export default function Navbar() {
@@ -53,7 +56,7 @@ export default function Navbar() {
     return (
         <nav className="navbar">
             <div className="navbar__left">
-                <img src={logo} className="nav__logo" />
+                <div className="nav__logo" style={{backgroundImage: `url(${logo})`}}/>
                 {   
                     navbarItems.left.map((item, idx) => {
                         return <NavLeftItem key={idx} item={item} idx={idx} />
@@ -90,13 +93,13 @@ function NavLeftItem(props) {
     function henadleOpen() {
         setItemState(prevState => ({
             ...prevState,
-            isOpened: prevState.downIcon && !prevState.isOpened
+            isOpened: prevState.hasIcon && !prevState.isOpened
         }))
     }
     return (
         <div className="left__item" onClick={henadleOpen}> 
             <p className="left__text">{itemState.name}</p>
-            {itemState.downIcon && <i className={itemState.isOpened ? "fa-sharp fa-solid fa-chevron-up" : "fa-sharp fa-solid fa-chevron-down"}></i>}
+            {itemState.hasIcon && <i className={itemState.isOpened ? "fa-sharp fa-solid fa-chevron-up" : "fa-sharp fa-solid fa-chevron-down"}></i>}
         </div>
     )
 }

@@ -4,6 +4,7 @@ import React from "react";
 const heroData = [
     {   
         id: 1,
+        image: "../../../public/hero-1.jpg",
         title: "PACK A SURPIZE THIS SEASON",
         text: "The BMW Road Home Sales Event offers a credit of up to $3.250 on select BMW models - now through Janury 3rd",
         buttons: ["Offers Details", "Build Your Own"],
@@ -12,6 +13,7 @@ const heroData = [
     },
     {   
         id: 2,
+        image: "../../../public/hero-2.jpg",
         title: "EMBODY THE MAXIMUM",
         text: "THE FIRST EVER BMW XM",
         buttons: ["Learn More", "Pre-Order"],
@@ -20,6 +22,7 @@ const heroData = [
     },
     {   
         id: 3,
+        image: "../../../public/hero-3.jpg",
         title: "AS ELECTRIC AS YOU",
         text: "iX shown on left, i4 shown on the right",
         buttons: ["Explore the iX", "Explore the i4"],
@@ -28,6 +31,7 @@ const heroData = [
     },
     {   
         id: 4,
+        image: "../../../public/hero-4.jpg",
         title: "THE M2",
         text: "DISCOVER THE 2023 BMW M2 COUPE",
         buttons: ["Build Yours", "Learn More"],
@@ -49,7 +53,11 @@ export default function Hero() {
     return (    
                 heroState.filter(hero => hero.isActive).map(hero => {
                     return (
-                        <div key={hero.id} className={`hero hero__${hero.id}`}>
+                        <div 
+                            key={hero.id}
+                            className={`hero hero__${hero.id}`}
+                            style={{backgroundImage: `url(${hero.image})`}}    
+                        >
                             <div className="hero__left">
                                 <h1 className="hero__title">{hero.title}</h1>
                                 <p className="hero__text">{hero.text}</p>
@@ -112,6 +120,7 @@ function useInterval(callback, delay) {
 function HeroSelector(props) {
     const {heroState, setHeroState, activeHero, setActiveHero} = props
 
+/*
     useInterval(() => {
         if (activeHero.isPaused === false) {
             setActiveHero(prevState => ({
@@ -125,6 +134,16 @@ function HeroSelector(props) {
             }))
         }
     }, 1000)
+*/
+    useInterval(() => {
+        if (activeHero.isPaused === false) {
+            setActiveHero(prevState => ({
+                ...prevState,
+                id: prevState.id === 4 ? 1 : prevState.id + 1 
+            }))
+        }
+    }, 5000)
+
 
     React.useEffect(() => {
         const changeHero = heroState.map(hero => {
@@ -136,13 +155,7 @@ function HeroSelector(props) {
 
     }, [activeHero.id])
 
-    function handleHero(event) {
-        setActiveHero(prevStata => ({
-            id: parseInt(event.target.id),
-            duration: prevStata.id == event.target.id ? prevStata.duration : 0,
-            isPaused: prevStata.id == event.target.id ? !prevStata.isPaused : false
-        }))
-    }
+
     function selectHero(id) {
         setActiveHero(prevStata => ({
             id: parseInt(id),
@@ -155,7 +168,7 @@ function HeroSelector(props) {
         <div className="hero__selector">
             {
                 heroState.map(hero => {
-                    return <HeroOption key={hero.id} id={hero.id} isActive={hero.isActive} selectHero={selectHero} />
+                    return <HeroOption key={hero.id} id={hero.id} isActive={hero.isActive} isPaused={activeHero.isPaused} selectHero={selectHero} />
                 })
             }
         </div>
@@ -164,15 +177,25 @@ function HeroSelector(props) {
 
 
 function HeroOption(props) {
+    const {id, isActive, isPaused, selectHero} = props
+
+
     return (
-        <div className="hero__option" onClick={() => {props.selectHero(props.id)}}>
-            {props.id}
+        <div className="hero__option" onClick={() => {selectHero(id)}}>
+            
             {
-                props.isActive &&
-                    <svg /*onClick={e => e.stopPropagation()}*/ >
-                        <circle cx="18" cy="18" r="18"></circle>
-                        <circle cx="18" cy="18" r="18"></circle>
-                    </svg>
+                !isActive ? id : 
+                    !isPaused ? <i className="fa-sharp fa-solid fa-pause"></i> : 
+                        <i className="fa-sharp fa-solid fa-play"></i>
+            }
+            {
+                isActive &&
+                <svg /*onClick={e => e.stopPropagation()}*/ >
+
+                    <circle cx="18" cy="18" r="18"></circle>
+                    <circle cx="18" cy="18" r="18"></circle>
+                </svg>
+
             }
         </div>
     )

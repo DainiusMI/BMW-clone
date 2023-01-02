@@ -8,7 +8,7 @@
     padding: 1.4rem 3rem;
 
     background: rgb(0,0,0);
-    background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 100%);
+    background: linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 40%, rgba(0,0,0,0) 100%);
     color: $text-white;
     font-weight: 600;
 
@@ -38,6 +38,10 @@
         aspect-ratio: 1 / 1;
         border: 1.5px solid $text-white;
         border-radius: 50%;
+        background-image: url(../../../../public/nav-logo.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
     }
     .left__item {
         font-size: 1.1rem;

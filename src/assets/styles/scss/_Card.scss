@@ -1,0 +1,28 @@
+
+@use "./mixin" as *;
+@use "./variables" as *;
+
+.card {
+    width: 100%;
+    min-height: 100%;
+    @include flex(column,center ,flex-end);
+
+    background-position: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 1.5rem;
+    
+    color: white;
+    .card__title {
+
+    }
+    .card__description {
+        font-size: 2rem;
+    }
+    .card__link {
+        color: white;
+
+        margin-top: .5rem;
+    }
+}
