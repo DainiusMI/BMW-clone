@@ -59,32 +59,56 @@
 // only MOBILE
 @media only screen and (max-width: 768px) {
     .build__section {
-        padding: 2.5rem;
+        padding: 4rem 2rem;
         .card__section {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 2.5rem;
-
+            gap: 2rem;
             width: 100%;
-
-        }
-        .build__card {
-  
-
-
-
         }
     }
 }
 
 // TABLET
 @media only screen and (min-width: 768px) {
-
+    .build__section {
+        padding: 4rem 2.5rem;
+        .section__title {
+            font-size: 1.5rem;
+        }
+        .card__section {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2.5rem;
+            width: 100%;
+        }
+        .card__title {
+            font-weight: 300;
+            font-size: 1.2rem;
+        }
+        .card__link {
+            color: $project-black;
+            font-weight: 600;
+            font-size: .9rem;
+        }
+        button {
+            width: 9rem;
+            height: 2.5rem;
+            font-weight: 500;
+            font-size: .9rem;
+        }
+    }
 
 }
 
 // DESKTOP
 @media only screen and (min-width: 1280px) {
+    .build__section {
+        padding: 5rem 2.5rem;
+        .section__title {
+            font-size: 1.8rem;
+        }
+    }
 
 
 }

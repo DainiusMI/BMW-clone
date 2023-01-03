@@ -616,13 +616,50 @@
 
 @media only screen and (max-width: 768px) {
   .build__section {
-    padding: 2.5rem;
+    padding: 4rem 2rem;
   }
   .build__section .card__section {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .build__section {
+    padding: 4rem 2.5rem;
+  }
+  .build__section .section__title {
+    font-size: 1.5rem;
+  }
+  .build__section .card__section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: 2.5rem;
     width: 100%;
+  }
+  .build__section .card__title {
+    font-weight: 300;
+    font-size: 1.2rem;
+  }
+  .build__section .card__link {
+    color: #221F1F;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  .build__section button {
+    width: 9rem;
+    height: 2.5rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .build__section {
+    padding: 5rem 2.5rem;
+  }
+  .build__section .section__title {
+    font-size: 1.8rem;
   }
 }
 * {
