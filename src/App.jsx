@@ -1,12 +1,13 @@
 import React from "react";
 import Navbar from "./assets/components/Navbar";
 import Hero from "./assets/components/Hero";
-import Card from "./assets/components/Card";
+import NewsCard from "./assets/components/NewsCard";
+import BuildCard from "./assets/components/BuildCard";
 
 
 
 
-const cardsData = [
+const newsData = [
   {
     id: 1,
     title: "THE 2023 BMW X7",
@@ -31,7 +32,39 @@ const cardsData = [
     description: "THE 8",
     link: ""
   },
-]
+];
+
+import buildIMG1 from "../public/Build/build-3.jpg"
+import buildIMG2 from "../public/Build/build-x3.jpg"
+import buildIMG3 from "../public/Build/build-5.jpg"
+import buildIMG4 from "../public/Build/build-x5.jpg"
+
+const buildData = [
+  {
+    id: 1,
+    title: "3 Series Sedan",
+    image: buildIMG1,
+    link: ""
+  },
+  {
+    id: 2,
+    title: "X3",
+    image: buildIMG2,
+    link: ""
+  },
+  {
+    id: 3,
+    title: "5 Series Sedan",
+    image: buildIMG3,
+    link: ""
+  },
+  {
+    id: 4,
+    title: "X5",
+    image: buildIMG4,
+    link: ""
+  }
+];
 
 
 export default function App() {
@@ -40,12 +73,35 @@ export default function App() {
     <main>
       <Navbar />
       <Hero />
-      <div className="cards__section">
+      <div className="news__section">
         {
-          cardsData.map(card => {
-            return <Card key={card.id} card={card} />
+          newsData.map(card => {
+            return <NewsCard 
+                      key={card.id} 
+                      id={card.id}
+                      title={card.title}
+                      description={card.description}
+                      link={card.link}
+
+                    />
           })
         }
+      </div>
+      <div className="build__section">
+        <h2 className="section__title">Build the BMW of your dreams.</h2>
+        <div className="card__section">
+          {
+            buildData.map(card => {
+              return <BuildCard 
+              key={card.id}
+              title={card.title}
+              image={card.image}
+              link={card.link}
+              />
+            })
+          }
+        </div>
+          <button>Build Your Own</button>
       </div>
     </main>
   )

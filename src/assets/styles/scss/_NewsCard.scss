@@ -3,7 +3,7 @@
 @use "./variables" as *;
 
 
-.cards__section {
+.news__section {
     width: 100%;
 
     @include flex(column, center, center);
@@ -42,7 +42,7 @@
     }
 }
 
-@media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 768px) {
 
     #card-1 {
         background-image: url(../../../../public/Card/card-x7-mobile.jpg);
@@ -61,7 +61,7 @@
 
 
 @media only screen and (min-width: 768px) {
-    .cards__section {
+    .news__section {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
 
@@ -106,7 +106,7 @@
 
 
 @media only screen and (min-width: 1280px) {
-    .cards__section {
+    .news__section {
         gap: 3.5rem;
         padding: 3.5rem;
 

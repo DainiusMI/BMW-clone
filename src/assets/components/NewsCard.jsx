@@ -1,8 +1,7 @@
 import React from "react";
 
 
-export default function Card(props) {
-    const {id, title, description, image, link} = props.card
+export default function Card({id, title, description, link}) {
 
     return (
         <div 

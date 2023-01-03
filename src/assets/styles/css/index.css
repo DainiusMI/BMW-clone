@@ -294,7 +294,10 @@
   }
   .hero .hero__right {
     width: 50%;
+    height: 100%;
     visibility: visible;
+    font-size: 1.3rem;
+    padding-bottom: 2rem;
   }
   .hero.hero__1 {
     background-image: url(../../../../public/Hero/hero-1-desktop.jpg);
@@ -450,7 +453,7 @@
     stroke-dashoffset: -293.8;
   }
 }
-.cards__section {
+.news__section {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -503,7 +506,7 @@
   }
 }
 @media only screen and (min-width: 768px) {
-  .cards__section {
+  .news__section {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
@@ -535,7 +538,7 @@
   }
 }
 @media only screen and (min-width: 1280px) {
-  .cards__section {
+  .news__section {
     gap: 3.5rem;
     padding: 3.5rem;
   }
@@ -560,6 +563,66 @@
   }
   #card-4 {
     background-image: url(../../../../public/Card/card-8-desktop.jpg);
+  }
+}
+.build__section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background-color: #F6F6F6;
+}
+.build__section .section__title {
+  font-size: 1.3rem;
+  font-weight: 300;
+}
+.build__section button {
+  width: 12rem;
+  height: 3rem;
+  background-color: #221F1F;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  margin-top: 2rem;
+}
+.build__section button:hover {
+  background-color: #4C4C4C;
+}
+
+.build__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.build__card .card__image {
+  width: 100%;
+  aspect-ratio: 1/0.5;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.build__card .card__title {
+  font-weight: 300;
+}
+.build__card .card__link {
+  color: #221F1F;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .build__section {
+    padding: 2.5rem;
+  }
+  .build__section .card__section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+    width: 100%;
   }
 }
 * {
