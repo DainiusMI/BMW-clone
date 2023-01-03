@@ -3,6 +3,7 @@ import React from "react";
 
 export default function Card(props) {
     const {id, title, description, image, link} = props.card
+
     return (
         <div 
             id={`card-${id}`}

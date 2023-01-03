@@ -105,13 +105,30 @@ export default function Navbar() {
         console.log(scrollState.direction)
     }, [scrollState.direction])
 
-console.log(navbarState.isMinmized)
 
+    function handleMaximize() {
+        setNavbarState(prevState => ({
+            ...prevState,
+            isMinmized: false
+        }))
+    }
+    function handleMinimize() {
+        !navbarState.isHome &&
+        setNavbarState(prevState => ({
+            ...prevState,
+            isMinmized: true
+        }))
+    }
     
 
 
     return (
-        <nav id="navbar" className={navbarState.isHome ? "navbar" : navbarState.isMinmized ? "navbar light minimized" : "navbar light"} >
+        <nav 
+            id="navbar" 
+            className={navbarState.isHome ? "navbar" : navbarState.isMinmized ? "navbar light minimized" : "navbar light"} 
+            onClick={handleMaximize}
+            onMouseLeave={handleMinimize}
+        >
             <div className="navbar__left">
                 <div className="nav__logo" style={{backgroundImage: `url(${logo})`}}/>
                 {   

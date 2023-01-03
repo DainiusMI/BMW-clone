@@ -35,7 +35,6 @@
 
 .navbar.light {
   background: white;
-  background: linear-gradient(180deg, white 0%, white 100%);
   color: black;
 }
 .navbar.light .navbar__left :hover {
@@ -106,37 +105,37 @@
 }
 
 .hero {
+  --hero__padding: 2rem;
+  --hero__width: calc(100vw - (2 * var(--hero__padding) ));
   width: 100vw;
-  height: 92vh;
-  padding: 3rem;
-  padding-top: 7.5rem;
+  aspect-ratio: 1/1.373;
+  padding: 0 var(--hero__padding);
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: flex-start;
-  justify-content: space-between;
-  background-size: contain;
+  justify-content: flex-end;
+  gap: 2rem;
+  background-size: 100%;
   background-repeat: no-repeat;
   color: #fff;
   position: relative;
 }
-.hero > * {
-  width: 50%;
-}
 .hero .hero__left {
+  width: var(--hero__width);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+  gap: 1.2rem;
 }
 .hero .hero__left .hero__title {
   font-weight: 300;
-  font-size: 3.7rem;
-  line-height: 4.3rem;
+  font-size: 2rem;
   margin-bottom: -0.7rem;
 }
 .hero .hero__left .hero__text {
   font-weight: 300;
-  font-size: 2rem;
+  font-size: 1rem;
 }
 .hero .hero__left .hero__buttons {
   display: flex;
@@ -146,6 +145,8 @@
   gap: 1.3rem;
 }
 .hero .hero__left .hero__buttons button {
+  width: calc(var(--hero__width) / 2 - var(--hero__padding));
+  height: 3rem;
   border: none;
   border-radius: 0.1rem;
   font-family: "Roboto", sans-serif;
@@ -164,27 +165,167 @@
   background-color: #fff;
 }
 .hero .hero__right {
-  height: 94%;
+  width: var(--hero__width);
   display: flex;
   flex-direction: row;
   align-items: flex-end;
   justify-content: flex-end;
   gap: 0.2rem;
-  font-size: 1.4rem;
+  font-size: 1rem;
   font-weight: 300;
+  padding-right: 2rem;
 }
 .hero .hero__right :nth-child(2) {
   font-weight: 700;
 }
 
+.hero__1 {
+  background-image: url("../../../../public/Hero/hero-1-mobile.jpg");
+  padding-bottom: 1rem;
+}
+
+.hero__2 {
+  background-image: url("../../../../public/Hero/hero-2-mobile.jpg");
+}
+
+.hero.hero__3 {
+  background-image: url("../../../../public/Hero/hero-3-mobile.jpg");
+}
+.hero.hero__3 .hero__text {
+  order: 3;
+  font-size: 0.9rem;
+  margin-top: -0.4rem;
+}
+
+.hero__4 {
+  background-image: url("../../../../public/Hero/hero-4-mobile.jpg");
+}
+
+@media only screen and (min-width: 768px) {
+  .hero {
+    aspect-ratio: 1/0.5879;
+  }
+  .hero.hero__1 {
+    background-image: url(../../../../public/Hero/hero-1-tablet.jpg);
+  }
+  .hero.hero__2 {
+    background-image: url(../../../../public/Hero/hero-2-tablet.jpg);
+  }
+  .hero.hero__3 {
+    background-image: url(../../../../public/Hero/hero-3-tablet.jpg);
+  }
+  .hero__4 {
+    background-image: url(../../../../public/Hero/hero-4-tablet.jpg);
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .hero {
+    aspect-ratio: 1/0.4375;
+    padding: 3rem;
+    padding-top: 7.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .hero .hero__left {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .hero .hero__left .hero__title {
+    font-weight: 300;
+    font-size: 3.7rem;
+    line-height: 4.3rem;
+    margin-bottom: -0.7rem;
+  }
+  .hero .hero__left .hero__text {
+    font-weight: 300;
+    font-size: 2rem;
+  }
+  .hero .hero__right {
+    width: 50%;
+  }
+  .hero.hero__1 {
+    background-image: url(../../../../public/Hero/hero-1-desktop.jpg);
+  }
+  .hero.hero__1 .hero__left {
+    gap: 1rem;
+  }
+  .hero.hero__1 .hero__left .hero__title {
+    width: 20ch;
+    font-size: 2.6rem;
+    line-height: 3rem;
+    margin-bottom: -0.7rem;
+  }
+  .hero.hero__1 .hero__left .hero__text {
+    width: 38ch;
+    font-size: 1.3rem;
+    line-height: 2rem;
+  }
+  .hero.hero__2 {
+    background-image: url(../../../../public/Hero/hero-2-desktop.jpg);
+  }
+  .hero.hero__2 .hero__left {
+    gap: 1.4rem;
+  }
+  .hero.hero__2 .hero__left .hero__title {
+    font-size: 3.7rem;
+    font-size: 3.7rem;
+    line-height: 4.3rem;
+  }
+  .hero.hero__2 .hero__left .hero__text {
+    width: 40ch;
+    font-size: 2rem;
+  }
+  .hero.hero__3 {
+    background-image: url(../../../../public/Hero/hero-3-desktop.jpg);
+  }
+  .hero.hero__3 .hero__left {
+    gap: 2.2rem;
+  }
+  .hero.hero__3 .hero__left .hero__title {
+    width: 12ch;
+    font-size: 3.7rem;
+    line-height: 4.3rem;
+    margin-bottom: -0.7rem;
+  }
+  .hero.hero__3 .hero__left .hero__text {
+    font-size: 0.85rem;
+    margin-top: -0.4rem;
+  }
+  .hero.hero__4 {
+    background-image: url(../../../../public/Hero/hero-4-desktop.jpg);
+  }
+  .hero.hero__4 .hero__left {
+    gap: 1.4rem;
+  }
+  .hero.hero__4 .hero__left .hero__title {
+    width: 12ch;
+    font-size: 3.7rem;
+    line-height: 4.3rem;
+    margin-bottom: -0.7rem;
+  }
+  .hero.hero__4 .hero__left .hero__text {
+    width: 30ch;
+  }
+  .hero__selector {
+    bottom: 16%;
+    left: 4%;
+  }
+}
 .hero__selector {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
   position: absolute;
-  bottom: 16%;
-  left: 4%;
+  color: #747373;
+  bottom: -2rem;
+  left: 50%;
+  transform: translate(-50%, 50%);
 }
 .hero__selector .hero__option {
   position: relative;
@@ -213,14 +354,14 @@
   width: 2.5rem;
   aspect-ratio: 1/1;
   fill: none;
-  stroke: #fff;
+  stroke: #747373;
   stroke-width: 2px;
   transform: translate(2px, 2px);
   stroke-dasharray: 113;
   stroke-dashoffset: 113;
 }
 .hero__selector .hero__option svg circle:nth-child(1) {
-  stroke: #fff;
+  stroke: #747373;
   stroke-dashoffset: 0;
 }
 .hero__selector .hero__option svg circle:nth-child(2) {
@@ -245,84 +386,6 @@
     stroke-dashoffset: -293.8;
   }
 }
-.hero__1 .hero__left {
-  gap: 1rem;
-}
-.hero__1 .hero__left .hero__title {
-  width: 20ch;
-  font-size: 2.6rem;
-  line-height: 3rem;
-  margin-bottom: -0.7rem;
-}
-.hero__1 .hero__left .hero__text {
-  width: 38ch;
-  font-size: 1.3rem;
-  line-height: 2rem;
-}
-.hero__1 .hero__left .hero__buttons button {
-  width: 8.8rem;
-  height: 3.5rem;
-}
-
-.hero__2 {
-  background-image: url("../../../../public/hero-2.jpg");
-}
-.hero__2 .hero__left {
-  gap: 1.4rem;
-}
-.hero__2 .hero__left .hero__title {
-  font-size: 3.7rem;
-  font-size: 3.7rem;
-  line-height: 4.3rem;
-}
-.hero__2 .hero__left .hero__text {
-  width: 40ch;
-  font-size: 2rem;
-}
-.hero__2 .hero__left .hero__buttons button {
-  padding: 1.2rem 2rem;
-}
-
-.hero__3 {
-  background-image: url("../../../../public/hero-3.jpg");
-}
-.hero__3 .hero__left {
-  gap: 2.2rem;
-}
-.hero__3 .hero__left .hero__title {
-  width: 12ch;
-  font-size: 3.7rem;
-  line-height: 4.3rem;
-  margin-bottom: -0.7rem;
-}
-.hero__3 .hero__left .hero__text {
-  font-size: 0.85rem;
-  order: 3;
-  margin-top: -0.4rem;
-}
-.hero__3 .hero__buttons button {
-  padding: 1.1rem 1.3rem;
-}
-
-.hero__4 {
-  background-image: url("../../../../public/hero-4.jpg");
-}
-.hero__4 .hero__left {
-  gap: 1.4rem;
-}
-.hero__4 .hero__left .hero__title {
-  width: 12ch;
-  font-size: 3.7rem;
-  line-height: 4.3rem;
-  margin-bottom: -0.7rem;
-}
-.hero__4 .hero__left .hero__text {
-  width: 30ch;
-}
-.hero__4 .hero__buttons button {
-  padding: 1.1rem 1.8rem;
-}
-
 .card {
   width: 100%;
   min-height: 100%;
