@@ -80,11 +80,11 @@
 
         font-size: 1rem;
         font-weight: 300;
-
+        padding-right: 1.5rem;
         :nth-child(2) {
             font-weight: 700;
         }
-        padding-right: 2rem;
+
     }
 }
 
@@ -267,7 +267,7 @@
     position: absolute;
 
     color: $project-grey;
-    bottom: -2rem;
+    bottom: -1.5rem;
     left: 50%;
     transform: translate(-50%, 50%);
     .hero__option {

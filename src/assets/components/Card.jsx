@@ -8,7 +8,6 @@ export default function Card(props) {
         <div 
             id={`card-${id}`}
             className="card" 
-            style={{backgroundImage: `url(${image})`}}   
         >
             <p className="card__title">{title}</p>
             <p className="card__description">{description}</p>
