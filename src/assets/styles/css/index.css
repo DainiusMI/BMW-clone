@@ -179,40 +179,85 @@
   font-weight: 700;
 }
 
-.hero__1 {
-  background-image: url("../../../../public/Hero/hero-1-mobile.jpg");
-  padding-bottom: 1rem;
+@media only screen and (max-width: 768px) {
+  .hero__1 {
+    background-image: url("../../../../public/Hero/hero-1-mobile.jpg");
+    padding-bottom: 1rem;
+  }
+  .hero__2 {
+    background-image: url("../../../../public/Hero/hero-2-mobile.jpg");
+  }
+  .hero.hero__3 {
+    background-image: url("../../../../public/Hero/hero-3-mobile.jpg");
+  }
+  .hero.hero__3 .hero__text {
+    order: 3;
+    font-size: 0.9rem;
+    margin-top: -0.4rem;
+  }
+  .hero__4 {
+    background-image: url("../../../../public/Hero/hero-4-mobile.jpg");
+  }
 }
-
-.hero__2 {
-  background-image: url("../../../../public/Hero/hero-2-mobile.jpg");
+@media only screen and (max-width: 720px) {
+  .hero .hero__right {
+    visibility: hidden;
+  }
 }
-
-.hero.hero__3 {
-  background-image: url("../../../../public/Hero/hero-3-mobile.jpg");
-}
-.hero.hero__3 .hero__text {
-  order: 3;
-  font-size: 0.9rem;
-  margin-top: -0.4rem;
-}
-
-.hero__4 {
-  background-image: url("../../../../public/Hero/hero-4-mobile.jpg");
-}
-
 @media only screen and (min-width: 768px) {
   .hero {
     aspect-ratio: 1/0.5879;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 7rem 3rem 0 3rem;
+  }
+  .hero .hero__left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .hero .hero__left .hero__title {
+    width: 12ch;
+    font-weight: 300;
+    font-size: 3rem;
+    line-height: 3.3rem;
+    margin-bottom: -0.7rem;
+  }
+  .hero .hero__left .hero__text {
+    font-weight: 300;
+    font-size: 1.7rem;
+  }
+  .hero .hero__left .hero__buttons {
+    gap: 1.3rem;
+  }
+  .hero .hero__left .hero__buttons button {
+    width: 18vw;
+  }
+  .hero .hero__right {
+    visibility: hidden;
   }
   .hero.hero__1 {
     background-image: url(../../../../public/Hero/hero-1-tablet.jpg);
+  }
+  .hero.hero__1 .hero__left .hero__title {
+    width: 40ch;
+    font-size: 2rem;
+  }
+  .hero.hero__1 .hero__left .hero__text {
+    width: 45ch;
+    font-size: 1rem;
   }
   .hero.hero__2 {
     background-image: url(../../../../public/Hero/hero-2-tablet.jpg);
   }
   .hero.hero__3 {
     background-image: url(../../../../public/Hero/hero-3-tablet.jpg);
+  }
+  .hero.hero__3 .hero__left .hero__text {
+    font-size: 0.9rem;
   }
   .hero__4 {
     background-image: url(../../../../public/Hero/hero-4-tablet.jpg);
@@ -221,12 +266,7 @@
 @media only screen and (min-width: 1280px) {
   .hero {
     aspect-ratio: 1/0.4375;
-    padding: 3rem;
-    padding-top: 7.5rem;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
+    padding: 7.5rem 3rem 0 3rem;
   }
   .hero .hero__left {
     width: 50%;
@@ -245,8 +285,16 @@
     font-weight: 300;
     font-size: 2rem;
   }
+  .hero .hero__left .hero__buttons {
+    gap: 1.3rem;
+  }
+  .hero .hero__left .hero__buttons button {
+    width: 11vw;
+    height: 3.5rem;
+  }
   .hero .hero__right {
     width: 50%;
+    visibility: visible;
   }
   .hero.hero__1 {
     background-image: url(../../../../public/Hero/hero-1-desktop.jpg);
@@ -311,10 +359,6 @@
   .hero.hero__4 .hero__left .hero__text {
     width: 30ch;
   }
-  .hero__selector {
-    bottom: 16%;
-    left: 4%;
-  }
 }
 .hero__selector {
   display: flex;
@@ -322,14 +366,10 @@
   align-items: center;
   justify-content: flex-start;
   position: absolute;
-  color: #747373;
-  bottom: -1.5rem;
-  left: 50%;
-  transform: translate(-50%, 50%);
 }
 .hero__selector .hero__option {
   position: relative;
-  width: 3rem;
+  width: 2.5rem;
   aspect-ratio: 1/1;
   display: flex;
   flex-direction: row;
@@ -354,14 +394,12 @@
   width: 2.5rem;
   aspect-ratio: 1/1;
   fill: none;
-  stroke: #747373;
   stroke-width: 2px;
   transform: translate(2px, 2px);
   stroke-dasharray: 113;
   stroke-dashoffset: 113;
 }
 .hero__selector .hero__option svg circle:nth-child(1) {
-  stroke: #747373;
   stroke-dashoffset: 0;
 }
 .hero__selector .hero__option svg circle:nth-child(2) {
@@ -369,6 +407,33 @@
   stroke-dashoffset: 113;
 }
 
+@media only screen and (max-width: 768px) {
+  .hero__selector {
+    color: #747373;
+    bottom: -1.5rem;
+    left: 50%;
+    transform: translate(-50%, 50%);
+  }
+  .hero__selector .hero__option svg circle {
+    stroke: #747373;
+  }
+  .hero__selector .hero__option svg circle:nth-child(1) {
+    stroke: #747373;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .hero__selector {
+    color: #fff;
+    left: 3rem;
+    bottom: 2rem;
+  }
+  .hero__selector .hero__option svg circle {
+    stroke: #fff;
+  }
+  .hero__selector .hero__option svg circle:nth-child(1) {
+    stroke: #fff;
+  }
+}
 @-webkit-keyframes circleProgress {
   from {
     stroke-dashoffset: 113;
@@ -377,7 +442,6 @@
     stroke-dashoffset: -293.8;
   }
 }
-
 @keyframes circleProgress {
   from {
     stroke-dashoffset: 113;

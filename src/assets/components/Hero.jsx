@@ -1,8 +1,5 @@
 import React, {useState, useEffect, useRef} from "react";
 
-
-
-
 // 3rd party custom hook to replace setInterval
 function useInterval(callback, delay) {
     const savedCallback = React.useRef();
@@ -25,17 +22,9 @@ function useInterval(callback, delay) {
 }
 
 
-
-
-import heroIMG1 from "../../../public/hero-1.jpg"
-import heroIMG2 from "../../../public/hero-2.jpg"
-import heroIMG3 from "../../../public/hero-3.jpg"
-import heroIMG4 from "../../../public/hero-4.jpg"
-
 const heroData = [
     {   
         id: 1,
-        image: heroIMG1,
         title: "PACK A SURPIZE THIS SEASON",
         text: "The BMW Road Home Sales Event offers a credit of up to $3.250 on select BMW models - now through Janury 3rd",
         buttons: ["Offers Details", "Build Your Own"],
@@ -44,7 +33,6 @@ const heroData = [
     },
     {   
         id: 2,
-        image: heroIMG2,
         title: "EMBODY THE MAXIMUM",
         text: "THE FIRST EVER BMW XM",
         buttons: ["Learn More", "Pre-Order"],
@@ -53,7 +41,6 @@ const heroData = [
     },
     {   
         id: 3,
-        image: heroIMG3,
         title: "AS ELECTRIC AS YOU",
         text: "iX shown on left, i4 shown on the right",
         buttons: ["Explore the iX", "Explore the i4"],
@@ -62,7 +49,6 @@ const heroData = [
     },
     {   
         id: 4,
-        image: heroIMG4,
         title: "THE M2",
         text: "DISCOVER THE 2023 BMW M2 COUPE",
         buttons: ["Build Yours", "Learn More"],

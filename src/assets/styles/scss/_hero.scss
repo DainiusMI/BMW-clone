@@ -92,45 +92,107 @@
 
 // MOBILE
 
-.hero__1 {
-    background-image: url("../../../../public/Hero/hero-1-mobile.jpg");
+@media only screen and (max-width: 768px) {
 
-    padding-bottom: 1rem;
-
-}
-
-.hero__2 {
-    background-image: url("../../../../public/Hero/hero-2-mobile.jpg");
-
- 
-}
-
-.hero.hero__3 {
-    background-image: url("../../../../public/Hero/hero-3-mobile.jpg");
-
-    .hero__text  {
-        order:3;
-        font-size: .9rem;
-        margin-top: -.4rem;
+    .hero__1 {
+        background-image: url("../../../../public/Hero/hero-1-mobile.jpg");
+    
+        padding-bottom: 1rem;
+    
     }
+    
+    .hero__2 {
+        background-image: url("../../../../public/Hero/hero-2-mobile.jpg");
+    
+     
+    }
+    
+    .hero.hero__3 {
+        background-image: url("../../../../public/Hero/hero-3-mobile.jpg");
+    
+        .hero__text  {
+            order:3;
+            font-size: .9rem;
+            margin-top: -.4rem;
+        }
+    }
+    
+    .hero__4 {
+        background-image: url("../../../../public/Hero/hero-4-mobile.jpg");
+    
+    
+    }
+
 }
+@media only screen and (max-width: 720px) {
 
-.hero__4 {
-    background-image: url("../../../../public/Hero/hero-4-mobile.jpg");
-
+    .hero {
+        .hero__right {
+            visibility: hidden;
+            
+        }
+    }
 
 }
-
-
-
 
 // TABLET
 @media only screen and (min-width: 768px) {
+
     .hero {
         aspect-ratio: 1 / 0.5879;
+
+        @include flex(row, flex-start, space-between);
+
+        padding: 7rem 3rem 0 3rem;
+
+
+        .hero__left {
+  
+            @include flex(column, flex-start, flex-start);
+            .hero__title {
+                width: 12ch;
+                
+                font-weight: 300;
+                font-size: 3rem;
+                line-height: 3.3rem;
+                margin-bottom: -.7rem;
+            }
+            .hero__text {
+                font-weight: 300;
+    
+                font-size: 1.7rem;
+    
+            }
+
+            .hero__buttons {
+                
+                gap: 1.3rem;
+                button {
+                    width: 18vw;
+
+                }
+            }
+
+        }
+
+        .hero__right {
+            visibility: hidden;
+        }
+     
     }
     .hero.hero__1 {
         background-image: url(../../../../public/Hero/hero-1-tablet.jpg);
+        .hero__left {
+  
+            .hero__title {
+                width: 40ch;
+                font-size: 2rem;
+            }
+            .hero__text {
+                width: 45ch;
+                font-size: 1rem;
+            }
+        }
 
     }
     .hero.hero__2 {
@@ -139,6 +201,17 @@
     }
     .hero.hero__3 {
         background-image: url(../../../../public/Hero/hero-3-tablet.jpg);
+        .hero__left {
+  
+            .hero__title {
+         
+         
+            }
+            .hero__text {
+                font-size: .9rem;
+         
+            }
+        }
     }
     .hero__4 {
         background-image: url(../../../../public/Hero/hero-4-tablet.jpg);
@@ -148,14 +221,10 @@
 
 // DESKTOP
 @media only screen and (min-width: 1280px) {
-
     .hero {
         aspect-ratio:  1 / 0.4375;
+        padding: 7.5rem 3rem 0 3rem;
 
-        padding: 3rem;
-        padding-top: 7.5rem;
-
-        @include flex(row, flex-start, space-between);
         .hero__left {
             width: 50%;
             @include flex(column, flex-start, flex-start);
@@ -172,9 +241,19 @@
                 font-size: 2rem;
     
             }
+            .hero__buttons {
+                
+                gap: 1.3rem;
+                button {
+                    width: 11vw;
+                    height: 3.5rem;
+
+                }
+            }
         }
         .hero__right {
             width: 50%;
+            visibility: visible;
         }
     }
     .hero.hero__1 {
@@ -249,13 +328,10 @@
             }
         }
     }
-
-
-    .hero__selector { 
-        bottom: 16%;
-        left: 4%;
-    }
 }
+
+
+
 
 
 
@@ -263,16 +339,11 @@
 
 .hero__selector {
     @include flex(row, center, flex-start);
-    
     position: absolute;
 
-    color: $project-grey;
-    bottom: -1.5rem;
-    left: 50%;
-    transform: translate(-50%, 50%);
     .hero__option {
         position: relative;
-        width: 3rem;
+        width: 2.5rem;
         aspect-ratio: 1 / 1;
         @include flex(row, center, center);
 
@@ -295,14 +366,12 @@
                 width: 2.5rem;
                 aspect-ratio: 1 / 1;
                 fill: none;
-                stroke: $project-grey;
                 stroke-width: 2px;
                 transform: translate(2px, 2px);
 
                 stroke-dasharray: 113;
                 stroke-dashoffset: 113;
                 &:nth-child(1) {
-                    stroke: $project-grey;
                     stroke-dashoffset: 0;
                 }
                 &:nth-child(2) {
@@ -313,6 +382,47 @@
         }
     }
 }
+
+@media only screen and (max-width: 768px) {
+    .hero__selector {
+        color: $project-grey;
+        bottom: -1.5rem;
+        left: 50%;
+        transform: translate(-50%, 50%);
+        .hero__option {
+            svg {
+                circle {
+                    stroke: $project-grey;
+                    &:nth-child(1) {
+                        stroke: $project-grey;
+
+                    }
+                }
+            }
+
+        }
+    }
+}
+@media only screen and (min-width: 768px) {
+    .hero__selector {
+        color: #fff;
+        left: 3rem;
+        bottom: 2rem;
+        .hero__option {
+            svg {
+                circle {
+                    stroke: #fff;
+                    &:nth-child(1) {
+                        stroke: #fff;
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+
 @keyframes circleProgress {
     from {
         stroke-dashoffset: calc(113 - (113 * 0 ) / 100);
