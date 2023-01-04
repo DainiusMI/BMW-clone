@@ -43,7 +43,7 @@ export default function Services() {
         isPaused: false
     })
     const service = serviceState.find(service => service.isActive)
-    console.log(service)
+
     return (
         <div 
             className="services"
@@ -54,6 +54,13 @@ export default function Services() {
                 service.text !== "" && <p className="service__text">{service.text}</p>
             }
             <button>Learn More</button>
+
+            <Selector 
+                state={serviceState}
+                setState={setServiceState}
+                active={activeService}
+                setActive={setActiveService}
+            />
         </div>
     )
 }

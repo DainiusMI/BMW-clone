@@ -578,6 +578,7 @@
   background-size: 100%;
   gap: 1.5rem;
   color: #fff;
+  position: relative;
 }
 .services button {
   border: none;
@@ -675,14 +676,14 @@
     background-image: url(../../../../public/Service/service-5-desktop.jpg);
   }
 }
-.hero__selector {
+.selector {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
   position: absolute;
 }
-.hero__selector .hero__option {
+.selector .hero__option {
   position: relative;
   width: 2.5rem;
   aspect-ratio: 1/1;
@@ -692,20 +693,20 @@
   justify-content: center;
   cursor: pointer;
 }
-.hero__selector .hero__option i {
+.selector .hero__option i {
   font-size: 0.7rem;
 }
-.hero__selector .hero__option:hover {
+.selector .hero__option:hover {
   color: #1C69D3;
 }
-.hero__selector .hero__option svg {
+.selector .hero__option svg {
   position: absolute;
   transform: rotate(-90deg);
   width: 2.5rem;
   aspect-ratio: 1/1;
   pointer-events: none;
 }
-.hero__selector .hero__option svg circle {
+.selector .hero__option svg circle {
   width: 2.5rem;
   aspect-ratio: 1/1;
   fill: none;
@@ -714,38 +715,38 @@
   stroke-dasharray: 113;
   stroke-dashoffset: 113;
 }
-.hero__selector .hero__option svg circle:nth-child(1) {
+.selector .hero__option svg circle:nth-child(1) {
   stroke-dashoffset: 0;
 }
-.hero__selector .hero__option svg circle:nth-child(2) {
+.selector .hero__option svg circle:nth-child(2) {
   stroke: #1C69D3;
   stroke-dashoffset: 113;
 }
 
 @media only screen and (max-width: 768px) {
-  .hero__selector {
+  .selector {
     color: #747373;
     bottom: -1.5rem;
     left: 50%;
     transform: translate(-50%, 50%);
   }
-  .hero__selector .hero__option svg circle {
+  .selector .hero__option svg circle {
     stroke: #747373;
   }
-  .hero__selector .hero__option svg circle:nth-child(1) {
+  .selector .hero__option svg circle:nth-child(1) {
     stroke: #747373;
   }
 }
 @media only screen and (min-width: 768px) {
-  .hero__selector {
+  .selector {
     color: #fff;
     left: 3rem;
     bottom: 2rem;
   }
-  .hero__selector .hero__option svg circle {
+  .selector .hero__option svg circle {
     stroke: #fff;
   }
-  .hero__selector .hero__option svg circle:nth-child(1) {
+  .selector .hero__option svg circle:nth-child(1) {
     stroke: #fff;
   }
 }

@@ -28,11 +28,13 @@ import SelectorOption from "./SelectorItem"
 
 export default function Selector({state, setState, active, setActive}) {
 
+    const numberOfElements = state.length
+
     useInterval(() => {
         if (active.isPaused === false) {
             setActive(prevState => ({
                 ...prevState,
-                id: prevState.id === 4 ? 1 : prevState.id + 1 
+                id: prevState.id === numberOfElements ? 1 : prevState.id + 1 
             }))
         }
     }, 5000)
@@ -58,7 +60,7 @@ export default function Selector({state, setState, active, setActive}) {
     }
 
     return (
-        <div className="hero__selector">
+        <div className="selector">
             {
                 state.map(hero => {
                     return <SelectorOption 

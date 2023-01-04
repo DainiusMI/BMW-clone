@@ -52,7 +52,7 @@ export default function Hero() {
     })
 
     const hero = heroState.filter(hero =>  hero.isActive)[0]
-    
+
     return (    
             <div 
                 key={hero.id}
@@ -83,7 +83,6 @@ export default function Hero() {
             <Selector 
                 state={heroState}
                 setState={setHeroState}
-
                 active={activeHero}
                 setActive={setActiveHero}
             />

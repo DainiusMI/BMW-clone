@@ -3,9 +3,7 @@
 @use "./mixin" as *;
 
 
-
-
-.hero__selector {
+.selector {
     @include flex(row, center, flex-start);
     position: absolute;
 
@@ -14,7 +12,6 @@
         width: 2.5rem;
         aspect-ratio: 1 / 1;
         @include flex(row, center, center);
-
 
         i {
             font-size: .7rem;
@@ -52,7 +49,7 @@
 }
 
 @media only screen and (max-width: 768px) {
-    .hero__selector {
+    .selector {
         color: $project-grey;
         bottom: -1.5rem;
         left: 50%;
@@ -70,9 +67,11 @@
 
         }
     }
+
 }
+
 @media only screen and (min-width: 768px) {
-    .hero__selector {
+    .selector {
         color: #fff;
         left: 3rem;
         bottom: 2rem;
@@ -85,7 +84,6 @@
                     }
                 }
             }
-
         }
     }
 }
