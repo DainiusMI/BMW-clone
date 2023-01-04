@@ -576,19 +576,103 @@
   width: 100vw;
   background-repeat: no-repeat;
   background-size: 100%;
+  gap: 1.5rem;
+  color: #fff;
 }
 .services button {
   border: none;
   background-color: #fff;
+  font-weight: 700;
+  color: #221F1F;
   cursor: pointer;
 }
 
 @media only screen and (max-width: 768px) {
   .services {
     aspect-ratio: 1/1.2507;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 2rem;
+  }
+  .services .service__title {
+    font-size: 1.7rem;
+    font-weight: 300;
+    width: 20ch;
+  }
+  .services button {
+    width: 45vw;
+    height: 2.7rem;
   }
   #service-1 {
     background-image: url(../../../../public/Service/service-1-mobile.jpg);
+  }
+  #service-2 {
+    background-image: url(../../../../public/Service/service-2-mobile.jpg);
+  }
+  #service-3 {
+    background-image: url(../../../../public/Service/service-3-mobile.jpg);
+  }
+  #service-4 {
+    background-image: url(../../../../public/Service/service-4-mobile.jpg);
+  }
+  #service-5 {
+    background-image: url(../../../../public/Service/service-5-mobile.jpg);
+  }
+}
+@media only screen and (min-width: 768px) {
+  .services {
+    aspect-ratio: 1/0.4375;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 3rem 2.5rem 0 2.5rem;
+  }
+  .services .service__title {
+    font-size: 2rem;
+    font-weight: 300;
+    width: 20ch;
+  }
+  .services button {
+    width: 20vw;
+    height: 2.7rem;
+  }
+  #service-1 {
+    background-image: url(../../../../public/Service/service-1-tablet.jpg);
+  }
+  #service-2 {
+    background-image: url(../../../../public/Service/service-2-tablet.jpg);
+  }
+  #service-3 {
+    background-image: url(../../../../public/Service/service-3-tablet.jpg);
+  }
+  #service-4 {
+    background-image: url(../../../../public/Service/service-4-tablet.jpg);
+  }
+  #service-5 {
+    background-image: url(../../../../public/Service/service-5-tablet.jpg);
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .services {
+    aspect-ratio: 1/0.3445;
+  }
+  #service-1 {
+    background-image: url(../../../../public/Service/service-1-desktop.jpg);
+  }
+  #service-2 {
+    background-image: url(../../../../public/Service/service-2-desktop.jpg);
+  }
+  #service-3 {
+    background-image: url(../../../../public/Service/service-3-desktop.jpg);
+  }
+  #service-4 {
+    background-image: url(../../../../public/Service/service-4-desktop.jpg);
+  }
+  #service-5 {
+    background-image: url(../../../../public/Service/service-5-desktop.jpg);
   }
 }
 .hero__selector {
