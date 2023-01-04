@@ -3,6 +3,7 @@ import Navbar from "./assets/components/Navbar";
 import Hero from "./assets/components/Hero";
 import NewsCard from "./assets/components/NewsCard";
 import BuildCard from "./assets/components/BuildCard";
+import Services from "./assets/components/Services";
 
 
 
@@ -71,8 +72,11 @@ export default function App() {
 
   return (
     <main>
+
       <Navbar />
+
       <Hero />
+
       <div className="news__section">
         {
           newsData.map(card => {
@@ -87,6 +91,7 @@ export default function App() {
           })
         }
       </div>
+
       <div className="build__section">
         <h2 className="section__title">Build the BMW of your dreams.</h2>
         <div className="card__section">
@@ -103,6 +108,8 @@ export default function App() {
         </div>
           <button>Build Your Own</button>
       </div>
+
+      <Services />
     </main>
   )
 }

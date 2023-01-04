@@ -1,0 +1,101 @@
+
+@use "./variables" as *;
+@use "./mixin" as *;
+
+
+
+
+.hero__selector {
+    @include flex(row, center, flex-start);
+    position: absolute;
+
+    .hero__option {
+        position: relative;
+        width: 2.5rem;
+        aspect-ratio: 1 / 1;
+        @include flex(row, center, center);
+
+
+        i {
+            font-size: .7rem;
+        }
+        cursor: pointer;
+
+        &:hover {
+            color: $project-blue;
+        }
+        svg {
+            position: absolute;
+            transform: rotate(-90deg);
+            width: 2.5rem;
+            aspect-ratio: 1 / 1;
+            pointer-events: none;
+            circle {
+                width: 2.5rem;
+                aspect-ratio: 1 / 1;
+                fill: none;
+                stroke-width: 2px;
+                transform: translate(2px, 2px);
+
+                stroke-dasharray: 113;
+                stroke-dashoffset: 113;
+                &:nth-child(1) {
+                    stroke-dashoffset: 0;
+                }
+                &:nth-child(2) {
+                    stroke: $project-blue;
+                    stroke-dashoffset: calc(113 - (113 * 0 ) / 100);
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .hero__selector {
+        color: $project-grey;
+        bottom: -1.5rem;
+        left: 50%;
+        transform: translate(-50%, 50%);
+        .hero__option {
+            svg {
+                circle {
+                    stroke: $project-grey;
+                    &:nth-child(1) {
+                        stroke: $project-grey;
+
+                    }
+                }
+            }
+
+        }
+    }
+}
+@media only screen and (min-width: 768px) {
+    .hero__selector {
+        color: #fff;
+        left: 3rem;
+        bottom: 2rem;
+        .hero__option {
+            svg {
+                circle {
+                    stroke: #fff;
+                    &:nth-child(1) {
+                        stroke: #fff;
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+
+@keyframes circleProgress {
+    from {
+        stroke-dashoffset: calc(113 - (113 * 0 ) / 100);
+    }
+    to {
+        stroke-dashoffset: calc(113 - (113 * 360 ) / 100);
+    }
+}

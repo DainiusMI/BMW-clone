@@ -1,7 +1,12 @@
-@use "./navbar";
-@use "./hero";
+@use "./Navbar";
+@use "./Hero";
 @use "./NewsCard";
 @use "./BuildCards";
+@use "./Services";
+
+
+@use "./Selector";
+
 
 
 * {

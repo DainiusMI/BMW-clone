@@ -1,25 +1,9 @@
 import React, {useState, useEffect, useRef} from "react";
+import Selector from "./Selector";
 
-// 3rd party custom hook to replace setInterval
-function useInterval(callback, delay) {
-    const savedCallback = React.useRef();
-  
-    // Remember the latest callback.
-    React.useEffect(() => {
-      savedCallback.current = callback;
-    }, [callback]);
-  
-    // Set up the interval.
-    React.useEffect(() => {
-      function tick() {
-        savedCallback.current();
-      }
-      if (delay !== null) {
-        let id = setInterval(tick, delay);
-        return () => clearInterval(id);
-      }
-    }, [delay]);
-}
+
+
+
 
 
 const heroData = [
@@ -66,47 +50,44 @@ export default function Hero() {
         duration: 0,
         isPaused: false
     })
-    const hero = heroState.filter(hero =>  hero.isActive)
-    return (    
-        hero?.map(hero => {
-            return (
-                <div 
-                    key={hero.id}
-                    className={`hero hero__${hero.id}`}
-                    
-                >
-                    <div className="hero__left">
-                        <h1 className="hero__title">{hero.title}</h1>
-                        <p className="hero__text">{hero.text}</p>
-                        <div className="hero__buttons">
-                            {
-                                hero.buttons.map((button, idx) => {
-                                    return <button key={idx}>{button}</button>
-                                })
-                            }
-                        </div>
-                    </div>
 
-                    {hero.slogan.length > 0 && 
-                        <div className="hero__right">
-                        {
-                            hero.slogan.map((slogan, idx) => {
-                                return <p key={idx} className="slogan__text">{slogan}</p>
-                            })
-                        }
-                        </div>
-                    }
+    const hero = heroState.filter(hero =>  hero.isActive)[0]
     
-                    <HeroSelector 
-                        heroState={heroState}
-                        setHeroState={setHeroState}
-
-                        activeHero={activeHero}
-                        setActiveHero={setActiveHero}
-                    />
+    return (    
+            <div 
+                key={hero.id}
+                className={`hero hero__${hero.id}`}
+            >
+            <div className="hero__left">
+                <h1 className="hero__title">{hero.title}</h1>
+                <p className="hero__text">{hero.text}</p>
+                <div className="hero__buttons">
+                    {
+                        hero.buttons.map((button, idx) => {
+                            return <button key={idx}>{button}</button>
+                        })
+                    }
                 </div>
-            )
-        })
+            </div>
+
+            {hero.slogan.length > 0 && 
+                <div className="hero__right">
+                {
+                    hero.slogan.map((slogan, idx) => {
+                        return <p key={idx} className="slogan__text">{slogan}</p>
+                    })
+                }
+                </div>
+            }
+
+            <Selector 
+                state={heroState}
+                setState={setHeroState}
+
+                active={activeHero}
+                setActive={setActiveHero}
+            />
+        </div>
     )
 }
 
@@ -114,6 +95,7 @@ export default function Hero() {
 
 
 
+/*
 
 function HeroSelector(props) {
     const {heroState, setHeroState, activeHero, setActiveHero} = props
@@ -173,7 +155,7 @@ function HeroOption({id, isActive, isPaused, selectHero}) {
             }
             {
                 isActive &&
-                <svg /*onClick={e => e.stopPropagation()}*/ >
+                <svg >
 
                     <circle cx="18" cy="18" r="18"></circle>
                     <circle cx="18" cy="18" r="18"></circle>
@@ -183,3 +165,6 @@ function HeroOption({id, isActive, isPaused, selectHero}) {
         </div>
     )
 }
+
+
+*/

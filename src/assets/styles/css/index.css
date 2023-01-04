@@ -363,96 +363,6 @@
     width: 30ch;
   }
 }
-.hero__selector {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  position: absolute;
-}
-.hero__selector .hero__option {
-  position: relative;
-  width: 2.5rem;
-  aspect-ratio: 1/1;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-.hero__selector .hero__option i {
-  font-size: 0.7rem;
-}
-.hero__selector .hero__option:hover {
-  color: #1C69D3;
-}
-.hero__selector .hero__option svg {
-  position: absolute;
-  transform: rotate(-90deg);
-  width: 2.5rem;
-  aspect-ratio: 1/1;
-  pointer-events: none;
-}
-.hero__selector .hero__option svg circle {
-  width: 2.5rem;
-  aspect-ratio: 1/1;
-  fill: none;
-  stroke-width: 2px;
-  transform: translate(2px, 2px);
-  stroke-dasharray: 113;
-  stroke-dashoffset: 113;
-}
-.hero__selector .hero__option svg circle:nth-child(1) {
-  stroke-dashoffset: 0;
-}
-.hero__selector .hero__option svg circle:nth-child(2) {
-  stroke: #1C69D3;
-  stroke-dashoffset: 113;
-}
-
-@media only screen and (max-width: 768px) {
-  .hero__selector {
-    color: #747373;
-    bottom: -1.5rem;
-    left: 50%;
-    transform: translate(-50%, 50%);
-  }
-  .hero__selector .hero__option svg circle {
-    stroke: #747373;
-  }
-  .hero__selector .hero__option svg circle:nth-child(1) {
-    stroke: #747373;
-  }
-}
-@media only screen and (min-width: 768px) {
-  .hero__selector {
-    color: #fff;
-    left: 3rem;
-    bottom: 2rem;
-  }
-  .hero__selector .hero__option svg circle {
-    stroke: #fff;
-  }
-  .hero__selector .hero__option svg circle:nth-child(1) {
-    stroke: #fff;
-  }
-}
-@-webkit-keyframes circleProgress {
-  from {
-    stroke-dashoffset: 113;
-  }
-  to {
-    stroke-dashoffset: -293.8;
-  }
-}
-@keyframes circleProgress {
-  from {
-    stroke-dashoffset: 113;
-  }
-  to {
-    stroke-dashoffset: -293.8;
-  }
-}
 .news__section {
   width: 100%;
   display: flex;
@@ -660,6 +570,115 @@
   }
   .build__section .section__title {
     font-size: 1.8rem;
+  }
+}
+.services {
+  width: 100vw;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+.services button {
+  border: none;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+  .services {
+    aspect-ratio: 1/1.2507;
+  }
+  #service-1 {
+    background-image: url(../../../../public/Service/service-1-mobile.jpg);
+  }
+}
+.hero__selector {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  position: absolute;
+}
+.hero__selector .hero__option {
+  position: relative;
+  width: 2.5rem;
+  aspect-ratio: 1/1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.hero__selector .hero__option i {
+  font-size: 0.7rem;
+}
+.hero__selector .hero__option:hover {
+  color: #1C69D3;
+}
+.hero__selector .hero__option svg {
+  position: absolute;
+  transform: rotate(-90deg);
+  width: 2.5rem;
+  aspect-ratio: 1/1;
+  pointer-events: none;
+}
+.hero__selector .hero__option svg circle {
+  width: 2.5rem;
+  aspect-ratio: 1/1;
+  fill: none;
+  stroke-width: 2px;
+  transform: translate(2px, 2px);
+  stroke-dasharray: 113;
+  stroke-dashoffset: 113;
+}
+.hero__selector .hero__option svg circle:nth-child(1) {
+  stroke-dashoffset: 0;
+}
+.hero__selector .hero__option svg circle:nth-child(2) {
+  stroke: #1C69D3;
+  stroke-dashoffset: 113;
+}
+
+@media only screen and (max-width: 768px) {
+  .hero__selector {
+    color: #747373;
+    bottom: -1.5rem;
+    left: 50%;
+    transform: translate(-50%, 50%);
+  }
+  .hero__selector .hero__option svg circle {
+    stroke: #747373;
+  }
+  .hero__selector .hero__option svg circle:nth-child(1) {
+    stroke: #747373;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .hero__selector {
+    color: #fff;
+    left: 3rem;
+    bottom: 2rem;
+  }
+  .hero__selector .hero__option svg circle {
+    stroke: #fff;
+  }
+  .hero__selector .hero__option svg circle:nth-child(1) {
+    stroke: #fff;
+  }
+}
+@-webkit-keyframes circleProgress {
+  from {
+    stroke-dashoffset: 113;
+  }
+  to {
+    stroke-dashoffset: -293.8;
+  }
+}
+@keyframes circleProgress {
+  from {
+    stroke-dashoffset: 113;
+  }
+  to {
+    stroke-dashoffset: -293.8;
   }
 }
 * {
