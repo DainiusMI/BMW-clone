@@ -580,6 +580,12 @@
   color: #fff;
   position: relative;
 }
+.services .service__title {
+  font-weight: 300;
+}
+.services .service__text {
+  font-weight: 300;
+}
 .services button {
   border: none;
   background-color: #fff;
@@ -599,7 +605,6 @@
   }
   .services .service__title {
     font-size: 1.7rem;
-    font-weight: 300;
     width: 20ch;
   }
   .services button {
@@ -630,11 +635,10 @@
     align-items: flex-start;
     justify-content: flex-start;
     padding: 3rem 2.5rem 0 2.5rem;
+    gap: 1rem;
   }
   .services .service__title {
     font-size: 2rem;
-    font-weight: 300;
-    width: 20ch;
   }
   .services button {
     width: 20vw;
@@ -643,8 +647,17 @@
   #service-1 {
     background-image: url(../../../../public/Service/service-1-tablet.jpg);
   }
+  #service-1 .service__title {
+    width: 20ch;
+  }
   #service-2 {
     background-image: url(../../../../public/Service/service-2-tablet.jpg);
+  }
+  #service-2 .service__title {
+    width: 35ch;
+  }
+  #service-2 .service__text {
+    width: 45ch;
   }
   #service-3 {
     background-image: url(../../../../public/Service/service-3-tablet.jpg);
