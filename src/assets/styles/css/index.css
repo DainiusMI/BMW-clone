@@ -605,7 +605,7 @@
   text-align: center;
 }
 .section .card__container {
-  width: 100%;
+  display: grid;
 }
 
 .build__section {
@@ -618,6 +618,8 @@
 }
 .build__section button {
   background-color: #221F1F;
+  width: 12rem;
+  height: 3rem;
   font-size: 1.1rem;
   font-weight: 600;
   color: #fff;
@@ -661,26 +663,33 @@
   color: #221F1F;
 }
 
+@media only screen and (max-width: 768px) {
+  .section {
+    padding: 3rem 1.5rem;
+    gap: 1.5rem;
+  }
+  .section .card__container {
+    width: calc(100% - 3rem);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  .section .card__container .card__default {
+    gap: 0.5rem;
+    gap: 1.5rem;
+  }
+}
 @media only screen and (min-width: 768px) {
   .section {
     padding: 4rem 2rem;
     gap: 2rem;
   }
   .section .card__container {
-    display: grid;
+    width: calc(100% - 4rem);
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
   }
   .section .card__container .card__default {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     gap: 0.5rem;
-  }
-  .section button {
-    width: 12rem;
-    height: 3rem;
   }
   .ownership__section {
     margin-top: 2rem;
@@ -697,6 +706,7 @@
     padding: 4rem 2.5rem;
   }
   .build__section .card__container {
+    width: calc(100% - 5rem);
     grid-template-columns: repeat(4, 1fr);
   }
   .ownership__section {
@@ -731,8 +741,37 @@
   .ownership__section .card__container {
     grid-template-columns: repeat(4, 1fr);
   }
-  .ownership__section .card__container .card__default .card__text {
-    width: 35ch;
+}
+.models {
+  width: 100%;
+  background-color: #221F1F;
+  color: #fff;
+  padding: 1.5rem 4rem 2rem 4rem;
+  font-weight: 600;
+  gap: 2rem;
+}
+.models .models__row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+}
+.models .models__row .row__item {
+  cursor: pointer;
+}
+.models .models__row .row__item:hover {
+  color: #747373;
+}
+
+@media only screen and (min-width: 768px) {
+  .models {
+    display: none;
+  }
+}
+@media only screen and (min-width: 950px) {
+  .models {
+    display: flex;
   }
 }
 .selector {

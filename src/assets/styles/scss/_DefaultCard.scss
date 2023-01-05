@@ -7,24 +7,20 @@
 .section {
     width: 100%;
     @include flex(column, center, center);
-
     .section__title {
         font-size: 1.3rem;
         font-weight: 300;
         text-align: center;
     }
-
     .card__container {
-        width: 100%;
+        display: grid;
     }
-
 }
 
 
 
 .build__section {
     background-color: $build-background;
-
     .card__container {
 
         .card__default {
@@ -38,6 +34,9 @@
     }
     button {
         background-color: $project-black;
+        
+        width: 12rem;
+        height: 3rem;
 
         font-size: 1.1rem;
         font-weight: 600;
@@ -103,6 +102,25 @@
 
 
 // only MOBILE
+@media only screen and (max-width: 768px) {
+    .section {
+        padding: 3rem 1.5rem;
+        gap: 1.5rem;
+        .section__title {
+
+        }
+        .card__container {
+            width: calc(100% - 3rem);
+            grid-template-columns: repeat(2, 1fr);  
+            gap: 2rem;
+            .card__default {
+                gap: .5rem;
+                gap: 1.5rem;
+            }
+        }
+    }
+}
+
 @media only screen and (min-width: 768px) {
 
     .section {
@@ -112,18 +130,12 @@
 
         }
         .card__container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            width: calc(100% - 4rem);
+            grid-template-columns: repeat(2, 1fr);  
             gap: 2rem;
             .card__default {
-                @include flex(column, center, center);
                 gap: .5rem;
             }
-        }
-
-        button {
-            width: 12rem;
-            height: 3rem;
         }
     }
 
@@ -149,6 +161,7 @@
     .build__section {
         padding: 4rem 2.5rem;
         .card__container {
+            width: calc(100% - 5rem);
             grid-template-columns: repeat(4, 1fr);
  
         }
@@ -191,11 +204,10 @@
         gap: 3rem;
         .card__container {
             grid-template-columns: repeat(4, 1fr);
-
             .card__default {
 
                .card__text {
-                    width: 35ch;
+            
                 }
             }
         }

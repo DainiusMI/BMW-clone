@@ -3,7 +3,7 @@ import Navbar from "./assets/components/Navbar";
 import Hero from "./assets/components/Hero";
 import NewsCard from "./assets/components/NewsCard";
 import Services from "./assets/components/Services";
-
+import Models from "./assets/components/ModelsRow";
 
 
 const newsData = [
@@ -99,7 +99,7 @@ const ownershipData = [
     text: "Get the latest information on your vehicle’s trade-in value today. ",
     link: {
       text: "Visit Black Book",
-      icon: "fa-sharp fa-solid fa-arrow-up-right",
+      icon: "fa-solid fa-arrow-up-right-from-square",
       url: ""
     }
   },
@@ -110,7 +110,7 @@ const ownershipData = [
       text: "See where you stand on your journey to owning a BMW.",
       link: {
         text: "Visit Equifax",
-        icon: "fa-sharp fa-solid fa-arrow-up-right",
+        icon: "fa-solid fa-arrow-up-right-from-square",
         url: ""
       }
   },
@@ -121,7 +121,7 @@ const ownershipData = [
       text: "Own the BMW of your dreams with BMW Financial Services.",
       link: {
         text: "Get Started",
-        icon: "fa-sharp fa-solid fa-arrow-up-right",
+        icon: "fa-solid fa-arrow-up-right-from-square",
         url: ""
       }
   },
@@ -132,14 +132,14 @@ const ownershipData = [
       text: "Receive the latest offers, releases, and news from BMW.",
       link: {
         text: "Sign Up Now",
-        icon: "fa-sharp fa-solid fa-arrow-up-right",
+        icon: "",
         url: ""
       }
   },
 ]
 
 export default function App() {
-
+  
   return (
     <main>
 
@@ -202,6 +202,8 @@ export default function App() {
 
       </div>
 
+      {window.innerWidth > 960 && <Models />}
+
     </main>
   )
 }
@@ -214,7 +216,7 @@ function DefaultCard({title, text, image, link}) {
       <div className="card__image"  style={{backgroundImage: `url(${image})`}}/>
       <div className={text !== "" ? "card__title bold" : "card__title"}>{title}</div>
       {text !== "" && <div className="card__text">{text}</div>}
-      <a href={link.url} className="card__link">{link.text}{link.icon !== "" && <i className={link.icon}/>}</a>
+      <a href={link.url} className="card__link">{link.text} {link.icon !== "" && <i className={link.icon}/>}</a>
     </div>
   )
 }

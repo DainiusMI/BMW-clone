@@ -1,0 +1,36 @@
+@use "./mixin" as *;
+@use "./variables" as *;
+
+.models {
+    width: 100%;
+    background-color: $project-black;
+    color: #fff;
+    padding: 1.5rem 4rem 2rem 4rem;
+    font-weight: 600;
+    gap: 2rem;
+    .models__row {
+        @include flex(row, center, space-between);
+        width: 80%;
+        .row__item {
+   
+            cursor: pointer;
+            &:hover {
+                color: $project-grey;
+            }
+        }
+    }
+}
+
+// only MOBILE
+@media only screen and (min-width: 768px) {
+    .models {
+        display: none;
+    }
+}
+// TABLET
+@media only screen and (min-width: 950px) {
+    .models {
+        display: flex;
+    }
+
+}
