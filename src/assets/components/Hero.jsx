@@ -2,10 +2,6 @@ import React, {useState, useEffect, useRef} from "react";
 import Selector from "./Selector";
 
 
-
-
-
-
 const heroData = [
     {   
         id: 1,
@@ -92,78 +88,3 @@ export default function Hero() {
 
 
 
-
-
-/*
-
-function HeroSelector(props) {
-    const {heroState, setHeroState, activeHero, setActiveHero} = props
-
-    useInterval(() => {
-        if (activeHero.isPaused === false) {
-            setActiveHero(prevState => ({
-                ...prevState,
-                id: prevState.id === 4 ? 1 : prevState.id + 1 
-            }))
-        }
-    }, 5000)
-
-
-    React.useEffect(() => {
-        const changeHero = heroState.map(hero => {
-            return hero.id == activeHero.id ? 
-                {...hero, isActive: true} :
-                {...hero, isActive: false}
-        })
-        setHeroState(changeHero)
-
-    }, [activeHero.id])
-
-
-    function selectHero(id) {
-        setActiveHero(prevStata => ({
-            id: parseInt(id),
-            duration: prevStata.id == id ? prevStata.duration : 0,
-            isPaused: prevStata.id == id ? !prevStata.isPaused : false
-        }))
-    }
-
-    return (
-        <div className="hero__selector">
-            {
-                heroState.map(hero => {
-                    return <HeroOption key={hero.id} id={hero.id} isActive={hero.isActive} isPaused={activeHero.isPaused} selectHero={selectHero} />
-                })
-            }
-        </div>
-    )
-}
-
-
-
-
-function HeroOption({id, isActive, isPaused, selectHero}) {
-
-    return (
-        <div className="hero__option" onClick={() => {selectHero(id)}}>
-            
-            {
-                !isActive ? id : 
-                    !isPaused ? <i className="fa-sharp fa-solid fa-pause"></i> : 
-                        <i className="fa-sharp fa-solid fa-play"></i>
-            }
-            {
-                isActive &&
-                <svg >
-
-                    <circle cx="18" cy="18" r="18"></circle>
-                    <circle cx="18" cy="18" r="18"></circle>
-                </svg>
-
-            }
-        </div>
-    )
-}
-
-
-*/

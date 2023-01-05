@@ -1,19 +1,18 @@
-import React, {useState, useEffect} from "react"
-import SelectorOption from "./SelectorItem"
+import React, {useState, useEffect, useRef} from "react"
 
 
 
         // 3rd party custom hook to replace setInterval
         function useInterval(callback, delay) {
-            const savedCallback = React.useRef();
+            const savedCallback = useRef();
         
             // Remember the latest callback.
-            React.useEffect(() => {
+            useEffect(() => {
             savedCallback.current = callback;
             }, [callback]);
         
             // Set up the interval.
-            React.useEffect(() => {
+            useEffect(() => {
             function tick() {
                 savedCallback.current();
             }
@@ -75,6 +74,31 @@ export default function Selector({state, setState, active, setActive}) {
         </div>
     )
 }
+
+
+
+function SelectorOption({id, isActive, isPaused, selectHero}) {
+    return (
+        <div className="hero__option" onClick={() => {selectHero(id)}}>
+            
+            {
+                !isActive ? id : 
+                    !isPaused ? <i className="fa-sharp fa-solid fa-pause"></i> : 
+                        <i className="fa-sharp fa-solid fa-play"></i>
+            }
+            {
+                isActive &&
+                <svg /*onClick={e => e.stopPropagation()}*/ >
+
+                    <circle cx="18" cy="18" r="18"></circle>
+                    <circle cx="18" cy="18" r="18"></circle>
+                </svg>
+
+            }
+        </div>
+    )
+}
+
 
 
 

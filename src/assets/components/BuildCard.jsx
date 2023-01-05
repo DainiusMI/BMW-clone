@@ -4,10 +4,7 @@ import React from "react";
 export default function({title, image, link}) {
 
     return (
-        <div 
-            className="build__card"
-
-            >
+        <div className="build__card">
             <div 
                 className="card__image"
                 style={{backgroundImage: `url(${image})`}}

@@ -1,0 +1,183 @@
+@use "./mixin" as *;
+@use "./variables" as *;
+
+
+
+
+.section {
+    width: 100%;
+    @include flex(column, center, center);
+
+    .section__title {
+        font-size: 1.3rem;
+        font-weight: 300;
+        text-align: center;
+    }
+
+    .card__container {
+        width: 100%;
+    }
+
+    button {
+        background-color: $project-black;
+
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #fff;
+
+        margin-top: 2rem;
+        cursor: pointer;
+        &:hover {
+            background-color: $project-grey-dark;
+        }
+    }
+}
+
+
+.build__section {
+    background-color: $build-background;
+
+    .card__container {
+
+        .card__default {
+
+            .card__image {
+                width: 100%;
+                aspect-ratio:  1 / 0.5;
+                background-size: cover;
+            }
+        }
+    }
+}
+
+.ownership__section {
+
+    .card__container {
+
+        .card__default {
+
+            .card__image {
+                width: 35%;
+                aspect-ratio:  1 / 1;
+                background-size: cover;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+.card__default {
+    width: 100%;
+    @include flex(column, center, center);
+    .card__image {
+        background-repeat: no-repeat;
+    }
+    .card__title {
+        text-align: center;
+    }
+    .card__title.bold {
+        font-weight: 700;
+    }
+    .card__text {
+        font-size: .8rem;
+        font-weight: 300;
+        text-align: center;
+    }
+    .card__link {
+        font-size: .8rem;
+        font-weight: 700;
+        color: $project-black;
+    }
+}
+
+
+
+
+
+
+// only MOBILE
+@media only screen and (min-width: 768px) {
+
+    .section {
+        padding: 4rem 2rem;
+        gap: 2rem;
+        .section__title {
+
+        }
+        .card__container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            .card__default {
+                @include flex(column, center, center);
+                gap: .5rem;
+            }
+        }
+
+
+        button {
+            width: 12rem;
+            height: 3rem;
+        }
+    }
+
+
+    .ownership__section {
+        margin-top: 2rem;
+
+        .card__default {
+
+
+        }
+    }
+}
+// TABLET
+@media only screen and (min-width: 768px) {
+
+    .section {
+        padding: 4rem 2.5rem;
+        .section__title {
+            font-size: 1.5rem;
+        }
+    }
+    .build__section {
+        .card__container {
+            grid-template-columns: repeat(4, 1fr);
+ 
+        }
+    }
+    .ownership__section {
+        margin-top: 0rem;
+        gap: 2rem;
+        .card__container {
+    
+            .card__default {
+                gap: .8rem;
+                .card__image {
+                    width: 18%;
+                    margin-bottom: .7rem;
+                }
+                .card__title {
+                    font-size: 1.2rem;
+                }
+                .card__text {
+                    width: 30ch;
+                    font-size: 1rem;
+                    
+                }
+            }
+        }
+
+    }
+
+
+}
+// DESKTOP
+@media only screen and (min-width: 1280px) {
+
+
+}

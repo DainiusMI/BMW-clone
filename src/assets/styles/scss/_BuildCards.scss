@@ -4,16 +4,20 @@
 
 
 
+.section {
+    .section__title {
+        font-size: 1.3rem;
+        font-weight: 300;
+    }
+}
+
 .build__section {
     width: 100%;
     @include flex(column, center, center);
     gap: 1rem;
 
     background-color: $build-background;
-    .section__title {
-        font-size: 1.3rem;
-        font-weight: 300;
-    }
+
     button {
         width: 12rem;
         height: 3rem;
