@@ -2,9 +2,7 @@ import React from "react";
 import Navbar from "./assets/components/Navbar";
 import Hero from "./assets/components/Hero";
 import NewsCard from "./assets/components/NewsCard";
-import BuildCard from "./assets/components/BuildCard";
 import Services from "./assets/components/Services";
-import OwnershipCard from "./assets/components/OwnershipCard";
 
 
 

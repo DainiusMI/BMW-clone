@@ -607,17 +607,6 @@
 .section .card__container {
   width: 100%;
 }
-.section button {
-  background-color: #221F1F;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #fff;
-  margin-top: 2rem;
-  cursor: pointer;
-}
-.section button:hover {
-  background-color: #4C4C4C;
-}
 
 .build__section {
   background-color: #F6F6F6;
@@ -626,6 +615,17 @@
   width: 100%;
   aspect-ratio: 1/0.5;
   background-size: cover;
+}
+.build__section button {
+  background-color: #221F1F;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  margin-top: 2rem;
+  cursor: pointer;
+}
+.build__section button:hover {
+  background-color: #4C4C4C;
 }
 
 .ownership__section .card__container .card__default .card__image {
@@ -648,7 +648,7 @@
   text-align: center;
 }
 .card__default .card__title.bold {
-  font-weight: 700;
+  font-weight: 600;
 }
 .card__default .card__text {
   font-size: 0.8rem;
@@ -657,7 +657,7 @@
 }
 .card__default .card__link {
   font-size: 0.8rem;
-  font-weight: 700;
+  font-weight: 600;
   color: #221F1F;
 }
 
@@ -693,12 +693,15 @@
   .section .section__title {
     font-size: 1.5rem;
   }
+  .build__section {
+    padding: 4rem 2.5rem;
+  }
   .build__section .card__container {
     grid-template-columns: repeat(4, 1fr);
   }
   .ownership__section {
     margin-top: 0rem;
-    gap: 2rem;
+    gap: 2.5rem;
   }
   .ownership__section .card__container .card__default {
     gap: 0.8rem;
@@ -713,6 +716,23 @@
   .ownership__section .card__container .card__default .card__text {
     width: 30ch;
     font-size: 1rem;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .build__section {
+    padding: 5rem 2.5rem;
+  }
+  .build__section .section__title {
+    font-size: 1.8rem;
+  }
+  .ownership__section {
+    gap: 3rem;
+  }
+  .ownership__section .card__container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .ownership__section .card__container .card__default .card__text {
+    width: 35ch;
   }
 }
 .selector {
