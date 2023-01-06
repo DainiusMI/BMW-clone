@@ -1,9 +1,14 @@
-import React, {useEffect} from "react";
+import React, {useState, useEffect} from "react";
 
 
-import BMWDifference from "./Footer/the_bmw_difference.json"
-import companyInfoData from "./Footer/company_info.json"
+import bmw_diff from "./Footer/the_bmw_difference.json"
+import exp_and_part from "./Footer/experiance_and_partnership.json"
+import shopping_tools from "./Footer/online_shopping_tools.json"
+import finance_and_incentives from "./Footer/finance_and_incentives.json"
+import company_info from "./Footer/company_info.json"
 
+
+//<FooterElement title={exp_and_part.title} data={exp_and_part.data}/>
 
 export default function Footer() {
 
@@ -12,40 +17,67 @@ export default function Footer() {
         isMobile: true,
         openedTab: "CompanyInfo"
     })
-    console.log(BMWDifference)
+
+
     return (
         <footer className="footer">
-            <div className="discover">
-                
-                
-
-
-            </div>
-
-            <div className="buy">
-
-            </div>
             
+            <div className="inner__footer">
+                <div className="footer__section">
+                    <p className="section__title">DISCOVER ----</p>
+                    <div className="elements__container">
+                        <FooterElement title={bmw_diff.title} data={bmw_diff.data}/>
+
+                    </div>
+                </div>
+
+                <div className="footer__section">
+                    <p className="section__title">BUY ----</p>
+                    <div className="elements__container">
+
+
+                    </div>
+                </div>
+                {
+
+                }
+            </div>
+
+            <div className="inner__footer">
+
+
+            </div>
         </footer>
     )
 }
 
 
-function FooterElement({title}) {
-    const icon = "fa-solid fa-arrow-up-right-from-square"
+function FooterElement({title, data}) {
     const isMobile = true
 
-    function handleExpand(event) {
+    const [elementState, setElementState] = useState({
+        isExpanded: false
+    })
 
+    function handleExpand() {
+        //setElementState(prevState => {isExpanded: !prevState.isExpanded})
     }
     return (
-        <div className="element__container">
+        <div className="footer__element">
             <div className="title__row" onClick={handleExpand}>
                 <div className="element__title">{title}</div>
-                {isMobile && <i className={icon}/>}
+                {elementState.isExpanded ? <i className="fa-solid fa-minus"/> : <i className="fa-solid fa-plus"/>}
+            </div>
+            <div className="item__list">
+                {
+                    elementState.isExpanded && data.map(item => {
+                        return <a key={item.id} href="">{item.text} {item.hasIcon && <i className="fa-solid fa-arrow-up-right-from-square"/>}</a>
+                    })
+                } 
             </div>
         </div>
     )
 }
+
 
 //<a key={`company-info-${item.id}`} href={item.link}>{item.text} {item.hasIcon && <i className={icon}/>}</a>
