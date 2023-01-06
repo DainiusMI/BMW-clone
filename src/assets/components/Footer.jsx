@@ -13,10 +13,11 @@ import company_info from "./Footer/company_info.json"
 export default function Footer() {
 
     const icon = "fa-solid fa-arrow-up-right-from-square"
-    const [footerState, setFooterState] = React.useState({
+    const [footerState, setFooterState] = useState({
         isMobile: true,
-        openedTab: "CompanyInfo"
+        isExpanded: false,
     })
+
 
 
     return (
@@ -26,7 +27,8 @@ export default function Footer() {
                 <div className="footer__section">
                     <p className="section__title">DISCOVER ----</p>
                     <div className="elements__container">
-                        <FooterElement title={bmw_diff.title} data={bmw_diff.data}/>
+                        <FooterElement id={bmw_diff.id} title={bmw_diff.title} data={bmw_diff.data} footerState={footerState} setFooterState={setFooterState} />
+                        <FooterElement id={exp_and_part.id} title={exp_and_part.title} data={exp_and_part.data} footerState={footerState} setFooterState={setFooterState}/>
 
                     </div>
                 </div>
@@ -34,12 +36,13 @@ export default function Footer() {
                 <div className="footer__section">
                     <p className="section__title">BUY ----</p>
                     <div className="elements__container">
-
+                        <FooterElement id={shopping_tools.id} title={shopping_tools.title} data={shopping_tools.data} footerState={footerState} setFooterState={setFooterState}/>
+                        <FooterElement id={finance_and_incentives.id} title={finance_and_incentives.title} data={finance_and_incentives.data} footerState={footerState} setFooterState={setFooterState}/>
 
                     </div>
                 </div>
                 {
-
+                    <FooterElement id={company_info.id} title={company_info.title} data={company_info.data} footerState={footerState} setFooterState={setFooterState}/>
                 }
             </div>
 
@@ -52,26 +55,30 @@ export default function Footer() {
 }
 
 
-function FooterElement({title, data}) {
-    const isMobile = true
+function FooterElement({id, title, data, footerState, setFooterState}) {
 
-    const [elementState, setElementState] = useState({
-        isExpanded: false
-    })
-
-    function handleExpand() {
-        //setElementState(prevState => {isExpanded: !prevState.isExpanded})
+    function handleExpand(event) {
+        const targetedTabName = event.target.id
+        setFooterState(prevState => ({
+            ...prevState,
+            tabName: prevState.tabName === targetedTabName ? "" : targetedTabName,
+            })
+        )
     }
     return (
         <div className="footer__element">
-            <div className="title__row" onClick={handleExpand}>
+            <div id={id} className="title__row" onClick={handleExpand}>
                 <div className="element__title">{title}</div>
-                {elementState.isExpanded ? <i className="fa-solid fa-minus"/> : <i className="fa-solid fa-plus"/>}
+                { 
+                    footerState.tabName === id ? 
+                        <i className="fa-solid fa-minus"/> : 
+                        <i className="fa-solid fa-plus"/>
+                }
             </div>
             <div className="item__list">
                 {
-                    elementState.isExpanded && data.map(item => {
-                        return <a key={item.id} href="">{item.text} {item.hasIcon && <i className="fa-solid fa-arrow-up-right-from-square"/>}</a>
+                    footerState.tabName === id && data.map(item => {
+                        return <a key={`${id}_${item.id}`} href="">{item.text} {item.hasIcon && <i className="fa-solid fa-arrow-up-right-from-square"/>}</a>
                     })
                 } 
             </div>

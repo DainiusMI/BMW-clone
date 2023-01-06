@@ -825,6 +825,9 @@
   font-weight: 600;
   cursor: pointer;
 }
+.footer__element .title__row > * {
+  pointer-events: none;
+}
 .footer__element .item__list {
   width: 100%;
   display: flex;

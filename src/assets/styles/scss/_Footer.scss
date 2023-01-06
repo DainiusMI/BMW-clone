@@ -42,8 +42,11 @@
         @include flex(row, center, space-between);
 
         font-weight: 600;
-
         cursor: pointer;
+
+        &>* {
+            pointer-events: none;
+        }
     }
     .item__list {
         width: 100%;
