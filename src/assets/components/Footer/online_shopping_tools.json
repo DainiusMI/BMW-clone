@@ -1,0 +1,83 @@
+{
+    "title": "Online Shopping Tools",
+    "data": [
+        {
+            "id": 1,
+            "text": "Shop BMW Parts & Accessories",
+            "hasIcon": true,
+            "url": ""
+        },
+        {
+            "id": 2,
+            "text": "Shop New Inventory",
+            "hasIcon": false,
+            "url": ""
+        },
+        {
+            "id": 3,
+            "text": "Shop Pre-Owned Inventory",
+            "hasIcon": false,
+            "url": ""
+        },
+        {
+            "id": 4,
+            "text": "Build Your Own",
+            "hasIcon": false,
+            "url": ""
+        },
+        {
+            "id": 5,
+            "text": "Shop Online",
+            "hasIcon": false,
+            "url": ""
+        },
+        {
+            "id": 6,
+            "text": "Access by BMW",
+            "hasIcon": true,
+            "url": ""
+        },
+        {
+            "id": 7,
+            "text": "",
+            "hasIcon": false,
+            "url": ""
+        },
+        {
+            "id": 8,
+            "text": "Lease & Financing Offers",
+            "hasIcon": false,
+            "url": ""
+        },
+        {
+            "id": 9,
+            "text": "Estimate Payment",
+            "hasIcon": false,
+            "url": ""
+        },
+        {
+            "id": 10,
+            "text": "Request a Test Drive",
+            "hasIcon": false,
+            "url": ""
+        },
+        {
+            "id": 11,
+            "text": "Contact a BMW Center",
+            "hasIcon": false,
+            "url": ""
+        },
+        {
+            "id": 12,
+            "text": "Find a BMW Center",
+            "hasIcon": false,
+            "url": ""
+        },
+        {
+            "id": 13,
+            "text": "Subscribe to Updates",
+            "hasIcon": false,
+            "url": ""
+        }
+    ]
+}

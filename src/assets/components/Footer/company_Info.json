@@ -1,0 +1,89 @@
+{
+    "title": "Company Info",
+    "data": [
+        {
+            "id": 1,
+            "text": "Ad Choices",
+            "hasIcon": true,
+            "url": ""
+        },
+        {
+            "id": 2,
+            "text": "Privacy Policy",
+            "hasIcon": false,
+            "url": ""
+        },
+        {
+            "id": 3,
+            "text": "Do Not Sell My Personal Information",
+            "hasIcon": true,
+            "url": ""
+        },
+        {
+            "id": 4,
+            "text": "Safety and Emissions Recalls",
+            "hasIcon": true,
+            "url": ""
+        },
+        {
+            "id": 5,
+            "text": "Fraud Warning",
+            "hasIcon": false,
+            "url": ""
+        },
+        {
+            "id": 6,
+            "text": "BMW Accessibility Statement",
+            "hasIcon": false,
+            "url": ""
+        },
+        {
+            "id": 7,
+            "text": "BMW Press Room",
+            "hasIcon": true,
+            "url": ""
+        },
+        {
+            "id": 8,
+            "text": "Site Map",
+            "hasIcon": false,
+            "url": ""
+        },
+        {
+            "id": 9,
+            "text": "Careers",
+            "hasIcon": false,
+            "url": ""
+        },
+        {
+            "id": 10,
+            "text": "Contact Us",
+            "hasIcon": false,
+            "url": ""
+        },
+        {
+            "id": 11,
+            "text": "Company Info",
+            "hasIcon": false,
+            "url": ""
+        },
+        {
+            "id": 12,
+            "text": "BMW Motorcycles",
+            "hasIcon": true,
+            "url": ""
+        },
+        {
+            "id": 13,
+            "text": "BMW Bank",
+            "hasIcon": false,
+            "url": ""
+        },
+        {
+            "id": 14,
+            "text": "FAQ",
+            "hasIcon": true,
+            "url": ""
+        }
+    ]
+}

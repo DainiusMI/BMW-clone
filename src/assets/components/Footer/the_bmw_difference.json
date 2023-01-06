@@ -1,0 +1,41 @@
+{
+    "title": "The BMW Difference",
+    "data": [
+        {
+            "id": 1,
+            "text": "My BMW App",
+            "hasIcon": false,
+            "url": ""
+        },
+        {
+            "id": 2,
+            "text": "BMW Individual",
+            "hasIcon": false,
+            "url": ""
+        },
+        {
+            "id": 3,
+            "text": "BMW All-Electric",
+            "hasIcon": false,
+            "url": ""
+        },
+        {
+            "id": 4,
+            "text": "Plug-in Hybrid Electric",
+            "hasIcon": false,
+            "url": ""
+        },
+        {
+            "id": 5,
+            "text": "Concept Vehicles",
+            "hasIcon": false,
+            "url": ""
+        },
+        {
+            "id": 6,
+            "text": "BMW ConnectedDrive",
+            "hasIcon": false,
+            "url": ""
+        }
+    ]
+}

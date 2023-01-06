@@ -102,7 +102,6 @@ export default function Navbar() {
                 isLight: true
             })
         }
-        console.log(scrollState.direction)
     }, [scrollState.direction])
 
 

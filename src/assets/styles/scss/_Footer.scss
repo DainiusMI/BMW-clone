@@ -1,0 +1,12 @@
+@use "./mixin" as *;
+@use "./variables" as *;
+
+.footer {
+
+
+}
+
+
+.company__info {
+    @include flex(column, flex-start, center);
+}
