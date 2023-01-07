@@ -25,7 +25,7 @@ export default function Footer() {
             
             <div className="inner__footer">
                 <div className="footer__section">
-                    <p className="section__title">DISCOVER ----</p>
+                    <p className="section__title">DISCOVER <hr /></p>
                     <div className="elements__container">
                         <FooterElement id={bmw_diff.id} title={bmw_diff.title} data={bmw_diff.data} footerState={footerState} setFooterState={setFooterState} />
                         <FooterElement id={exp_and_part.id} title={exp_and_part.title} data={exp_and_part.data} footerState={footerState} setFooterState={setFooterState}/>
@@ -34,7 +34,7 @@ export default function Footer() {
                 </div>
 
                 <div className="footer__section">
-                    <p className="section__title">BUY ----</p>
+                    <p className="section__title">BUY <hr /></p>
                     <div className="elements__container">
                         <FooterElement id={shopping_tools.id} title={shopping_tools.title} data={shopping_tools.data} footerState={footerState} setFooterState={setFooterState}/>
                         <FooterElement id={finance_and_incentives.id} title={finance_and_incentives.title} data={finance_and_incentives.data} footerState={footerState} setFooterState={setFooterState}/>
@@ -58,10 +58,10 @@ export default function Footer() {
 function FooterElement({id, title, data, footerState, setFooterState}) {
 
     function handleExpand(event) {
-        const targetedTabName = event.target.id
+        const targetedTab = event.target.id
         setFooterState(prevState => ({
             ...prevState,
-            tabName: prevState.tabName === targetedTabName ? "" : targetedTabName,
+            tabName: prevState.tabName === targetedTab ? "" : targetedTab,
             })
         )
     }
@@ -75,16 +75,20 @@ function FooterElement({id, title, data, footerState, setFooterState}) {
                         <i className="fa-solid fa-plus"/>
                 }
             </div>
-            <div className="item__list">
-                {
-                    footerState.tabName === id && data.map(item => {
-                        return <a key={`${id}_${item.id}`} href="">{item.text} {item.hasIcon && <i className="fa-solid fa-arrow-up-right-from-square"/>}</a>
-                    })
-                } 
-            </div>
+            {
+                footerState.tabName === id &&
+                    <ul className="item__list">
+                        {
+                            footerState.tabName === id && data.map(item => {
+                                return item.text !== "" ? 
+                                    <li key={`${id}_${item.id}`} href="">{item.text} {item.hasIcon && <i className="fa-solid fa-arrow-up-right-from-square"/>}</li> :
+                                    <hr />
+                            })
+                        } 
+                    </ul>
+            }
+
         </div>
     )
 }
 
-
-//<a key={`company-info-${item.id}`} href={item.link}>{item.text} {item.hasIcon && <i className={icon}/>}</a>

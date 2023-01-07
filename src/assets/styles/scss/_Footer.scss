@@ -11,8 +11,7 @@
     }
     .inner__footer {
         width: 100%;
-        @include flex(column, flex-start, flex-start);
-        gap: 1rem;
+
         .footer__section {
             width: 100%;
             @include flex(column, flex-start, flex-start);
@@ -35,7 +34,7 @@
     width: 100%;
 
     @include flex(column, flex-start, flex-start);
-    gap: 1rem;
+
 
     .title__row {
         width: 100%;
@@ -48,16 +47,23 @@
             pointer-events: none;
         }
     }
+
     .item__list {
         width: 100%;
 
         @include flex(column, flex-start, flex-start);
         gap: 1rem;
+        margin: 1rem 0 0rem 2rem;
 
-        margin-left: 2rem;
+        &.margined {
+
+        }
+        list-style: none;
+        padding: 0;
         a {
             text-decoration: none;
             color: $project-black;
+            width: 100%;
         }
     }
 }
@@ -68,16 +74,24 @@
 
 
     .footer {
-
+        hr {
+            width: 3rem;
+        }
         .inner__footer {
 
-
+            @include flex(column, flex-start, flex-start);
+            gap: 2rem;
             padding: 3rem;
+            .section__title {
+                @include flex(row, center, flex-start);
+                gap: 1rem
+            }
             .footer__section {
 
                 .elements__container {
            
                     @include flex(column, flex-start, flex-start);
+                    gap: 1rem;
                 }
             }
         }
