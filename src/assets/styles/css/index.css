@@ -835,9 +835,6 @@
   font-size: 0.8rem;
   font-weight: 300;
 }
-.footer .footer__section .section__title hr {
-  width: 3rem;
-}
 .footer .footer__section .elements__container {
   width: 100%;
   display: flex;
@@ -845,6 +842,9 @@
   align-items: flex-start;
   justify-content: flex-start;
   gap: 1rem;
+}
+.footer hr {
+  width: 3rem;
 }
 
 .footer__element {
@@ -882,11 +882,12 @@
   padding: 0;
   font-size: 0.8rem;
 }
-.footer__element .item__list a {
+.footer__element .item__list li {
   text-decoration: none;
   color: #221F1F;
   width: 100%;
   font-size: 0.8rem;
+  cursor: pointer;
 }
 
 @media only screen and (min-width: 768px) {
@@ -901,7 +902,7 @@
     padding: 1.5rem 3rem 1.5rem 3rem;
   }
 }
-@media only screen and (min-width: 960px) {
+@media only screen and (min-width: 1280px) {
   .footer > :first-child {
     display: flex;
     flex-direction: row;

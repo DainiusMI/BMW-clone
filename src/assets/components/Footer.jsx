@@ -10,15 +10,21 @@ import company_info from "./Footer/company_info.json"
 
 //<FooterElement title={exp_and_part.title} data={exp_and_part.data}/>
 
-export default function Footer() {
+export default function Footer({screenSize}) {
 
-    const icon = "fa-solid fa-arrow-up-right-from-square"
     const [footerState, setFooterState] = useState({
-        isMobile: true,
-        isExpanded: false,
     })
 
-    const isDesktop = true
+    function returnFooterElement(arg) {
+        return <FooterElement 
+                    id={arg.id} 
+                    title={arg.title} 
+                    data={arg.data} 
+                    footerState={footerState} 
+                    setFooterState={setFooterState} 
+                    screenSize={screenSize}                    
+                />
+    }
 
     return (
         <footer className="footer">
@@ -27,31 +33,27 @@ export default function Footer() {
                 <div className="footer__section">
                     <p className="section__title">DISCOVER <hr /></p>
                     <div className="elements__container">
-                        <FooterElement id={bmw_diff.id} title={bmw_diff.title} data={bmw_diff.data} footerState={footerState} setFooterState={setFooterState} />
-                        <FooterElement id={exp_and_part.id} title={exp_and_part.title} data={exp_and_part.data} footerState={footerState} setFooterState={setFooterState}/>
-
+                        {returnFooterElement(bmw_diff)}
+                        {returnFooterElement(exp_and_part)}
                     </div>
                 </div>
 
                 <div className="footer__section">
                     <p className="section__title">BUY <hr /></p>
                     <div className="elements__container">
-                        <FooterElement id={shopping_tools.id} title={shopping_tools.title} data={shopping_tools.data} footerState={footerState} setFooterState={setFooterState}/>
-                        <FooterElement id={finance_and_incentives.id} title={finance_and_incentives.title} data={finance_and_incentives.data} footerState={footerState} setFooterState={setFooterState}/>
-
+                        {returnFooterElement(shopping_tools)}
+                        {returnFooterElement(finance_and_incentives)}                    
                     </div>
                 </div>
                 {
-                    isDesktop === false &&
-                        <FooterElement id={company_info.id} title={company_info.title} data={company_info.data} footerState={footerState} setFooterState={setFooterState}/>
+                    screenSize !== "desktop" && returnFooterElement(company_info)                        
                 }
             </div>
 
             <div className="inner__footer">
                 <div className="text__container">
                     {
-                        isDesktop === true &&
-                            <FooterElement id={company_info.id} title={company_info.title} data={company_info.data} footerState={footerState} setFooterState={setFooterState}/>
+                        screenSize === "desktop" && returnFooterElement(company_info)                          
                     }
                     <p className="copyrights">© 2023 BMW of North America, LLC. The BMW name, BMW logo, model names, and other trademarks are trademarks of BMW AG.</p>
                 </div>
@@ -70,9 +72,7 @@ export default function Footer() {
 
 
 
-function FooterElement({id, title, data, footerState, setFooterState}) {
-
-    const isDesktop = true
+function FooterElement({id, title, data, footerState, setFooterState, screenSize}) {
 
     function handleExpand(event) {
         const targetedTab = event.target.id
@@ -88,17 +88,16 @@ function FooterElement({id, title, data, footerState, setFooterState}) {
             <div id={id} className="title__row" onClick={handleExpand}>
                 <div className="element__title">{title}</div>
                 {
-                    isDesktop === false &&  
+                    screenSize !== "desktop" &&  
                         <i className={  
                             footerState.tabName === id ?
                                 "fa-solid fa-minus" :
                                 "fa-solid fa-plus"    
                         }/>
                 }
-
             </div>
             {
-                isDesktop === true &&
+                screenSize === "desktop" &&
                 <ul className="item__list">
                     {
                         data.map(item => {
@@ -112,12 +111,12 @@ function FooterElement({id, title, data, footerState, setFooterState}) {
                     
             }
             {
-                isDesktop === false && footerState.tabName === id &&
+                screenSize !== "desktop" && footerState.tabName === id &&
                     <ul className="item__list">
                         {
                             footerState.tabName === id && data.map(item => {
                                 return item.text !== "" ? 
-                                    <li key={item.id}>{item.text} {item.hasIcon && <i className="fa-solid fa-arrow-up-right-from-square"/>}</li> :
+                                    <li key={`${id}_${item.id}`}>{item.text} {item.hasIcon && <i className="fa-solid fa-arrow-up-right-from-square"/>}</li> :
                                     <hr />
                             })
                         } 

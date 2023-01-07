@@ -90,6 +90,8 @@ import connectIMG from "../public/connect.png";
 import creditIMG from "../public/credit-score.png";
 import financingIMG from "../public/financing.png";
 import valueIMG from "../public/value.png";
+import { useState } from "react";
+import { useEffect } from "react";
 
 
 const ownershipData = [
@@ -140,11 +142,25 @@ const ownershipData = [
 ]
 
 export default function App() {
+  const [screenSize, setScreenSize] = useState("desktop")
+
+  function handleScreenSize() {
+    window.innerWidth < 768 ? 
+      setScreenSize("mobile") :
+      window.innerWidth < 1280 ?
+        setScreenSize("tablet") :
+        setScreenSize("desktop") 
+  }
+  useEffect(() => {
+    window.addEventListener("resize", handleScreenSize)
+  }, [])
   
+  console.log(screenSize)
+
   return (
     <main>
 
-      <Navbar />
+      <Navbar screenSize={screenSize}/>
 
       <Hero />
 
@@ -205,7 +221,7 @@ export default function App() {
 
       {window.innerWidth > 960 && <Models />}
 
-      <Footer />
+      <Footer screenSize={screenSize}/>
     </main>
   )
 }

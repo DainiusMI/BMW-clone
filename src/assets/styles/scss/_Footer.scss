@@ -46,10 +46,6 @@
             width: 100%;
             font-size: .8rem;
             font-weight: 300;
-    
-            hr {
-                width: 3rem;
-            }
         }
         .elements__container {
             width: 100%;
@@ -57,7 +53,9 @@
             gap: 1rem;
         }
     }
-
+    hr {
+        width: 3rem;
+    }
 }
 
 .footer__element {
@@ -91,11 +89,12 @@
         list-style: none;
         padding: 0;
         font-size: .8rem;
-        a {
+        li {
             text-decoration: none;
             color: $project-black;
             width: 100%;
             font-size: .8rem;
+            cursor: pointer;
         }
     }
 }
@@ -151,7 +150,7 @@
 
 
 // above DESKTOP
-@media only screen and (min-width: 960px) {
+@media only screen and (min-width: 1280px) {
     .footer {
         &>:first-child {
             @include flex(row, flex-start, flex-start);
