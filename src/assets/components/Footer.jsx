@@ -18,7 +18,7 @@ export default function Footer() {
         isExpanded: false,
     })
 
-
+    const isDesktop = true
 
     return (
         <footer className="footer">
@@ -42,20 +42,37 @@ export default function Footer() {
                     </div>
                 </div>
                 {
-                    <FooterElement id={company_info.id} title={company_info.title} data={company_info.data} footerState={footerState} setFooterState={setFooterState}/>
+                    isDesktop === false &&
+                        <FooterElement id={company_info.id} title={company_info.title} data={company_info.data} footerState={footerState} setFooterState={setFooterState}/>
                 }
             </div>
 
             <div className="inner__footer">
+                <div className="text__container">
+                    {
+                        isDesktop === true &&
+                            <FooterElement id={company_info.id} title={company_info.title} data={company_info.data} footerState={footerState} setFooterState={setFooterState}/>
+                    }
+                    <p className="copyrights">© 2023 BMW of North America, LLC. The BMW name, BMW logo, model names, and other trademarks are trademarks of BMW AG.</p>
+                </div>
 
-
+                <div className="socials__container">
+                    <a href=""><i className="fa-brands fa-square-facebook"/></a>
+                    <a href=""><i className="fa-brands fa-twitter"/></a>
+                    <a href=""><i className="fa-brands fa-youtube"/></a>
+                    <a href=""><i className="fa-brands fa-instagram"/></a>
+                </div>
             </div>
         </footer>
     )
 }
 
 
+
+
 function FooterElement({id, title, data, footerState, setFooterState}) {
+
+    const isDesktop = true
 
     function handleExpand(event) {
         const targetedTab = event.target.id
@@ -65,29 +82,47 @@ function FooterElement({id, title, data, footerState, setFooterState}) {
             })
         )
     }
+    
     return (
         <div className="footer__element">
             <div id={id} className="title__row" onClick={handleExpand}>
                 <div className="element__title">{title}</div>
-                { 
-                    footerState.tabName === id ? 
-                        <i className="fa-solid fa-minus"/> : 
-                        <i className="fa-solid fa-plus"/>
+                {
+                    isDesktop === false &&  
+                        <i className={  
+                            footerState.tabName === id ?
+                                "fa-solid fa-minus" :
+                                "fa-solid fa-plus"    
+                        }/>
                 }
+
             </div>
             {
-                footerState.tabName === id &&
+                isDesktop === true &&
+                <ul className="item__list">
+                    {
+                        data.map(item => {
+                            return item.text !== "" ? 
+                                <li key={`${id}_${item.id}`} href="">{item.text} {item.hasIcon && <i className="fa-solid fa-arrow-up-right-from-square"/>}</li> :
+                                <hr />
+                        }) 
+                    }
+                </ul>
+
+                    
+            }
+            {
+                isDesktop === false && footerState.tabName === id &&
                     <ul className="item__list">
                         {
                             footerState.tabName === id && data.map(item => {
                                 return item.text !== "" ? 
-                                    <li key={`${id}_${item.id}`} href="">{item.text} {item.hasIcon && <i className="fa-solid fa-arrow-up-right-from-square"/>}</li> :
+                                    <li key={item.id}>{item.text} {item.hasIcon && <i className="fa-solid fa-arrow-up-right-from-square"/>}</li> :
                                     <hr />
                             })
                         } 
                     </ul>
             }
-
         </div>
     )
 }

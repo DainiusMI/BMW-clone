@@ -3,31 +3,61 @@
 
 .footer {
     width: 100%;
-
     color: $project-black;
     font-weight: 300;
-    :first-child {
+
+    &>:first-child {
         background-color: $background-silver;
+        @include flex(column, flex-start, flex-start);
+        padding: 1.5rem 1rem 1.5rem 1rem;
     }
+    &>:last-child {
+        @include flex(column, space-between, flex-start);
+        padding: 1rem;
+        gap: .5rem;
+    }
+
     .inner__footer {
         width: 100%;
+        gap: 1rem;
 
-        .footer__section {
-            width: 100%;
+
+        .text__container {
             @include flex(column, flex-start, flex-start);
+            font-size: .8rem;
+        }
+        .socials__container {
+            @include flex(row, center, center);
             gap: 1rem;
-            .section__title {
-                width: 100%;
-                font-size: .8rem;
-                font-weight: 300;
-                text-align: start;
-            }
-            .elements__container {
-                width: 100%;
-
+            a {
+                font-size: 1.3rem;
+                color: #727171;
             }
         }
     }
+    .footer__section {
+        width: 100%;
+        @include flex(column, flex-start, flex-start);
+        gap: 1rem;
+        .section__title {
+            @include flex(row, center, flex-start);
+            gap: 1rem;
+    
+            width: 100%;
+            font-size: .8rem;
+            font-weight: 300;
+    
+            hr {
+                width: 3rem;
+            }
+        }
+        .elements__container {
+            width: 100%;
+            @include flex(column, flex-start, flex-start);
+            gap: 1rem;
+        }
+    }
+
 }
 
 .footer__element {
@@ -40,12 +70,16 @@
         width: 100%;
         @include flex(row, center, space-between);
 
+        line-height: 1.2rem;
         font-weight: 600;
         cursor: pointer;
-
+        i {
+            font-size: 1.2rem;
+        }
         &>* {
             pointer-events: none;
         }
+
     }
 
     .item__list {
@@ -54,56 +88,119 @@
         @include flex(column, flex-start, flex-start);
         gap: 1rem;
         margin: 1rem 0 0rem 2rem;
-
-        &.margined {
-
-        }
         list-style: none;
         padding: 0;
+        font-size: .8rem;
         a {
             text-decoration: none;
             color: $project-black;
             width: 100%;
+            font-size: .8rem;
         }
     }
 }
 
 
-// up to DESKTOP
-@media only screen and (max-width: 1280px) {
+// MOBILE
+@media only screen and (max-width: 768px) {
 
+}
+
+// TABLET
+@media only screen and (min-width: 768px) {
 
     .footer {
-        hr {
-            width: 3rem;
+        &>:first-child {
+            padding: 3rem;
         }
+        &>:last-child {
+            @include flex(row, center, space-between);
+            padding: 1.5rem 3rem 1.5rem 3rem;
+        }
+
+
         .inner__footer {
 
-            @include flex(column, flex-start, flex-start);
-            gap: 2rem;
-            padding: 3rem;
-            .section__title {
-                @include flex(row, center, flex-start);
-                gap: 1rem
-            }
+
             .footer__section {
 
+                .section__title {
+
+                    hr {
+        
+                    }
+                }
                 .elements__container {
            
-                    @include flex(column, flex-start, flex-start);
-                    gap: 1rem;
+
                 }
+            }
+            .text__container {
+      
+            }
+
+        }
+    }
+
+
+}
+
+
+
+
+
+
+// above DESKTOP
+@media only screen and (min-width: 960px) {
+    .footer {
+        &>:first-child {
+            @include flex(row, flex-start, flex-start);
+            padding: 3rem;
+            gap: 5vw;
+        }
+        &>:last-child {
+            .text__container {
+                gap: .5rem;
+                width: 80vw;
+            }
+            .footer__element {
+                gap: 3rem;
+                .title__row {
+                    display: none;
+                }
+                .item__list {
+                    @include flex(row, center, flex-start);
+                    gap: .5rem 1rem;
+                    flex-wrap: wrap;
+                }
+            }
+        }
+        .footer__section {
+
+            .section__title {
+                @include flex(column, center, flex-start);
+                hr {
+                    width: 100%;
+                }
+            }
+            .elements__container {
+                @include flex(row, flex-start, space-between);
+                
             }
         }
     }
 
     .footer__element {
-
+        gap: 1rem;
+        .title__row {
+            line-height: 1rem;
+        }
+        .item__list {
+            margin: 0;
+        }
+        hr {
+            width: 3rem;
+        }
     }
-}
-// above DESKTOP
-@media only screen and (min-width: 1280px) {
-
-
 
 }
