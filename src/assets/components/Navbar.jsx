@@ -1,59 +1,13 @@
 import React from "react";
 
 
-import logo from "../../../public/nav-logo.png"
 
-const navbarItems = {
-    left : [
-        {
-            name: "Models",
-            hasIcon: false,
-            isOpened: false
-        },
-        {
-            name: "Build Your Own",
-            hasIcon: false,
-            isOpened: false
-        },
-        {
-            name: "Shopping",
-            hasIcon: true,
-            isOpened: false
-        },
-        {
-            name: "BMW Certified",
-            hasIcon: false,
-            isOpened: false
-        },
-        {
-            name: "Owners",
-            hasIcon: true,
-            isOpened: false
-        },
-    ],
-    right: [
-        {
-            name: "Choose your local BMW center",
-            hasIcon: true,
-            className: "fa-sharp fa-solid fa-location-dot",
-        },
-        {
-            name: "My BMW",
-            hasIcon: true,
-            className: "fa-solid fa-user",
-        },
-        {
-            name: "",
-            hasIcon: true,
-            className: "fa-solid fa-magnifying-glass",
-        },
-    ]
-}
+import navbarJSON from "./Navbar/navbar.json"
+import NavbarModels from "./Navbar/NavbarModels";
 
 
 
-
-export default function Navbar() {
+function priorFunctionality() {
     const [navbarState, setNavbarState] = React.useState({
         isHome: true,
         isMinmized: false,
@@ -64,6 +18,7 @@ export default function Navbar() {
         position: null,
         direction: ""
     })
+
     // general template of this effect is from 3rd party
     React.useEffect(() => {
         const handleScroll = () => setScrollState(prevState => ({
@@ -75,6 +30,8 @@ export default function Navbar() {
         return () => document.removeEventListener('scroll', handleScroll);
 
     }, [])
+
+    // set "HOME" position
     React.useEffect(() => {
         if (scrollState.position === null || window.scrollY === 0) {
             setNavbarState({
@@ -102,13 +59,14 @@ export default function Navbar() {
         }
     }, [scrollState.direction])
 
-
+    // expand onClick
     function handleMaximize() {
         setNavbarState(prevState => ({
             ...prevState,
             isMinmized: false
         }))
     }
+    // collapsee on off hover
     function handleMinimize() {
         !navbarState.isHome &&
         setNavbarState(prevState => ({
@@ -116,44 +74,75 @@ export default function Navbar() {
             isMinmized: true
         }))
     }
-    
 
 
-    return (
+    /*        
         <nav 
             id="navbar" 
             className={navbarState.isHome ? "navbar" : navbarState.isMinmized ? "navbar light minimized" : "navbar light"} 
             onClick={handleMaximize}
             onMouseLeave={handleMinimize}
         >
-            <div className="navbar__left">
-                <div className="nav__logo" style={{backgroundImage: `url(${logo})`}}/>
-                {   
-                    navbarState.isMinmized === false ? 
-                        navbarItems.left.map((item, idx) => <NavLeftItem key={idx} item={item} idx={idx} /> ) :
-                        <p className="navbar__slogan">The <strong>Ultimate</strong> driving machine <span>©</span></p>
-                }
-            </div>
-            <div className="navbar__right">
+    */
+}
+
+
+export default function Navbar({screenSize}) {
+    
+    
+
+
+
+    function navbarClassName() {
+        let name = "navbar"
+        screenSize === "desktop" && name.concat("desktop")                     
+
+        return name
+    }
+    function renderRightSideItems() {
+        function generateDOM(arr) {
+            return (
+                [arr].map(item => {
+                    return(
+                        <div className="navbar__item">
+                            <i className={item.className}/>
+                            {item.name !== "" && <p>{item.name}</p>}
+                        </div>
+                    )
+                })
+            )
+        }
+
+        if (screenSize !== "desktop") {
+            return (
+                <div className="navbar__right__side">
+                    {generateDOM(navbarJSON.data.right[0])}
+                    <i class="humbuger__menu fa-sharp fa-solid fa-bars" />
+                </div>
+            )
+        }
+
+    }
+
+    return (
+        <nav className={navbarClassName()}  >   
+            <div className="navbar__left__side">
+                <div className="navbar__logo"/>
                 {
-                    navbarState.isMinmized === false ? 
-                        navbarItems.right.map((item, idx) => <NavRightItem key={idx} item={item} />) :
-                        <i className="fa-sharp fa-solid fa-bars"></i>
+
                 }
             </div>
-            
+            {renderRightSideItems()}
         </nav>
     )
 }
 
 
 
+/*
 
 
-
-
-
-function NavLeftItem(props) {
+function NavbarLeftItems(props, {screenSize}) {
     const {item} = props
 
     const [itemState, setItemState] = React.useState(item)
@@ -165,12 +154,15 @@ function NavLeftItem(props) {
         }))
     }
     return (
-        <div className="left__item" onClick={henadleOpen}> 
-            <p className="left__text">{itemState.name}</p>
-            {itemState.hasIcon && <i className={itemState.isOpened ? "fa-sharp fa-solid fa-chevron-up" : "fa-sharp fa-solid fa-chevron-down"}></i>}
-        </div>
+
+
+
     )
 }
+
+
+
+
 
 function NavRightItem(props) {
     const {name, className} = props.item
@@ -181,3 +173,7 @@ function NavRightItem(props) {
         </div>
     )
 }
+
+
+
+*/

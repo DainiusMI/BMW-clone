@@ -1,7 +1,7 @@
 @use "./mixin" as *;
 @use "./variables" as *;
 
-.models {
+.models__section {
     width: 100%;
     background-color: $project-black;
     color: #fff;

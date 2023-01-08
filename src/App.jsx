@@ -213,7 +213,7 @@ export default function App() {
 
       </div>
 
-      {window.innerWidth > 960 && <Models />}
+      {screenSize === "desktop" && <Models />}
 
       <Footer screenSize={screenSize}/>
     </main>
