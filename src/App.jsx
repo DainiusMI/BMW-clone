@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "./assets/components/Navbar";
 import Hero from "./assets/components/Hero";
 import NewsCard from "./assets/components/NewsCard";
@@ -90,8 +90,7 @@ import connectIMG from "../public/connect.png";
 import creditIMG from "../public/credit-score.png";
 import financingIMG from "../public/financing.png";
 import valueIMG from "../public/value.png";
-import { useState } from "react";
-import { useEffect } from "react";
+
 
 
 const ownershipData = [
@@ -154,14 +153,10 @@ export default function App() {
   useEffect(() => {
     window.addEventListener("resize", handleScreenSize)
   }, [])
-  
-  console.log(screenSize)
 
   return (
     <main>
-
       <Navbar screenSize={screenSize}/>
-
       <Hero />
 
       <div className="news__section">
@@ -173,7 +168,6 @@ export default function App() {
                       title={card.title}
                       description={card.description}
                       link={card.link}
-
                     />
           })
         }

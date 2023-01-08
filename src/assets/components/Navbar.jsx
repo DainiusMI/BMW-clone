@@ -1,6 +1,8 @@
 import React from "react";
 
 
+import logo from "../../../public/nav-logo.png"
+
 const navbarItems = {
     left : [
         {
@@ -49,8 +51,6 @@ const navbarItems = {
 }
 
 
-import logo from "../../../public/nav-logo.png"
-
 
 
 export default function Navbar() {
@@ -75,7 +75,6 @@ export default function Navbar() {
         return () => document.removeEventListener('scroll', handleScroll);
 
     }, [])
-
     React.useEffect(() => {
         if (scrollState.position === null || window.scrollY === 0) {
             setNavbarState({
@@ -86,7 +85,6 @@ export default function Navbar() {
         }
  
     }, [scrollState.position])
-
     React.useEffect(() => {
         if (scrollState.direction === "down") {
             setNavbarState({

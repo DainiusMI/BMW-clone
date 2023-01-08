@@ -883,11 +883,14 @@
   font-size: 0.8rem;
 }
 .footer__element .item__list li {
+  width: 100%;
   text-decoration: none;
   color: #221F1F;
-  width: 100%;
   font-size: 0.8rem;
   cursor: pointer;
+}
+.footer__element .item__list li:hover {
+  color: #747373;
 }
 
 @media only screen and (min-width: 768px) {
@@ -928,6 +931,9 @@
     justify-content: flex-start;
     gap: 0.5rem 1rem;
     flex-wrap: wrap;
+  }
+  .footer > :last-child .footer__element .item__list li {
+    width: auto;
   }
   .footer .footer__section .section__title {
     display: flex;

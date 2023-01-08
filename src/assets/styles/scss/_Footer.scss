@@ -20,8 +20,6 @@
     .inner__footer {
         width: 100%;
         gap: 1rem;
-
-
         .text__container {
             @include flex(column, flex-start, flex-start);
             font-size: .8rem;
@@ -42,7 +40,6 @@
         .section__title {
             @include flex(row, center, flex-start);
             gap: 1rem;
-    
             width: 100%;
             font-size: .8rem;
             font-weight: 300;
@@ -60,14 +57,10 @@
 
 .footer__element {
     width: 100%;
-
     @include flex(column, flex-start, flex-start);
-
-
     .title__row {
         width: 100%;
         @include flex(row, center, space-between);
-
         line-height: 1.2rem;
         font-weight: 600;
         cursor: pointer;
@@ -77,12 +70,10 @@
         &>* {
             pointer-events: none;
         }
-
     }
 
     .item__list {
         width: 100%;
-
         @include flex(column, flex-start, flex-start);
         gap: 1rem;
         margin: 1rem 0 0rem 2rem;
@@ -90,24 +81,21 @@
         padding: 0;
         font-size: .8rem;
         li {
+            width: 100%;
             text-decoration: none;
             color: $project-black;
-            width: 100%;
             font-size: .8rem;
             cursor: pointer;
+            &:hover {
+                color: $project-grey;
+            }
         }
     }
 }
 
 
-// MOBILE
-@media only screen and (max-width: 768px) {
-
-}
-
 // TABLET
 @media only screen and (min-width: 768px) {
-
     .footer {
         &>:first-child {
             padding: 3rem;
@@ -116,39 +104,8 @@
             @include flex(row, center, space-between);
             padding: 1.5rem 3rem 1.5rem 3rem;
         }
-
-
-        .inner__footer {
-
-
-            .footer__section {
-
-                .section__title {
-
-                    hr {
-        
-                    }
-                }
-                .elements__container {
-           
-
-                }
-            }
-            .text__container {
-      
-            }
-
-        }
     }
-
-
 }
-
-
-
-
-
-
 // above DESKTOP
 @media only screen and (min-width: 1280px) {
     .footer {
@@ -162,6 +119,7 @@
                 gap: .5rem;
                 width: 80vw;
             }
+
             .footer__element {
                 gap: 3rem;
                 .title__row {
@@ -171,11 +129,13 @@
                     @include flex(row, center, flex-start);
                     gap: .5rem 1rem;
                     flex-wrap: wrap;
+                    li {
+                        width: auto;
+                    }
                 }
             }
         }
         .footer__section {
-
             .section__title {
                 @include flex(column, center, flex-start);
                 hr {
@@ -201,5 +161,4 @@
             width: 3rem;
         }
     }
-
 }

@@ -8,7 +8,6 @@ import finance_and_incentives from "./Footer/finance_and_incentives.json"
 import company_info from "./Footer/company_info.json"
 
 
-//<FooterElement title={exp_and_part.title} data={exp_and_part.data}/>
 
 export default function Footer({screenSize}) {
 
@@ -106,9 +105,7 @@ function FooterElement({id, title, data, footerState, setFooterState, screenSize
                                 <hr />
                         }) 
                     }
-                </ul>
-
-                    
+                </ul>                   
             }
             {
                 screenSize !== "desktop" && footerState.tabName === id &&

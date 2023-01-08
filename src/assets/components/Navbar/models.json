@@ -1,0 +1,293 @@
+{
+    "id": "models",
+    "title": "Models",
+    "data": {
+        "category_row": [
+            {   
+                "id": "all",
+                "title": "All Models",
+                "inner": {
+                    "text": "ALL MODELS",
+                    "link": {
+                        "text": "",
+                        "url": "",
+                        "hasImage": false
+                    }
+                },
+                "category_tag": "all_models"
+            },
+            {   
+                "id": "sav",
+                "title": "SAVs",
+                "inner": {
+                    "text": "SPORTS ACTIVITY VEHICLES",
+                    "link": {
+                        "text": "Learn More",
+                        "url": "",
+                        "hasImage": false
+                    }
+                },
+                "category_tag": "sav"
+            },
+            {   
+                "id": "sedan",
+                "title": "Sedans",
+                "inner": {
+                    "text": "SEDANS & GRAN COUPES",
+                    "link": {
+                        "text": "",
+                        "url": "",
+                        "hasImage": false
+                    }
+                },
+                "category_tag": "sedan"
+            },
+            {   
+                "id": "coupe",
+                "title": "Coupes",
+                "inner": {
+                    "text": "COUPES",
+                    "link": {
+                        "text": "",
+                        "url": "",
+                        "hasImage": false
+                    }
+                },
+                "category_tag": "coupe"
+            },
+            {   
+                "id": "convertible",
+                "title": "Convertibles",
+                "inner": {
+                    "text": "CONVERTIBLES",
+                    "link": {
+                        "text": "",
+                        "url": "",
+                        "hasImage": false
+                    }
+                },
+                "category_tag": "convertible"
+            },
+            {   
+                "id": "electric",
+                "title": "Electified",
+                "inner": {
+                    "text": "All-Electric",
+                    "link": {
+                        "text": "Learn More",
+                        "url": "",
+                        "hasImage": true
+                    }
+                },
+                "category_tag": "electric"
+            },
+            {   
+                "id": "m_series",
+                "title": "BMW M",
+                "inner": {
+                    "text": "THE MOST POWERFUL LETTER IN THE WORLD",
+                    "link": {
+                        "text": "Learn More",
+                        "url": "",
+                        "hasImage": true
+                    }
+                },
+                "category_tag": "m_series"
+            }
+        ],
+        "all_models": [
+            {
+                "id": "models-item-1",
+                "name": "X1",
+                "category": ["all_models", "sav" ],
+                "url": ""
+            },
+            {
+                "id": "models-item-2",
+                "name": "X3",
+                "category": ["all_models", "sav", "coupe" ],
+                "url": ""
+            },
+            {
+                "id": "models-item-3",
+                "name": "X4",
+                "category": ["all_models", "sav" ],
+                "url": ""
+            },
+            {
+                "id": "models-item-4",
+                "name": "X5",
+                "category": ["all_models", "sav", "coupe" ],
+                "url": ""
+            },
+            {
+                "id": "models-item-5",
+                "name": "X6",
+                "category": ["all_models", "sav" ],
+                "url": ""
+            },
+            {
+                "id": "models-item-6",
+                "name": "X7",
+                "category": ["all_models", "sav" ],
+                "url": ""
+            },
+            {
+                "id": "models-item-7",
+                "name": "2",
+                "category": ["all_models", "sedan", "coupe" ],
+                "url": ""
+            },
+            {
+                "id": "models-item-8",
+                "name": "3",
+                "category": ["all_models", "sedan" ],
+                "url": ""
+            },
+            {
+                "id": "models-item-9",
+                "name": "4",
+                "category": ["all_models", "sedan", "coupe" ],
+                "url": ""
+            },
+            {
+                "id": "models-item-10",
+                "name": "5",
+                "category": ["all_models", "sedan" ],
+                "url": ""
+            },
+            {
+                "id": "models-item-11",
+                "name": "7",
+                "category": ["all_models", "sedan" ],
+                "url": ""
+            },
+            {
+                "id": "models-item-12",
+                "name": "8",
+                "category": ["all_models", "sedan", "coupe" ],
+                "url": ""
+            },
+            {
+                "id": "models-item-13",
+                "name": "Z4",
+                "category": ["all_models", "convertible" ],
+                "url": ""
+            },
+            {
+                "id": "models-item-14",
+                "name": "M Models",
+                "category": ["all_models" ],
+                "url": ""
+            },
+            {
+                "id": "models-item-15",
+                "name": "iX",
+                "category": ["all_models", "suv", "electric" ],
+                "url": ""
+            },
+            {
+                "id": "models-item-16",
+                "name": "i4",
+                "category": ["all_models", "sedan", "electric" ],
+                "url": ""
+            },
+            {
+                "id": "models-item-17",
+                "name": "i7",
+                "category": ["all_models", "sedan", "electric" ],
+                "url": ""
+            },
+            {
+                "id": "models-item-18",
+                "name": "M2",
+                "category": ["m_series", "coupe" ],
+                "url": ""
+            },
+            {
+                "id": "models-item-19",
+                "name": "M3",
+                "category": ["sedan", "m_series" ],
+                "url": ""
+            },
+            {
+                "id": "models-item-20",
+                "name": "M4",
+                "category": ["m_series", "coupe" ],
+                "url": ""
+            },
+            {
+                "id": "models-item-21",
+                "name": "M4 Convertible",
+                "category": ["m_series", "convertible" ],
+                "url": ""
+            },
+            {
+                "id": "models-item-22",
+                "name": "M5",
+                "category": ["sedan", "m_series" ],
+                "url": ""
+            },
+            {
+                "id": "models-item-23",
+                "name": "M8",
+                "category": ["sedan", "m_series", "coupe" ],
+                "url": ""
+            },
+            {
+                "id": "models-item-24",
+                "name": "M8 Convertible",
+                "category": ["m_series", "convertible" ],
+                "url": ""
+            },
+            {
+                "id": "models-item-25",
+                "name": "M8 Grand Coupe",
+                "category": ["sedan", "m_series" ],
+                "url": ""
+            },
+            {
+                "id": "models-item-26",
+                "name": "X3 M",
+                "category": ["suv", "m_series"],
+                "url": ""
+            },
+            {
+                "id": "models-item-27",
+                "name": "X4 M",
+                "category": ["suv", "m_series"],
+                "url": ""
+            },
+            {
+                "id": "models-item-28",
+                "name": "X5 M",
+                "category": ["suv", "m_series"],
+                "url": ""
+            },
+            {
+                "id": "models-item-29",
+                "name": "X6 M",
+                "category": ["suv", "m_series"],
+                "url": ""
+            },
+            {
+                "id": "models-item-30",
+                "name": "XM: Pre-Order Now",
+                "category": ["suv", "m_series"],
+                "url": ""
+            },
+            {
+                "id": "models-item-31",
+                "name": "4 Convertible",
+                "category": ["convertible" ],
+                "url": ""
+            },
+            {
+                "id": "models-item-32",
+                "name": "4 Convertible",
+                "category": ["convertible" ],
+                "url": ""
+            }
+        ]
+    }
+}
