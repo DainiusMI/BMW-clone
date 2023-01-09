@@ -19,9 +19,8 @@
     background-size: 100%;
     background-repeat: no-repeat;
     color: #fff;
-
+    z-index: -1;
     position: relative;
-
 
     .hero__left {
         width: var(--hero__width);

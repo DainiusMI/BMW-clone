@@ -22,19 +22,6 @@ function priorFunctionality() {
 
     // general template of this effect is from 3rd party
 
-
-
-
-
-
-
-    function navbarClassName() {
-        let name = "navbar"
-        screenSize === "desktop" && name.concat("desktop")                     
-        navbarState.isMinmized && name.concat("minimized")
-        navbarState.isLight && name.concat("light")
-        return name
-    }
     /*        
         <nav 
             id="navbar" 
@@ -58,9 +45,8 @@ export default function Navbar({screenSize}) {
         position: null,
         direction: ""
     })
-    // track users scrolling and adjust navbar DESKTOP SCRENNS ONLY
+    // track users scrolling
     React.useEffect(() => {
-        //screenSize === "desktop" &&
         const handleScroll = () => setScrollState(prevState => ({
             position: window.scrollY,
             direction: prevState.position === null ? "down" : 
@@ -68,7 +54,6 @@ export default function Navbar({screenSize}) {
         }))
         document.addEventListener('scroll', handleScroll);
         return () => document.removeEventListener('scroll', handleScroll);
-
     }, [])
 
     const [navbarState, setNavbarState] = React.useState({
@@ -80,29 +65,34 @@ export default function Navbar({screenSize}) {
     })
     // set "HOME" position DESKTOP SCRENNS ONLY
     React.useEffect(() => {
-        if (scrollState.position === null || window.scrollY === 0) {
-            setNavbarState(prevState => ({
-                ...prevState,
-                isHome: true,
-                isMinmized: false,
-                isLight: false
-            }))
+        if (screenSize === "desktop") {
+            if (scrollState.position === null || window.scrollY === 0) {
+                setNavbarState(prevState => ({
+                    ...prevState,
+                    isHome: true,
+                    isMinmized: false,
+                    isLight: false
+                }))
+            }
         }
+
     }, [scrollState.position])
     React.useEffect(() => {
-        if (scrollState.direction === "down") {
-            setNavbarState({
-                isHome: false,
-                isMinmized: true,
-                isLight: true
-            })
-        }
-        else if (scrollState.direction === "up") {
-            setNavbarState({
-                isHome: false,
-                isMinmized: false,
-                isLight: true
-            })
+        if (screenSize === "desktop") {
+            if (scrollState.direction === "down") {
+                setNavbarState({
+                    isHome: false,
+                    isMinmized: true,
+                    isLight: true
+                })
+            }
+            else if (scrollState.direction === "up") {
+                setNavbarState({
+                    isHome: false,
+                    isMinmized: false,
+                    isLight: true
+                })
+            }
         }
     }, [scrollState.direction])
 
@@ -117,9 +107,11 @@ export default function Navbar({screenSize}) {
         if (navbarState.isLight) [
             name += " light"
         ]
+        if (hamburgerState.isExpanded) {
+            name += " hamburg_opened"
+        }
         return name
     }
-    console.log(navbarClassName())
     function openNavbarTab(event) {
         const tabID = event.target.id
         setNavbarState(prevState => ({
@@ -158,7 +150,7 @@ export default function Navbar({screenSize}) {
 
 
     return (
-        <div className="navbar__container">
+        <div className="header">
             <nav 
                 className={navbarClassName()}  
                 onClick={handleMaximize}
@@ -200,7 +192,12 @@ export default function Navbar({screenSize}) {
                 </div>
             </nav>
             {
-         
+                hamburgerState.isExpanded &&
+                <Hamburger 
+                    screenSize={screenSize}
+                    navbarState={navbarState}
+                    openNavbarTab={openNavbarTab}    
+                />
             }
         </div>
     )
@@ -248,8 +245,23 @@ function NavbarRightSideItem({item, openNavbarTab}) {
 
 
 
-function Hamburger() {
+function Hamburger({screenSize, navbarState, openNavbarTab}) {
 
+    return (
+        <div className="hamburger__menu">
+                   {
+                        navbarJSON.data.left.map(item => {
+                            return <NavbarLeftSideItem 
+                                        key={item.id}
+                                        item={item}
+                                        screenSize={screenSize}
+                                        navbarState={navbarState}
+                                        openNavbarTab={openNavbarTab}
+                            />
+                        })
+                   }
+        </div>
+    )
 }
 
 

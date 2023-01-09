@@ -2,15 +2,28 @@
 
 @use "./variables" as *;
 
+
+.header {
+    position: relative;
+}
+
 .navbar {
     width: 100%;
-    height: 3rem;
+    --mavbar-heigth: 4rem;
+    height: var(--mavbar-heigth);
+    margin-bottom: calc(0rem - var(--mavbar-heigth));
     @include flex(row, center, space-between);
-    padding: 1rem 1.5rem .5rem 1.5rem;
+
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 40%, rgba(0,0,0,0.01) 100%);
 
     color: $text-white;
     font-weight: 600;
-    z-index: 999;
+    z-index: 99;
+
+    position: absolute;
+    top: 0;
+    left: 0;
 
     &>*{
         @include flex(row, center, center);
@@ -19,12 +32,13 @@
 
     &.desktop {
         position: fixed;
-        top: 0;
+        top: 0;    
+        height: 6rem;
+        padding: 0 3rem;
     }
     &.light {
         background: white;
         color: black;
-    
         .navbar__left {
             :hover {
                 color: $project-blue;
@@ -63,10 +77,62 @@
             }
         }
     }
+    &.hamburg_opened {
+        background: white;
+        color: black;
+        border: .05rem solid $project-black;
+
+        .navbar__right__side {
+            gap: 2rem;
+            height: 100%;
+            margin-right: 1rem;
+            :hover {
+                color: $project-blue;
+            }
+            .hamburger {
+                border-left: .05rem solid $project-black;
+                height: 100%;
+                aspect-ratio: 1 / 1.3;
+                @include flex(row, center, center);
+                i {
+                    font-size: 1.5rem;
+                    
+                }
+            }
+        }
+    }
 }
 
-.navbar__left__side {
+.hamburger__menu {
 
+    width: 100%;
+    @include flex(column, center, center);
+    gap: 1.5rem;
+    background-color: #fff;
+    padding: 6rem 0;
+
+    position: absolute;
+    top: var(--mavbar-heigth);
+    left: 0;
+
+
+    .hamburger__item {
+        width: 75%;
+        @include flex(row, center, space-between);
+
+        font-size: 1.3rem;
+        font-weight: 500;
+
+        cursor: pointer;
+        &:hover {
+            color: $project-blue;
+        }
+    }
+}
+
+
+.navbar__left__side {
+    margin-left: 1.5rem;
     .navbar__logo {
         width: 2rem;
         aspect-ratio: 1 / 1;
@@ -81,6 +147,7 @@
 }
 
 .navbar__right__side {
+    margin-right: 2rem;
     font-size: .8rem;
 
     .humbuger__icon {
