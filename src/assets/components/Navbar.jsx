@@ -1,8 +1,9 @@
 import React from "react";
+import { useState, useEffect } from "react";
 
 
 
-import navbarJSON from "./Navbar/navbar.json"
+import navbarJSON from "./Navbar/navbar.json" 
 import NavbarModels from "./Navbar/NavbarModels";
 
 
@@ -20,7 +21,46 @@ function priorFunctionality() {
     })
 
     // general template of this effect is from 3rd party
+
+
+
+
+
+
+
+    function navbarClassName() {
+        let name = "navbar"
+        screenSize === "desktop" && name.concat("desktop")                     
+        navbarState.isMinmized && name.concat("minimized")
+        navbarState.isLight && name.concat("light")
+        return name
+    }
+    /*        
+        <nav 
+            id="navbar" 
+            className={navbarState.isHome ? "navbar" : navbarState.isMinmized ? "navbar light minimized" : "navbar light"} 
+            onClick={handleMaximize}
+            onMouseLeave={handleMinimize}
+        >
+    */
+}
+
+
+function resizeNavbar() {
+
+}
+
+
+
+export default function Navbar({screenSize}) {
+
+    const [scrollState, setScrollState] = React.useState({
+        position: null,
+        direction: ""
+    })
+    // track users scrolling and adjust navbar DESKTOP SCRENNS ONLY
     React.useEffect(() => {
+        //screenSize === "desktop" &&
         const handleScroll = () => setScrollState(prevState => ({
             position: window.scrollY,
             direction: prevState.position === null ? "down" : 
@@ -31,16 +71,23 @@ function priorFunctionality() {
 
     }, [])
 
-    // set "HOME" position
+    const [navbarState, setNavbarState] = React.useState({
+        className: "navbar",
+        openedTabName: null,
+        isHome: true,
+        isMinmized: false,
+        isLight: false
+    })
+    // set "HOME" position DESKTOP SCRENNS ONLY
     React.useEffect(() => {
         if (scrollState.position === null || window.scrollY === 0) {
-            setNavbarState({
+            setNavbarState(prevState => ({
+                ...prevState,
                 isHome: true,
                 isMinmized: false,
                 isLight: false
-            })
+            }))
         }
- 
     }, [scrollState.position])
     React.useEffect(() => {
         if (scrollState.direction === "down") {
@@ -59,16 +106,37 @@ function priorFunctionality() {
         }
     }, [scrollState.direction])
 
-    // expand onClick
+    function navbarClassName() {
+        let name = "navbar"
+        if (screenSize === "desktop") {
+            name += " desktop"
+        }
+        if (navbarState.isMinmized) {
+            name += " minimized"
+        }
+        if (navbarState.isLight) [
+            name += " light"
+        ]
+        return name
+    }
+    console.log(navbarClassName())
+    function openNavbarTab(event) {
+        const tabID = event.target.id
+        setNavbarState(prevState => ({
+            ...prevState,
+            openedTabName: prevState.openedTabName === tabID ? null : tabID
+        }))
+    }
+    // expand navbar onClick DESKTOP SCRENNS ONLY
     function handleMaximize() {
         setNavbarState(prevState => ({
             ...prevState,
             isMinmized: false
         }))
     }
-    // collapsee on off hover
+    // collapsee on off hover DESKTOP SCRENNS ONLY
     function handleMinimize() {
-        !navbarState.isHome &&
+        navbarState.isHome === false &&
         setNavbarState(prevState => ({
             ...prevState,
             isMinmized: true
@@ -76,66 +144,116 @@ function priorFunctionality() {
     }
 
 
-    /*        
-        <nav 
-            id="navbar" 
-            className={navbarState.isHome ? "navbar" : navbarState.isMinmized ? "navbar light minimized" : "navbar light"} 
-            onClick={handleMaximize}
-            onMouseLeave={handleMinimize}
-        >
-    */
-}
 
-
-export default function Navbar({screenSize}) {
-    
-    
-
-
-
-    function navbarClassName() {
-        let name = "navbar"
-        screenSize === "desktop" && name.concat("desktop")                     
-
-        return name
+    const [hamburgerState, setHamburgerState] = useState({
+        isExpanded: false
+    })
+    function expandHamburger() {
+        setHamburgerState(prevState => ({
+            ...prevState,
+            isExpanded: !prevState.isExpanded
+        }))
     }
-    function renderRightSideItems() {
-        function generateDOM(arr) {
-            return (
-                [arr].map(item => {
-                    return(
-                        <div className="navbar__item">
-                            <i className={item.className}/>
-                            {item.name !== "" && <p>{item.name}</p>}
-                        </div>
-                    )
-                })
-            )
-        }
 
-        if (screenSize !== "desktop") {
-            return (
-                <div className="navbar__right__side">
-                    {generateDOM(navbarJSON.data.right[0])}
-                    <i class="humbuger__menu fa-sharp fa-solid fa-bars" />
-                </div>
-            )
-        }
 
-    }
 
     return (
-        <nav className={navbarClassName()}  >   
-            <div className="navbar__left__side">
-                <div className="navbar__logo"/>
-                {
-
-                }
-            </div>
-            {renderRightSideItems()}
-        </nav>
+        <div className="navbar__container">
+            <nav 
+                className={navbarClassName()}  
+                onClick={handleMaximize}
+                onMouseLeave={handleMinimize}
+                >
+               <div className="navbar__left__side">
+                   <div className="navbar__logo"/>
+                   {
+                        screenSize === "desktop" &&
+                            navbarJSON.data.left.map(item => {
+                                return <NavbarLeftSideItem 
+                                            key={item.id}
+                                            item={item}
+                                            screenSize={screenSize}
+                                            navbarState={navbarState}
+                                            openNavbarTab={openNavbarTab}
+                                />
+                            })
+                   }
+               </div>
+               <div className="navbar__right__side">
+                    {
+                        screenSize === "desktop" ?
+                            navbarJSON.data.right.map(item => <NavbarRightSideItem key={item.id} item={item} openNavbarTab={openNavbarTab}/>) :
+                            hamburgerState.isExpanded ?
+                                <NavbarRightSideItem item={navbarJSON.data.right[1]} openNavbarTab={openNavbarTab}/> :
+                                <NavbarRightSideItem item={navbarJSON.data.right[0]} openNavbarTab={openNavbarTab}/>
+                    }
+                    {
+                        screenSize !== "desktop" && 
+                        <div className="hamburger" onClick={expandHamburger}>
+                            <i className={
+                                hamburgerState.isExpanded ? 
+                                    "humbuger__icon fa-sharp fa-solid fa-xmark" : 
+                                    "humbuger__icon fa-sharp fa-solid fa-bars"
+                            }/>
+                        </div>
+                    }
+                </div>
+            </nav>
+            {
+         
+            }
+        </div>
     )
 }
+
+
+
+
+
+function NavbarLeftSideItem({item, screenSize, navbarState, openNavbarTab}) {
+    function handleChevron() {
+        let chevron = "fa-sharp fa-solid fa-chevron-"
+        if (screenSize === "desktop") {
+            navbarState.openedTabName === item.id ?
+            chevron += "up" : chevron +="down"
+        }
+        else {
+            navbarState.openedTabName === item.id ?
+            chevron += "left" : chevron +="right"
+        }
+        return chevron
+    }
+    return (
+        <div 
+            id={item.id} 
+            className={screenSize === "desktop" ? "navbar__item" : "hamburger__item"} 
+            onClick={openNavbarTab}>
+                <p className="navbar__text">{item.title}</p>
+                {
+                    item.hasIcon &&
+                    <i className={handleChevron()}/>
+                }
+        </div>
+    )
+}
+
+function NavbarRightSideItem({item, openNavbarTab}) {
+    return (
+        <div id={item.id} className="navbar__item" onClick={openNavbarTab}>
+            <i className={item.className}/>
+            {item.name !== "" && <p className="navbar__text">{item.name}</p>}
+        </div>
+    )
+}
+
+
+
+function Hamburger() {
+
+}
+
+
+
 
 
 

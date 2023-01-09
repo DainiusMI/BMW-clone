@@ -2,43 +2,51 @@
     "data": {
         "left": [
             {
-                "name": "Models",
+                "id": "models",
+                "title": "Models",
                 "hasIcon": false,
                 "isOpened": false
             },
             {
-                "name": "Build Your Own",
+                "id": "build_your_own",
+                "title": "Build Your Own",
                 "hasIcon": false,
                 "isOpened": false
             },
             {
-                "name": "Shopping",
+                "id": "shopping",
+                "title": "Shopping",
                 "hasIcon": true,
                 "isOpened": false
             },
-            {
-                "name": "BMW Certified",
+            {   
+                "id": "bmw_certified",
+                "title": "BMW Certified",
                 "hasIcon": false,
                 "isOpened": false
             },
             {
-                "name": "Owners",
+                "id": "owners",
+                "title": "Owners",
                 "hasIcon": true,
                 "isOpened": false
             }
         ],
         "right": [
             {
+                "id": "local_center",
                 "name": "Choose your local BMW center",
                 "hasIcon": true,
                 "className": "fa-sharp fa-solid fa-location-dot"
             },
-            {
+            {   
+                "id": "my_bmw",
                 "name": "My BMW",
                 "hasIcon": true,
                 "className": "fa-solid fa-user"
             },
             {
+                "id": "search",
                 "name": "",
                 "hasIcon": true,
                 "className": "fa-solid fa-magnifying-glass"

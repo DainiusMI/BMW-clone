@@ -151,9 +151,10 @@ export default function App() {
         setScreenSize("desktop") 
   }
   useEffect(() => {
+    handleScreenSize()
     window.addEventListener("resize", handleScreenSize)
   }, [])
-
+  
   return (
     <main>
       <Navbar screenSize={screenSize}/>
