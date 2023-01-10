@@ -108,8 +108,6 @@ export default function Navbar({screenSize}) {
         }))
     }
 
-
-
     const [hamburgerState, setHamburgerState] = useState({
         isExpanded: false
     })

@@ -151,6 +151,9 @@
   font-size: 1.3rem;
   font-weight: 500;
 }
+.hamburger__menu .hamburger__item > * {
+  pointer-events: none;
+}
 
 .navbar__item {
   display: flex;

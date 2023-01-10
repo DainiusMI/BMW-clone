@@ -1,20 +1,8 @@
 import React, {useState, useEffect} from "react"
 import NavbarLeftSideItem from "./NavbarLeftSideItem"
+import navbarJSON from "./navbar.json"
 
-
-export default function Hamburger({screenSize, navbarState, setNavbarState, openNavbarTab, navbarJSON}) {
-    function goBack() {
-        setNavbarState(prevState => ({
-            ...prevState,
-            openedTabName: null
-        }))
-    }
-    function switchTabs(arg) {
-        switch(arg) {
-            case "models": return <ModelsTab goBack={goBack}/>
-    
-        }
-    }
+export default function Hamburger({screenSize, navbarState, setNavbarState, openNavbarTab}) {
     return (
         <div className="hamburger__menu">
             {
