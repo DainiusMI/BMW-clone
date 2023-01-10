@@ -3,13 +3,19 @@
 @use "./variables" as *;
 
 
+:root {
+    --mavbar-heigth: 4rem;
+}
+
 .header {
+    width: 100%;
+    
     position: relative;
 }
 
 .navbar {
     width: 100%;
-    --mavbar-heigth: 4rem;
+
     height: var(--mavbar-heigth);
     margin-bottom: calc(0rem - var(--mavbar-heigth));
     @include flex(row, center, space-between);
@@ -103,33 +109,6 @@
     }
 }
 
-.hamburger__menu {
-
-    width: 100%;
-    @include flex(column, center, center);
-    gap: 1.5rem;
-    background-color: #fff;
-    padding: 6rem 0;
-
-    position: absolute;
-    top: var(--mavbar-heigth);
-    left: 0;
-
-
-    .hamburger__item {
-        width: 75%;
-        @include flex(row, center, space-between);
-
-        font-size: 1.3rem;
-        font-weight: 500;
-
-        cursor: pointer;
-        &:hover {
-            color: $project-blue;
-        }
-    }
-}
-
 
 .navbar__left__side {
     margin-left: 1.5rem;
@@ -156,6 +135,38 @@
     }
 }
 
+
+
+
+.hamburger__menu {
+
+    width: 100%;
+    @include flex(column, center, center);
+    gap: 1.5rem;
+    background-color: #fff;
+    padding: 6rem 0;
+
+    position: absolute;
+    top: var(--mavbar-heigth);
+    left: 0;
+
+    &>* {
+        cursor: pointer;
+        &:hover {
+            color: $project-blue;
+        }
+    }
+    .hamburger__item {
+        width: 75%;
+        @include flex(row, center, space-between);
+
+        font-size: 1.3rem;
+        font-weight: 500;
+    }
+}
+
+
+
 .navbar__item {
     @include flex(row, center, center);
     gap: .5rem;
@@ -166,6 +177,54 @@
     }
 }
 
+.navbar__tab {
+    @include flex(column, center, flex-start);
+    width: 100%;
+    background-color: $background-silver;
+
+
+    position: absolute;
+    top: var(--mavbar-heigth);
+    left: 0;
+
+    .navigate__back {
+        position: relative;
+        width: 100%;
+        height: 4rem;
+        cursor: pointer;
+        &:hover {
+            color: $project-blue;
+        }
+        i {
+            font-size: 1.3rem;
+
+            position: absolute;
+            top:50%;
+            left: 7%;
+            transform: translate(-50%, -50%);
+        }
+        .tab__name {
+            font-weight: 500;
+            position: absolute;
+            top:50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+}
+
+.models__tab {
+
+    .model__tab__card {
+        @include flex(row, center, center);
+        width: 100%;
+    }
+    &>:not(:first-child) {
+        border-top: .05rem solid $project-black;
+    }
+
+}
 /*
 .navbar {
     width: 100%;

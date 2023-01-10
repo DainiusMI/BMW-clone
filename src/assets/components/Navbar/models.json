@@ -2,7 +2,7 @@
     "id": "models",
     "title": "Models",
     "data": {
-        "category_row": [
+        "models_categories": [
             {   
                 "id": "all",
                 "title": "All Models",
@@ -95,7 +95,7 @@
                 "category_tag": "m_series"
             }
         ],
-        "all_models": [
+        "models_list": [
             {
                 "id": "models-item-1",
                 "name": "X1",

@@ -1,41 +1,9 @@
-import React from "react";
-import { useState, useEffect } from "react";
-
+import React, { useState, useEffect } from "react";
 
 
 import navbarJSON from "./Navbar/navbar.json" 
-import NavbarModels from "./Navbar/NavbarModels";
+import modelsJSON from "./Navbar/models.json"
 
-
-
-function priorFunctionality() {
-    const [navbarState, setNavbarState] = React.useState({
-        isHome: true,
-        isMinmized: false,
-        isLight: false
-    })
-
-    const [scrollState, setScrollState] = React.useState({
-        position: null,
-        direction: ""
-    })
-
-    // general template of this effect is from 3rd party
-
-    /*        
-        <nav 
-            id="navbar" 
-            className={navbarState.isHome ? "navbar" : navbarState.isMinmized ? "navbar light minimized" : "navbar light"} 
-            onClick={handleMaximize}
-            onMouseLeave={handleMinimize}
-        >
-    */
-}
-
-
-function resizeNavbar() {
-
-}
 
 
 
@@ -64,7 +32,7 @@ export default function Navbar({screenSize}) {
         isLight: false
     })
     // set "HOME" position DESKTOP SCRENNS ONLY
-    React.useEffect(() => {
+    useEffect(() => {
         if (screenSize === "desktop") {
             if (scrollState.position === null || window.scrollY === 0) {
                 setNavbarState(prevState => ({
@@ -77,7 +45,7 @@ export default function Navbar({screenSize}) {
         }
 
     }, [scrollState.position])
-    React.useEffect(() => {
+    useEffect(() => {
         if (screenSize === "desktop") {
             if (scrollState.direction === "down") {
                 setNavbarState({
@@ -148,6 +116,13 @@ export default function Navbar({screenSize}) {
     }
 
 
+    function goBack() {
+        setNavbarState(prevState => ({
+            ...prevState,
+            openedTabName: null
+        }))
+    }
+
 
     return (
         <div className="header">
@@ -192,12 +167,18 @@ export default function Navbar({screenSize}) {
                 </div>
             </nav>
             {
-                hamburgerState.isExpanded &&
-                <Hamburger 
-                    screenSize={screenSize}
-                    navbarState={navbarState}
-                    openNavbarTab={openNavbarTab}    
-                />
+                navbarState.openedTabName === null ?
+                    hamburgerState.isExpanded  &&
+                    <Hamburger 
+                        screenSize={screenSize}
+                        navbarState={navbarState}
+                        setNavbarState={setNavbarState}
+                        openNavbarTab={openNavbarTab}    
+                    />
+                    : null
+            }
+            {
+                navbarState.openedTabName === "models" && <ModelsTab goBack={goBack} hamburgerState={hamburgerState}/>
             }
         </div>
     )
@@ -224,7 +205,8 @@ function NavbarLeftSideItem({item, screenSize, navbarState, openNavbarTab}) {
         <div 
             id={item.id} 
             className={screenSize === "desktop" ? "navbar__item" : "hamburger__item"} 
-            onClick={openNavbarTab}>
+            onClick={openNavbarTab}
+            >
                 <p className="navbar__text">{item.title}</p>
                 {
                     item.hasIcon &&
@@ -245,65 +227,67 @@ function NavbarRightSideItem({item, openNavbarTab}) {
 
 
 
-function Hamburger({screenSize, navbarState, openNavbarTab}) {
 
-    return (
-        <div className="hamburger__menu">
-                   {
-                        navbarJSON.data.left.map(item => {
-                            return <NavbarLeftSideItem 
-                                        key={item.id}
-                                        item={item}
-                                        screenSize={screenSize}
-                                        navbarState={navbarState}
-                                        openNavbarTab={openNavbarTab}
-                            />
-                        })
-                   }
-        </div>
-    )
-}
-
-
-
-
-
-
-/*
-
-
-function NavbarLeftItems(props, {screenSize}) {
-    const {item} = props
-
-    const [itemState, setItemState] = React.useState(item)
-
-    function henadleOpen() {
-        setItemState(prevState => ({
+function Hamburger({screenSize, navbarState, setNavbarState, openNavbarTab}) {
+    function goBack() {
+        setNavbarState(prevState => ({
             ...prevState,
-            isOpened: prevState.hasIcon && !prevState.isOpened
+            openedTabName: null
         }))
     }
+    function switchTabs(arg) {
+        switch(arg) {
+            case "models": return <ModelsTab goBack={goBack}/>
+    
+        }
+    }
     return (
+        <div className="hamburger__menu">
+            {
+                navbarState.openedTabName === null &&
+                navbarJSON.data.left.map(item => {
+                    return <NavbarLeftSideItem 
+                                key={item.id}
+                                item={item}
+                                screenSize={screenSize}
+                                navbarState={navbarState}
+                                openNavbarTab={openNavbarTab}
+                    />
+                })
+                //: switchTabs(navbarState.openedTabName)
+            }
 
-
-
-    )
-}
-
-
-
-
-
-function NavRightItem(props) {
-    const {name, className} = props.item
-    return (
-        <div className={name !== "" ? "right__item" : "navbar__search"}>
-            <i className={className} />
-            {name !== "" && <p className="right__text">{name}</p>}
         </div>
     )
 }
 
 
+function ModelsTab({goBack, hamburgerState}) {
+    const [category, setCategory] = useState("all_models")
+    function filterModels() {
+        return modelsJSON.data.models_list.filter(model => model.category.includes(category))
+    }
+    console.log(filterModels())
+    return (
+        <div className="models__tab navbar__tab">
+            <div className="navigate__back" onClick={goBack}>
+                <i className="fa-sharp fa-solid fa-chevron-left"/>
+                <p className="tab__name">{modelsJSON.title}</p>
+            </div>
+            {
+                filterModels().map(model => {
+                    return (
+                        <div
+                            key={model.id} 
+                            className="model__tab__card">
+                                <p className="model__name">{model.name}</p>
+                        </div>
+                    )
+                })
 
-*/
+            }
+        </div>
+    )
+}
+
+
