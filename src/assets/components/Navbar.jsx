@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from "react";
 
+import NavbarLeftSideItem from "./Navbar/NavbarLeftSideItem";
+import NavbarRightSideItem from "./Navbar/NavbarRightSideItem";
+import Hamburger from "./Navbar/Hamburger";
+
+import ModelsTab from "./Navbar/ModelsTab";
 
 import navbarJSON from "./Navbar/navbar.json" 
-import modelsJSON from "./Navbar/models.json"
+
 
 
 
@@ -173,7 +178,9 @@ export default function Navbar({screenSize}) {
                         screenSize={screenSize}
                         navbarState={navbarState}
                         setNavbarState={setNavbarState}
-                        openNavbarTab={openNavbarTab}    
+                        openNavbarTab={openNavbarTab}
+                        
+                        navbarJSON={navbarJSON}
                     />
                     : null
             }
@@ -184,113 +191,5 @@ export default function Navbar({screenSize}) {
     )
 }
 
-
-
-
-
-function NavbarLeftSideItem({item, screenSize, navbarState, openNavbarTab}) {
-    function handleChevron() {
-        let chevron = "fa-sharp fa-solid fa-chevron-"
-        if (screenSize === "desktop") {
-            navbarState.openedTabName === item.id ?
-            chevron += "up" : chevron +="down"
-        }
-        else {
-            navbarState.openedTabName === item.id ?
-            chevron += "left" : chevron +="right"
-        }
-        return chevron
-    }
-    return (
-        <div 
-            id={item.id} 
-            className={screenSize === "desktop" ? "navbar__item" : "hamburger__item"} 
-            onClick={openNavbarTab}
-            >
-                <p className="navbar__text">{item.title}</p>
-                {
-                    item.hasIcon &&
-                    <i className={handleChevron()}/>
-                }
-        </div>
-    )
-}
-
-function NavbarRightSideItem({item, openNavbarTab}) {
-    return (
-        <div id={item.id} className="navbar__item" onClick={openNavbarTab}>
-            <i className={item.className}/>
-            {item.name !== "" && <p className="navbar__text">{item.name}</p>}
-        </div>
-    )
-}
-
-
-
-
-function Hamburger({screenSize, navbarState, setNavbarState, openNavbarTab}) {
-    function goBack() {
-        setNavbarState(prevState => ({
-            ...prevState,
-            openedTabName: null
-        }))
-    }
-    function switchTabs(arg) {
-        switch(arg) {
-            case "models": return <ModelsTab goBack={goBack}/>
-    
-        }
-    }
-    return (
-        <div className="hamburger__menu">
-            {
-                navbarState.openedTabName === null &&
-                navbarJSON.data.left.map(item => {
-                    return <NavbarLeftSideItem 
-                                key={item.id}
-                                item={item}
-                                screenSize={screenSize}
-                                navbarState={navbarState}
-                                openNavbarTab={openNavbarTab}
-                    />
-                })
-                //: switchTabs(navbarState.openedTabName)
-            }
-
-        </div>
-    )
-}
-
-
-function ModelsTab({goBack, hamburgerState}) {
-    const [category, setCategory] = useState("all_models")
-    function filterModels() {
-        return modelsJSON.data.models_list.filter(model => model.category.includes(category))
-    }
-    function pathToImage() {
-        
-    }
-    console.log(filterModels())
-    return (
-        <div className="models__tab navbar__tab">
-            <div className="navigate__back" onClick={goBack}>
-                <i className="fa-sharp fa-solid fa-chevron-left"/>
-                <p className="tab__name">{modelsJSON.title}</p>
-            </div>
-            {
-                filterModels().map(model => {
-                    return (
-                        <div
-                            key={model.id} 
-                            className="model__tab__card">
-                                <p className="model__name">{model.name}</p>
-                        </div>
-                    )
-                })
-
-            }
-        </div>
-    )
-}
 
 
