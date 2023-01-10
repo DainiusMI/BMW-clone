@@ -10,7 +10,6 @@ export default function useImage({folderName, fileName}) {
     const filePath = folderName === null ?  
         `../../../../public/${fileName}` : 
         `../../../../public/${folderName}/${fileName}`
-        console.log(filePath)
     useEffect(() => {
         const fetchImage = async () => {
             try {
@@ -22,7 +21,6 @@ export default function useImage({folderName, fileName}) {
                 setLoading(false)
             }
         }
-
         fetchImage()
     }, [])
 

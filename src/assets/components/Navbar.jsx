@@ -53,18 +53,20 @@ export default function Navbar({screenSize}) {
     useEffect(() => {
         if (screenSize === "desktop") {
             if (scrollState.direction === "down") {
-                setNavbarState({
+                setNavbarState(prevState => ({
+                    ...prevState,
                     isHome: false,
                     isMinmized: true,
                     isLight: true
-                })
+                }))
             }
             else if (scrollState.direction === "up") {
-                setNavbarState({
+                setNavbarState(prevState => ({
+                    ...prevState,
                     isHome: false,
                     isMinmized: false,
                     isLight: true
-                })
+                }))
             }
         }
     }, [scrollState.direction])
@@ -101,11 +103,13 @@ export default function Navbar({screenSize}) {
     }
     // collapsee on off hover DESKTOP SCRENNS ONLY
     function handleMinimize() {
-        navbarState.isHome === false &&
-        setNavbarState(prevState => ({
-            ...prevState,
-            isMinmized: true
-        }))
+        navbarState.isHome !== false ?
+            null :
+            navbarState.openedTabName &&
+                setNavbarState(prevState => ({
+                    ...prevState,
+                    isMinmized: true
+                }))
     }
 
     const [hamburgerState, setHamburgerState] = useState({

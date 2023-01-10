@@ -207,7 +207,7 @@
             transform: translate(-50%, -50%);
         }
         .tab__name {
-            font-weight: 500;
+            color: $project-grey;
             position: absolute;
             top:50%;
             left: 50%;
@@ -218,13 +218,29 @@
 }
 
 .models__tab {
-
-    .model__tab__card {
-        @include flex(row, center, center);
+    .categories__row {
+        @include flex(row, center, space-around);
         width: 100%;
     }
+    .model__tab__card {
+        @include flex(row, center, flex-start);
+        gap: 5%;
+        width: 100%;
+        padding: 1.5rem;
+
+        cursor: pointer;
+        img {
+            width: 65%;
+        }
+        .model__name {
+            font-size: 1.7rem;
+            font-weight: 600;
+            width: 10ch;
+            text-align: center;
+        }
+    }
     &>:not(:first-child) {
-        border-top: .05rem solid $project-black;
+        border-top: .05rem solid $text-white;
     }
 
 }

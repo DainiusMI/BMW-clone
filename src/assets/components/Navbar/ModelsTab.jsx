@@ -7,12 +7,13 @@ import modelsJSON from "./models.json"
 
 export default function ModelsTab({goBack, hamburgerState}) {
 
-    const [category, setCategory] = useState({
-        all: [],
-        selected: "all_models"
-    })
-    function filterModels() {
-        return modelsJSON.data.models_list.filter(model => model.category.includes(category.selected))
+    const [category, setCategory] = useState("all_models")
+    function filteredModels() {
+        return modelsJSON.data.models_list.filter(model => model.category.includes(category))
+    }
+    function changeCategory(event) {
+        const categoryTAG = event.target.dataset.category
+        setCategory(categoryTAG)
     }
     return (
         <div className="models__tab navbar__tab">
@@ -20,14 +21,25 @@ export default function ModelsTab({goBack, hamburgerState}) {
                 <i className="fa-sharp fa-solid fa-chevron-left"/>
                 <p className="tab__name">{modelsJSON.title}</p>
             </div>
+            <div className="categories__row">
+                {
+                     modelsJSON.data.models_categories.map(category => {
+                        return <p   
+                                    key={category.id}
+                                    data-category={category.category_tag}
+                                    onClick={changeCategory}
+                                >{category.title}</p>
+                     })
+                }
+            </div>
             {
-                filterModels().map(model => {
+                filteredModels().map(model => {
                     return (
                         <div
                             key={model.id} 
                             className="model__tab__card">
+                                <ModelImage category={category} imageName={model.imageName}/>
                                 <p className="model__name">{model.name}</p>
-                                <ModelImage imageName={model.imageName}/>
                         </div>
                     )
                 })
