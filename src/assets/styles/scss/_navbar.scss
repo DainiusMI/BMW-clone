@@ -227,10 +227,19 @@
         gap: 5%;
         width: 100%;
         padding: 1.5rem;
-
+        
         cursor: pointer;
         img {
             width: 65%;
+        }
+        .model__image {
+            --bg-image: "";
+            
+            width: 65%;
+            background-image: var(--bg-image);
+            aspect-ratio: 1 / 0.4283;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
         .model__name {
             font-size: 1.7rem;

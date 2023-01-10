@@ -222,6 +222,14 @@
 .models__tab .model__tab__card img {
   width: 65%;
 }
+.models__tab .model__tab__card .model__image {
+  --bg-image: "";
+  width: 65%;
+  background-image: var(--bg-image);
+  aspect-ratio: 1/0.4283;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .models__tab .model__tab__card .model__name {
   font-size: 1.7rem;
   font-weight: 600;
