@@ -267,6 +267,9 @@ function ModelsTab({goBack, hamburgerState}) {
     function filterModels() {
         return modelsJSON.data.models_list.filter(model => model.category.includes(category))
     }
+    function pathToImage() {
+        
+    }
     console.log(filterModels())
     return (
         <div className="models__tab navbar__tab">
