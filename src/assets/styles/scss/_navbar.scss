@@ -207,7 +207,7 @@
             transform: translate(-50%, -50%);
         }
         .tab__name {
-            color: $project-grey;
+
             position: absolute;
             top:50%;
             left: 50%;
@@ -218,6 +218,10 @@
 }
 
 .models__tab {
+
+    &>:not(:first-child) {
+        border-top: .05rem solid $text-white;
+    }
     .categories__row {
         @include flex(row, center, space-around);
         width: 100%;
@@ -229,12 +233,9 @@
         padding: 1.5rem;
         
         cursor: pointer;
-        img {
-            width: 65%;
-        }
+
         .model__image {
-            --bg-image: "";
-            
+     
             width: 65%;
             background-image: var(--bg-image);
             aspect-ratio: 1 / 0.4283;
@@ -248,10 +249,11 @@
             text-align: center;
         }
     }
-    &>:not(:first-child) {
-        border-top: .05rem solid $text-white;
+    .categories__row {
+        :hover {
+            color: $project-blue;
+        }
     }
-
 }
 /*
 .navbar {

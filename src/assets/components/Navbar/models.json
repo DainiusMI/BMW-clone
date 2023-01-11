@@ -106,7 +106,7 @@
             {
                 "id": "models-item-2",
                 "name": "X3",
-                "category": ["all_models", "sav", "coupe" ],
+                "category": ["all_models", "sav" ],
                 "imageName": "x3.png",
                 "url": ""
             },
@@ -120,7 +120,7 @@
             {
                 "id": "models-item-4",
                 "name": "X5",
-                "category": ["all_models", "sav", "coupe" ],
+                "category": ["all_models", "sav" ],
                 "imageName": "x5.png",
                 "url": ""
             },

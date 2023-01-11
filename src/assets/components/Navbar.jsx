@@ -116,6 +116,10 @@ export default function Navbar({screenSize}) {
         isExpanded: false
     })
     function expandHamburger() {
+        setNavbarState(prevState => ({
+            ...prevState,
+            openedTabName: hamburgerState.isExpanded ? null : prevState.openedTabName
+        }))
         setHamburgerState(prevState => ({
             ...prevState,
             isExpanded: !prevState.isExpanded

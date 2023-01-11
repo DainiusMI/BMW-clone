@@ -40,10 +40,9 @@ export default function ModelsTab({goBack, hamburgerState}) {
                             className="model__tab__card">
                                 <div 
                                     className="model__image" 
-                                    style={{"--bg-image": `url("../../../../public/Models/${model.imageName}")`}}
-                                    data-image={`../../../../public/Models/${model.imageName}`}
+                                    style={{"--bg-image": `url("../Models/${model.imageName}")`}}
+                                    //data-image={`../../../../public/Models/${model.imageName}`}
                                 />
-                                <ModelImage category={category} imageName={model.imageName}/>
                                 <p className="model__name">{model.name}</p>
                         </div>
                     )
@@ -53,6 +52,7 @@ export default function ModelsTab({goBack, hamburgerState}) {
     )
 }
 
+//<ModelImage category={category} imageName={model.imageName}/>
 
 function ModelImage({imageName}) {
     const { loading, error, image } = useImage({folderName:"Models", fileName: imageName})
