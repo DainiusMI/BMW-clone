@@ -191,7 +191,7 @@ export default function Navbar({screenSize}) {
                     : null
             }
             {
-                navbarState.openedTabName === "models" && <ModelsTab goBack={goBack} hamburgerState={hamburgerState}/>
+                navbarState.openedTabName === "models" && <ModelsTab screenSize={screenSize} goBack={goBack} hamburgerState={hamburgerState}/>
             }
         </div>
     )

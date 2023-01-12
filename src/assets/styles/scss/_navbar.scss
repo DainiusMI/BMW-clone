@@ -9,7 +9,6 @@
 
 .header {
     width: 100%;
-    
     position: relative;
 }
 
@@ -25,7 +24,7 @@
 
     color: $text-white;
     font-weight: 600;
-    z-index: 99;
+    z-index: 2;
 
     position: absolute;
     top: 0;
@@ -102,7 +101,6 @@
                 @include flex(row, center, center);
                 i {
                     font-size: 1.5rem;
-                    
                 }
             }
         }
@@ -181,80 +179,132 @@
 }
 
 .navbar__tab {
-    @include flex(column, center, flex-start);
-    width: 100%;
-    background-color: $background-silver;
 
-
-    position: absolute;
-    top: var(--mavbar-heigth);
-    left: 0;
-
-    .navigate__back {
-        position: relative;
-        width: 100%;
-        height: 4rem;
-        cursor: pointer;
-        &:hover {
-            color: $project-blue;
-        }
-        i {
-            font-size: 1.3rem;
-
-            position: absolute;
-            top:50%;
-            left: 7%;
-            transform: translate(-50%, -50%);
-        }
-        .tab__name {
-
-            position: absolute;
-            top:50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-    }
 
 }
 
 .models__tab {
 
-    &>:not(:first-child) {
-        border-top: .05rem solid $text-white;
-    }
-    .categories__row {
-        @include flex(row, center, space-around);
-        width: 100%;
-    }
-    .model__tab__card {
-        @include flex(row, center, flex-start);
-        gap: 5%;
-        width: 100%;
-        padding: 1.5rem;
-        
-        cursor: pointer;
+    width: 100%;
+    @include flex(column, flex-start, center);
 
-        .model__image {
-     
-            width: 65%;
-            background-image: var(--bg-image);
-            aspect-ratio: 1 / 0.4283;
-            background-repeat: no-repeat;
-            background-size: cover;
+    .navigate__back__row {
+
+    }
+    .category__list__row {
+        width: 100%;
+        @include flex(row, center, space-between);
+
+        font-size: 1.3rem;
+
+        border-bottom: .1rem solid $project-grey;
+        padding-bottom: .8rem;
+
+        .category__list__container {
+            &>* {
+                cursor: pointer;
+                &:hover {
+                    font-weight: 500;
+                }
+            }
         }
-        .model__name {
-            font-size: 1.7rem;
-            font-weight: 600;
-            width: 10ch;
-            text-align: center;
+        .selected__category__row {
+
+        }
+        .blue__button {
+            top: 0;
+            right: 0;
         }
     }
-    .categories__row {
-        :hover {
-            color: $project-blue;
-        }
+    .models__grid__container {
+        display: grid;
     }
+
 }
+
+
+// MOBILE
+@media only screen and (max-width: 720px) {
+}
+// TABLET
+@media only screen and (min-width: 768px) {
+}
+
+// not DESKTOP
+@media only screen and (max-width: 1280px) {
+
+    .models__tab {
+
+        .models__grid__container {
+
+            grid-template-columns: 1fr;
+        }
+    }
+
+}
+
+// DESKTOP
+@media only screen and (min-width: 1280px) {
+
+    .models__tab {
+        background-color: $background-silver;
+        position: absolute;                
+        z-index: 3;
+
+        padding: 10%;
+
+        .navigate__back__row { 
+
+        }
+        .category__list__row {
+
+            .category__list__container {
+                @include flex(row, center, flex-start);
+                gap: 1rem;
+
+                #spacer {
+                    pointer-events: none;
+                }
+                :nth-last-child(-n+3) {
+                    font-weight: 300;
+                }
+                .selected__category {
+                    font-weight: 500;
+                    border-bottom: .2rem solid $project-grey;
+                    padding-bottom: .8rem;
+                    margin-bottom: -.95rem;
+                }
+            }
+        }
+        .selected__category__row {
+            .category__title {
+                font-size: 2.5rem;
+                font-weight: 300;
+            }
+        }
+        .models__grid__container {
+            width: 100%;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 2rem;
+            .model__card {
+                @include flex(column, center, center);
+                .model__image {
+                    --bg-image: "";
+                    background-image: var(--bg-image);
+                    background-repeat: no-repeat;
+                    background-size: 100%;
+                    width: 100%;
+                    aspect-ratio: 1 / 0.4288;
+                }
+            }
+
+        }
+    }
+
+}
+
+
+
 /*
 .navbar {
     width: 100%;

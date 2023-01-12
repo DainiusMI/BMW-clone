@@ -68,6 +68,12 @@
                 },
                 "category_tag": "convertible"
             },
+            {
+                "id": "spacer",
+                "title": "|",
+                "inner": null,
+                "category_tag": null
+            },
             {   
                 "id": "electric",
                 "title": "Electified",
@@ -302,7 +308,7 @@
             {
                 "id": "models-item-30",
                 "name": "XM: Pre-Order Now",
-                "category": ["suv", "m_series"],
+                "category": ["all_models", "suv", "m_series"],
                 "imageName": "xm.png",
                 "url": ""
             },
