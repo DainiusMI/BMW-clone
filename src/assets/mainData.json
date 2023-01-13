@@ -1,0 +1,169 @@
+{
+    "hero": [
+        {
+            "id": 1,
+            "title": "PACK A SURPIZE THIS SEASON",
+            "text": "The BMW Road Home Sales Event offers a credit of up to $3.250 on select BMW models - now through Janury 3rd",
+            "image": {
+                "mobile": "hero-1-mobile.jpg",
+                "tablet": "hero-1-tablet.jpg",
+                "desktop": "hero-1-desktop.jpg"
+            },
+            "buttons": [
+                {
+                    "text": "Offers Details",
+                    "className": "button__blue"
+                },
+                {
+                    "text": "Offers Details",
+                    "className": "button__white"
+                }
+            ],
+            "slogan": [],
+            "isActive": true
+        },
+        {
+            "id": 2,
+            "title": "EMBODY THE MAXIMUM",
+            "text":  "THE FIRST EVER BMW XM",
+            "image": {
+                "mobile": "hero-2-mobile.jpg",
+                "tablet": "hero-2-tablet.jpg",
+                "desktop": "hero-2-desktop.jpg"
+            },
+            "buttons": [
+                {
+                    "text": "Learn More",
+                    "className": "button__blue"
+                },
+                {
+                    "text": "Pre-Order",
+                    "className": "button__white"
+                }
+            ],
+            "slogan": ["The", "Ultimate", "Driving Machine ©"],
+            "isActive": false
+        },
+        {
+            "id": 3,
+            "title": "AS ELECTRIC AS YOU",
+            "text":  "iX shown on left, i4 shown on the right",
+            "image": {
+                "mobile": "hero-3-mobile.jpg",
+                "tablet": "hero-3-tablet.jpg",
+                "desktop": "hero-3-desktop.jpg"
+            },
+            "buttons": [
+                {
+                    "text": "Explore the iX",
+                    "className": "button__blue"
+                },
+                {
+                    "text": "Explore the i4",
+                    "className": "button__white"
+                }
+            ],
+            "slogan": ["The Ultimate", "Electric", "Driving Machine"],
+            "isActive": false
+        },
+        {
+            "id": 4,
+            "title":  "THE M2",
+            "text": "DISCOVER THE 2023 BMW M2 COUPE",
+            "image": {
+                "mobile": "hero-4-mobile.jpg",
+                "tablet": "hero-4-tablet.jpg",
+                "desktop": "hero-4-desktop.jpg"
+            },
+            "buttons": [
+                {
+                    "text": "Build Yours",
+                    "className": "button__blue"
+                },
+                {
+                    "text": "Learn More",
+                    "className": "button__white"
+                }
+            ],
+            "slogan":  ["The", "Ultimate", "Driving Machine ©"],
+            "isActive": false
+        }
+    ],
+    "news": [
+
+    ],
+    "services": [
+        {
+            "id": 1,
+            "title": "DOWNLOAD THE NEW MY BMW APP",
+            "text": "",
+            "image": {
+                "mobile": "service-1-mobile.jpg",
+                "tablet": "service-1-tablet.jpg",
+                "desktop": "service-1-desktop.jpg"
+            },
+            "buttons": [
+                {
+                    "text": "Learn More",
+                    "className": "button__white"
+                }
+            ],
+            "slogan": [],
+            "isActive": true
+        },
+        {
+            "id": 2,
+            "title": "INTRODUCING BMW ULTIMATE CARE OIL SERVICES",
+            "text": "3 yaers prepaid for $199 for BMWs that have reached 60 months or 60.000 miles.",
+            "image": {
+                "mobile": "service-2-mobile.jpg",
+                "tablet": "service-2-tablet.jpg",
+                "desktop": "service-2-desktop.jpg"
+            },
+            "buttons": [
+                {
+                    "text": "Learn More",
+                    "className": "button__white"
+                }
+            ],
+            "slogan": [],
+            "isActive": false
+        },
+        {
+            "id": 3,
+            "title": "DESIGNED FOR THE DRIVEN",
+            "text": "Ear up to 5X POINTS on eligible purchases.",
+            "image": {
+                "mobile": "service-3-mobile.jpg",
+                "tablet": "service-3-tablet.jpg",
+                "desktop": "service-3-desktop.jpg"
+            },
+            "buttons": [
+                {
+                    "text": "Learn More",
+                    "className": "button__white"
+                }
+            ],
+            "slogan": [],
+            "isActive": false
+        },
+        {
+            "id": 4,
+            "title": "BMW VALUE SERVICE",
+            "text": "Think we're expensive? Think again.",
+            "image": {
+                "mobile": "service-4-mobile.jpg",
+                "tablet": "service-4-tablet.jpg",
+                "desktop": "service-4-desktop.jpg"
+            },
+            "buttons": [
+                {
+                    "text": "Learn More",
+                    "className": "button__white"
+                }
+            ],
+            "slogan": [],
+            "isActive": false
+        }
+    ]
+}
