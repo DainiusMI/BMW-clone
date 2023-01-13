@@ -30,7 +30,8 @@ export default function Footer({screenSize}) {
             
             <div className="inner__footer">
                 <div className="footer__section">
-                    <p className="section__title">DISCOVER <hr /></p>
+                    <p className="section__title">DISCOVER </p>
+                    <hr className={screenSize === "desktop" ? "long__hr" : "short__hr"}/>
                     <div className="elements__container">
                         {returnFooterElement(bmw_diff)}
                         {returnFooterElement(exp_and_part)}
@@ -38,7 +39,8 @@ export default function Footer({screenSize}) {
                 </div>
 
                 <div className="footer__section">
-                    <p className="section__title">BUY <hr /></p>
+                    <p className="section__title">BUY </p>
+                    <hr className={screenSize === "desktop" ? "long__hr" : "short__hr"}/>
                     <div className="elements__container">
                         {returnFooterElement(shopping_tools)}
                         {returnFooterElement(finance_and_incentives)}                    
@@ -101,8 +103,8 @@ function FooterElement({id, title, data, footerState, setFooterState, screenSize
                     {
                         data.map(item => {
                             return item.text !== "" ? 
-                                <li key={`${id}_${item.id}`} href="">{item.text} {item.hasIcon && <i className="fa-solid fa-arrow-up-right-from-square"/>}</li> :
-                                <hr />
+                                <li key={`${id}_${item.id}`} >{item.text} {item.hasIcon && <i className="fa-solid fa-arrow-up-right-from-square"/>}</li> :
+                                <hr key={`hr${id}`} className="short__hr" />
                         }) 
                     }
                 </ul>                   
@@ -114,7 +116,7 @@ function FooterElement({id, title, data, footerState, setFooterState, screenSize
                             footerState.tabName === id && data.map(item => {
                                 return item.text !== "" ? 
                                     <li key={`${id}_${item.id}`}>{item.text} {item.hasIcon && <i className="fa-solid fa-arrow-up-right-from-square"/>}</li> :
-                                    <hr />
+                                    <hr className="short__hr" />
                             })
                         } 
                     </ul>
