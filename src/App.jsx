@@ -158,7 +158,7 @@ export default function App() {
   return (
     <main>
       <Navbar screenSize={screenSize}/>
-      <Hero />
+      <Hero screenSize={screenSize}/>
 
       <div className="news__section">
         {

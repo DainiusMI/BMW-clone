@@ -15,23 +15,7 @@ export default function ModelsTab({screenSize ,goBack, hamburgerState}) {
         const categoryTAG = event.target.dataset.category
         setCategory(categoryTAG)
     }
-    function mobileCategorySelector() {
-        const allCategories = modelsJSON.data.models_categories(category => category.title)
-        console.log(allCategories)
-        return (
-            <div className="category__selector__container">
-                <div className="categpry">
 
-                </div>
-                <div className="category active">
-
-                </div>
-                <div className="categpry">
-
-                </div>
-            </div>
-        )
-    }
     const selectedCategory = modelsJSON.data.models_categories.filter(item => item.category_tag == category)[0]
     return (
         <div className="navbar__tab models__tab">

@@ -16,6 +16,7 @@
     @include flex(column, flex-start ,flex-end);
     gap: 2rem;
 
+    background-image: var(--image-bg);
     background-size: 100%;
     background-repeat: no-repeat;
     color: #fff;
@@ -89,7 +90,7 @@
 
 
 // MOBILE
-
+/*
 @media only screen and (max-width: 768px) {
 
     .hero__1 {
@@ -114,6 +115,7 @@
         background-image: url("../../../../public/Hero/hero-4-mobile.jpg");
     }
 }
+*/
 @media only screen and (max-width: 720px) {
 
     .hero {

@@ -576,6 +576,7 @@
   align-items: flex-start;
   justify-content: flex-end;
   gap: 2rem;
+  background-image: var(--image-bg);
   background-size: 100%;
   background-repeat: no-repeat;
   color: #fff;
@@ -640,26 +641,32 @@
   font-weight: 700;
 }
 
+/*
 @media only screen and (max-width: 768px) {
-  .hero__1 {
-    background-image: url("../../../../public/Hero/hero-1-mobile.jpg");
-    padding-bottom: 1rem;
-  }
-  .hero__2 {
-    background-image: url("../../../../public/Hero/hero-2-mobile.jpg");
-  }
-  .hero.hero__3 {
-    background-image: url("../../../../public/Hero/hero-3-mobile.jpg");
-  }
-  .hero.hero__3 .hero__text {
-    order: 3;
-    font-size: 0.9rem;
-    margin-top: -0.4rem;
-  }
-  .hero__4 {
-    background-image: url("../../../../public/Hero/hero-4-mobile.jpg");
-  }
+
+    .hero__1 {
+        background-image: url("../../../../public/Hero/hero-1-mobile.jpg");
+        padding-bottom: 1rem;
+    }
+
+    .hero__2 {
+        background-image: url("../../../../public/Hero/hero-2-mobile.jpg");
+    }
+
+    .hero.hero__3 {
+        background-image: url("../../../../public/Hero/hero-3-mobile.jpg");
+        .hero__text  {
+            order:3;
+            font-size: .9rem;
+            margin-top: -.4rem;
+        }
+    }
+
+    .hero__4 {
+        background-image: url("../../../../public/Hero/hero-4-mobile.jpg");
+    }
 }
+*/
 @media only screen and (max-width: 720px) {
   .hero .hero__right {
     visibility: hidden;
