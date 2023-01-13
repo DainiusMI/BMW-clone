@@ -1,0 +1,210 @@
+@use "./mixin" as *;
+@use "./variables" as *;
+
+
+.dynamic__section {
+    --padding: 2rem;
+    --width: calc(100vw - (2 * var(--hero__padding) ));
+    width: 100vw;
+    padding-inline: var(--padding);
+    padding-bottom: var(--padding);
+
+    @include flex(column, flex-start ,flex-end);
+    gap: 2rem;
+
+    background-image: var(--image-bg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    color: #fff;
+    position: relative;
+
+    .title {
+        font-weight: 300;
+        font-size: 2rem;
+    }
+    .text {
+        font-weight: 300;
+        font-size: 1rem;
+    }
+
+
+    .button__row {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        button {
+            height: 3rem;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+        }
+    }
+    .button__blue {
+        background-color: $project-blue;
+        color: $project-white;
+        &:hover {
+            background-color: $project-blue-darker;
+        }
+    }
+    .button__white {
+        background-color: $project-white;
+        color: $project-black;
+        &:hover {
+            filter: brightness(.9);
+        }
+    }
+
+    .slogan__container {
+        display: none;
+    }
+}
+
+
+.hero {
+    aspect-ratio: 1 / 1.373;
+}
+.hero.hero__3  {
+    .hero__text  {
+        order:3;
+    }
+}
+.service {
+    aspect-ratio: 1 / 1.2507;
+}
+
+// MOBILE
+@media only screen and (max-width: 767px) {
+
+
+
+}
+
+// TABLET
+@media only screen and (min-width: 768px) {
+
+    .dynamic__section {
+        @include flex(column, flex-start, flex-start);
+        .button__row {
+            width: 50%;
+        }
+    }
+    .hero {
+        aspect-ratio: 1 / 0.5879;
+        padding: 7rem 3rem 0 3rem;
+        .hero__title {
+            width: 12ch;
+            font-weight: 300;
+            font-size: 3rem;
+            line-height: 3.3rem;
+            margin-bottom: -.7rem
+        }
+        .hero__text {
+            font-weight: 300;
+            font-size: 1.7rem;
+        }
+        &.hero__1 {
+            .hero__title {
+                width: 40ch;
+                font-weight: 300;
+                font-size: 2rem;
+            }
+            .hero__text {
+                width: 45ch;
+                font-weight: 300;
+                font-size: 1rem;
+            }
+        }
+        &.hero__3 {
+            .hero__text {
+                font-size: .9rem;
+            }
+        }
+        &.hero__4 {
+            .hero__text {
+                width: 24ch;
+            }
+        }
+    }
+
+
+    .service {
+        aspect-ratio: 1 / 0.4375;
+        padding: 3rem 2.5rem 0 2.5rem;
+        gap: 1rem;
+        .service__title {
+            font-size: 1.5rem;
+            width: 38ch;
+        }
+        .service__text {
+            width: 45ch;
+        }
+    }
+}
+
+// DESKTOP
+@media only screen and (min-width: 1280px) {
+    .dynamic__section {
+        position:  relative;
+        .button__row {
+            width: 30%;
+        }
+        .slogan__container {
+            @include flex(row, center, center);
+            gap: .4rem;
+            font-size: 1.3rem;
+            font-weight: 300;
+
+            position:absolute;
+            bottom: 2vw;
+            right: 5vw;
+            :nth-child(2) {
+                font-weight: 800;
+                
+            }
+        }
+    }
+
+    .hero {
+        aspect-ratio:  1 / 0.4375;
+        padding: 7.5rem 3rem 0 3rem;
+        .hero__title {
+            font-weight: 300;
+            font-size: 3.7rem;
+            line-height: 4.3rem;
+            margin-bottom: -.7rem;
+        }
+        .hero__text {
+            font-weight: 300;
+            font-size: 2rem;
+        }
+        &.hero__1 {
+            .title {
+                font-size: 2.2rem;
+            }
+            .text {
+                width: 48ch;
+                font-size: 1.2rem;
+            }
+        }
+    }
+    .service {
+        aspect-ratio: 1 / 0.3445;
+        padding: 4rem 2.5rem 0 2.5rem;
+        .service__title {
+            font-size: 2.5rem;
+            width: 28ch;
+            margin-bottom: -.5rem;
+        }
+        .service__text {
+            font-size: 1.3rem;
+            width: 45ch;
+        }
+        &.service__1 {
+            .service__title {
+                width: 20ch;
+            }
+        }
+    }
+}

@@ -565,12 +565,12 @@
 
 
 */
-.hero {
-  --hero__padding: 2rem;
-  --hero__width: calc(100vw - (2 * var(--hero__padding) ));
+.dynamic__section {
+  --padding: 2rem;
+  --width: calc(100vw - (2 * var(--hero__padding) ));
   width: 100vw;
-  aspect-ratio: 1/1.373;
-  padding: 0 var(--hero__padding);
+  padding-inline: var(--padding);
+  padding-bottom: var(--padding);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -582,253 +582,169 @@
   color: #fff;
   position: relative;
 }
-.hero .hero__left {
-  width: var(--hero__width);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: 1.2rem;
-}
-.hero .hero__left .hero__title {
+.dynamic__section .title {
   font-weight: 300;
   font-size: 2rem;
-  margin-bottom: -0.7rem;
 }
-.hero .hero__left .hero__text {
+.dynamic__section .text {
   font-weight: 300;
   font-size: 1rem;
 }
-.hero .hero__left .hero__buttons {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 1.3rem;
+.dynamic__section .button__row {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
 }
-.hero .hero__left .hero__buttons button {
-  width: calc(var(--hero__width) / 2 - var(--hero__padding));
+.dynamic__section .button__row button {
   height: 3rem;
   border: none;
-  border-radius: 0.1rem;
-  font-family: "Roboto", sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 1.1rem;
+  font-weight: 500;
   cursor: pointer;
 }
-.hero .hero__left .hero__buttons button:hover {
+.dynamic__section .button__blue {
+  background-color: #1C69D3;
+  color: #F8F8F8;
+}
+.dynamic__section .button__blue:hover {
+  background-color: #1D55A2;
+}
+.dynamic__section .button__white {
+  background-color: #F8F8F8;
+  color: #221F1F;
+}
+.dynamic__section .button__white:hover {
   filter: brightness(0.9);
 }
-.hero .hero__left .hero__buttons :first-child {
-  background-color: #1C69D3;
-  color: #fff;
-}
-.hero .hero__left .hero__buttons :last-child {
-  background-color: #fff;
-}
-.hero .hero__right {
-  width: var(--hero__width);
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  justify-content: flex-end;
-  gap: 0.2rem;
-  font-size: 1rem;
-  font-weight: 300;
-  padding-right: 1.5rem;
-}
-.hero .hero__right :nth-child(2) {
-  font-weight: 700;
+.dynamic__section .slogan__container {
+  display: none;
 }
 
-/*
-@media only screen and (max-width: 768px) {
-
-    .hero__1 {
-        background-image: url("../../../../public/Hero/hero-1-mobile.jpg");
-        padding-bottom: 1rem;
-    }
-
-    .hero__2 {
-        background-image: url("../../../../public/Hero/hero-2-mobile.jpg");
-    }
-
-    .hero.hero__3 {
-        background-image: url("../../../../public/Hero/hero-3-mobile.jpg");
-        .hero__text  {
-            order:3;
-            font-size: .9rem;
-            margin-top: -.4rem;
-        }
-    }
-
-    .hero__4 {
-        background-image: url("../../../../public/Hero/hero-4-mobile.jpg");
-    }
+.hero {
+  aspect-ratio: 1/1.373;
 }
-*/
-@media only screen and (max-width: 720px) {
-  .hero .hero__right {
-    visibility: hidden;
-  }
+
+.hero.hero__3 .hero__text {
+  order: 3;
 }
+
+.service {
+  aspect-ratio: 1/1.2507;
+}
+
 @media only screen and (min-width: 768px) {
-  .hero {
-    aspect-ratio: 1/0.5879;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
-    padding: 7rem 3rem 0 3rem;
-  }
-  .hero .hero__left {
+  .dynamic__section {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
   }
-  .hero .hero__left .hero__title {
+  .dynamic__section .button__row {
+    width: 50%;
+  }
+  .hero {
+    aspect-ratio: 1/0.5879;
+    padding: 7rem 3rem 0 3rem;
+  }
+  .hero .hero__title {
     width: 12ch;
     font-weight: 300;
     font-size: 3rem;
     line-height: 3.3rem;
     margin-bottom: -0.7rem;
   }
-  .hero .hero__left .hero__text {
+  .hero .hero__text {
     font-weight: 300;
     font-size: 1.7rem;
   }
-  .hero .hero__left .hero__buttons {
-    gap: 1.3rem;
-  }
-  .hero .hero__left .hero__buttons button {
-    width: 18vw;
-  }
-  .hero .hero__right {
-    visibility: hidden;
-  }
-  .hero.hero__1 {
-    background-image: url(../../../../public/Hero/hero-1-tablet.jpg);
-  }
-  .hero.hero__1 .hero__left .hero__title {
+  .hero.hero__1 .hero__title {
     width: 40ch;
+    font-weight: 300;
     font-size: 2rem;
   }
-  .hero.hero__1 .hero__left .hero__text {
+  .hero.hero__1 .hero__text {
     width: 45ch;
+    font-weight: 300;
     font-size: 1rem;
   }
-  .hero.hero__2 {
-    background-image: url(../../../../public/Hero/hero-2-tablet.jpg);
-  }
-  .hero.hero__3 {
-    background-image: url(../../../../public/Hero/hero-3-tablet.jpg);
-  }
-  .hero.hero__3 .hero__left .hero__text {
+  .hero.hero__3 .hero__text {
     font-size: 0.9rem;
   }
-  .hero__4 {
-    background-image: url(../../../../public/Hero/hero-4-tablet.jpg);
+  .hero.hero__4 .hero__text {
+    width: 24ch;
+  }
+  .service {
+    aspect-ratio: 1/0.4375;
+    padding: 3rem 2.5rem 0 2.5rem;
+    gap: 1rem;
+  }
+  .service .service__title {
+    font-size: 1.5rem;
+    width: 38ch;
+  }
+  .service .service__text {
+    width: 45ch;
   }
 }
 @media only screen and (min-width: 1280px) {
+  .dynamic__section {
+    position: relative;
+  }
+  .dynamic__section .button__row {
+    width: 30%;
+  }
+  .dynamic__section .slogan__container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    font-size: 1.3rem;
+    font-weight: 300;
+    position: absolute;
+    bottom: 2vw;
+    right: 5vw;
+  }
+  .dynamic__section .slogan__container :nth-child(2) {
+    font-weight: 800;
+  }
   .hero {
     aspect-ratio: 1/0.4375;
     padding: 7.5rem 3rem 0 3rem;
   }
-  .hero .hero__left {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-  }
-  .hero .hero__left .hero__title {
+  .hero .hero__title {
     font-weight: 300;
     font-size: 3.7rem;
     line-height: 4.3rem;
     margin-bottom: -0.7rem;
   }
-  .hero .hero__left .hero__text {
+  .hero .hero__text {
     font-weight: 300;
     font-size: 2rem;
   }
-  .hero .hero__left .hero__buttons {
-    gap: 1.3rem;
+  .hero.hero__1 .title {
+    font-size: 2.2rem;
   }
-  .hero .hero__left .hero__buttons button {
-    width: 11vw;
-    height: 3.5rem;
+  .hero.hero__1 .text {
+    width: 48ch;
+    font-size: 1.2rem;
   }
-  .hero .hero__right {
-    width: 50%;
-    height: 100%;
-    visibility: visible;
+  .service {
+    aspect-ratio: 1/0.3445;
+    padding: 4rem 2.5rem 0 2.5rem;
+  }
+  .service .service__title {
+    font-size: 2.5rem;
+    width: 28ch;
+    margin-bottom: -0.5rem;
+  }
+  .service .service__text {
     font-size: 1.3rem;
-    padding-bottom: 2rem;
+    width: 45ch;
   }
-  .hero.hero__1 {
-    background-image: url(../../../../public/Hero/hero-1-desktop.jpg);
-  }
-  .hero.hero__1 .hero__left {
-    gap: 1rem;
-  }
-  .hero.hero__1 .hero__left .hero__title {
+  .service.service__1 .service__title {
     width: 20ch;
-    font-size: 2.6rem;
-    line-height: 3rem;
-    margin-bottom: -0.7rem;
-  }
-  .hero.hero__1 .hero__left .hero__text {
-    width: 38ch;
-    font-size: 1.3rem;
-    line-height: 2rem;
-  }
-  .hero.hero__2 {
-    background-image: url(../../../../public/Hero/hero-2-desktop.jpg);
-  }
-  .hero.hero__2 .hero__left {
-    gap: 1.4rem;
-  }
-  .hero.hero__2 .hero__left .hero__title {
-    font-size: 3.7rem;
-    font-size: 3.7rem;
-    line-height: 4.3rem;
-  }
-  .hero.hero__2 .hero__left .hero__text {
-    width: 40ch;
-    font-size: 2rem;
-  }
-  .hero.hero__3 {
-    background-image: url(../../../../public/Hero/hero-3-desktop.jpg);
-  }
-  .hero.hero__3 .hero__left {
-    gap: 2.2rem;
-  }
-  .hero.hero__3 .hero__left .hero__title {
-    width: 12ch;
-    font-size: 3.7rem;
-    line-height: 4.3rem;
-    margin-bottom: -0.7rem;
-  }
-  .hero.hero__3 .hero__left .hero__text {
-    font-size: 0.85rem;
-    margin-top: -0.4rem;
-  }
-  .hero.hero__4 {
-    background-image: url(../../../../public/Hero/hero-4-desktop.jpg);
-  }
-  .hero.hero__4 .hero__left {
-    gap: 1.4rem;
-  }
-  .hero.hero__4 .hero__left .hero__title {
-    width: 12ch;
-    font-size: 3.7rem;
-    line-height: 4.3rem;
-    margin-bottom: -0.7rem;
-  }
-  .hero.hero__4 .hero__left .hero__text {
-    width: 30ch;
   }
 }
 .news__section {
@@ -941,123 +857,6 @@
   }
   #card-4 {
     background-image: url(../../../../public/Card/card-8-desktop.jpg);
-  }
-}
-.services {
-  width: 100vw;
-  background-repeat: no-repeat;
-  background-size: 100%;
-  gap: 1.5rem;
-  color: #fff;
-  position: relative;
-}
-.services .service__title {
-  font-weight: 300;
-}
-.services .service__text {
-  font-weight: 300;
-}
-.services button {
-  border: none;
-  background-color: #fff;
-  font-weight: 700;
-  color: #221F1F;
-  cursor: pointer;
-}
-
-@media only screen and (max-width: 768px) {
-  .services {
-    aspect-ratio: 1/1.2507;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-end;
-    padding: 2rem;
-  }
-  .services .service__title {
-    font-size: 1.7rem;
-    width: 20ch;
-  }
-  .services button {
-    width: 45vw;
-    height: 2.7rem;
-  }
-  #service-1 {
-    background-image: url(../../../../public/Service/service-1-mobile.jpg);
-  }
-  #service-2 {
-    background-image: url(../../../../public/Service/service-2-mobile.jpg);
-  }
-  #service-3 {
-    background-image: url(../../../../public/Service/service-3-mobile.jpg);
-  }
-  #service-4 {
-    background-image: url(../../../../public/Service/service-4-mobile.jpg);
-  }
-  #service-5 {
-    background-image: url(../../../../public/Service/service-5-mobile.jpg);
-  }
-}
-@media only screen and (min-width: 768px) {
-  .services {
-    aspect-ratio: 1/0.4375;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    padding: 3rem 2.5rem 0 2.5rem;
-    gap: 1rem;
-  }
-  .services .service__title {
-    font-size: 2rem;
-  }
-  .services button {
-    width: 20vw;
-    height: 2.7rem;
-  }
-  #service-1 {
-    background-image: url(../../../../public/Service/service-1-tablet.jpg);
-  }
-  #service-1 .service__title {
-    width: 20ch;
-  }
-  #service-2 {
-    background-image: url(../../../../public/Service/service-2-tablet.jpg);
-  }
-  #service-2 .service__title {
-    width: 35ch;
-  }
-  #service-2 .service__text {
-    width: 45ch;
-  }
-  #service-3 {
-    background-image: url(../../../../public/Service/service-3-tablet.jpg);
-  }
-  #service-4 {
-    background-image: url(../../../../public/Service/service-4-tablet.jpg);
-  }
-  #service-5 {
-    background-image: url(../../../../public/Service/service-5-tablet.jpg);
-  }
-}
-@media only screen and (min-width: 1280px) {
-  .services {
-    aspect-ratio: 1/0.3445;
-  }
-  #service-1 {
-    background-image: url(../../../../public/Service/service-1-desktop.jpg);
-  }
-  #service-2 {
-    background-image: url(../../../../public/Service/service-2-desktop.jpg);
-  }
-  #service-3 {
-    background-image: url(../../../../public/Service/service-3-desktop.jpg);
-  }
-  #service-4 {
-    background-image: url(../../../../public/Service/service-4-desktop.jpg);
-  }
-  #service-5 {
-    background-image: url(../../../../public/Service/service-5-desktop.jpg);
   }
 }
 .section {

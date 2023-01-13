@@ -193,7 +193,7 @@ export default function App() {
           <button>Build Your Own</button>
       </div>
 
-      <Services />
+      <Services screenSize={screenSize}/>
 
       <div className="ownership__section section">
         <h2 className="section__title">Ownership starts here.</h2>

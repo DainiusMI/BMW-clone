@@ -1,5 +1,8 @@
 import React, {useState, useEffect} from "react";
-import Selector from "./Selector";
+import DynamicSection from "./DynamicSection";
+import mainDataJSON from "../mainData.json"
+
+const servicesJSON = mainDataJSON.services
 
 
 const servicesData = [
@@ -35,14 +38,32 @@ const servicesData = [
     }
 ]
 
-export default function Services() {
-    const [serviceState, setServiceState] = useState(servicesData)
+export default function Services({screenSize}) {
+    const [serviceState, setServiceState] = useState(servicesJSON)
     const [activeService, setActiveService] = useState({
         id: 1,
         duration: 0,
         isPaused: false
     })
     const service = serviceState.find(service => service.isActive)
+    return (
+        <DynamicSection 
+            screenSize={screenSize}
+            sectionName="service"
+            item={service}
+
+            elementState={serviceState}
+            setElementState={setServiceState}
+
+            activeElement={activeService}
+            setActiveElement={setActiveService}
+        />
+    )
+}
+
+
+/*
+
 
     return (
         <div 
@@ -63,4 +84,5 @@ export default function Services() {
             />
         </div>
     )
-}
+
+    */

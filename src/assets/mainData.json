@@ -41,7 +41,7 @@
                     "className": "button__white"
                 }
             ],
-            "slogan": ["The", "Ultimate", "Driving Machine ©"],
+            "slogan": ["The", "Ultimate", "Driving Machine ®"],
             "isActive": false
         },
         {
@@ -85,7 +85,7 @@
                     "className": "button__white"
                 }
             ],
-            "slogan":  ["The", "Ultimate", "Driving Machine ©"],
+            "slogan":  ["The", "Ultimate", "Driving Machine ®"],
             "isActive": false
         }
     ],

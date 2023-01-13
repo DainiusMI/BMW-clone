@@ -1,3 +1,6 @@
+
+/*
+
 @use "./mixin" as *;
 @use "./variables" as *;
 
@@ -13,14 +16,7 @@
 
     padding: 0 var(--hero__padding);
     
-    @include flex(column, flex-start ,flex-end);
-    gap: 2rem;
 
-    background-image: var(--image-bg);
-    background-size: 100%;
-    background-repeat: no-repeat;
-    color: #fff;
-    position: relative;
 
     .hero__left {
         width: var(--hero__width);
@@ -28,15 +24,10 @@
         gap: 1.2rem;
   
         .hero__title {
-            font-weight: 300;
 
-            font-size: 2rem;
-
-            margin-bottom: -.7rem;
         }
         .hero__text {
-            font-weight: 300;
-            font-size: 1rem;
+
 
         }
         .hero__buttons {
@@ -90,7 +81,7 @@
 
 
 // MOBILE
-/*
+
 @media only screen and (max-width: 768px) {
 
     .hero__1 {
@@ -115,132 +106,19 @@
         background-image: url("../../../../public/Hero/hero-4-mobile.jpg");
     }
 }
-*/
-@media only screen and (max-width: 720px) {
-
-    .hero {
-        .hero__right {
-            visibility: hidden;
-            
-        }
-    }
-}
-
-// TABLET
-@media only screen and (min-width: 768px) {
-
-    .hero {
-        aspect-ratio: 1 / 0.5879;
-
-        @include flex(row, flex-start, space-between);
-
-        padding: 7rem 3rem 0 3rem;
 
 
-        .hero__left {
-  
-            @include flex(column, flex-start, flex-start);
-            .hero__title {
-                width: 12ch;
-                
-                font-weight: 300;
-                font-size: 3rem;
-                line-height: 3.3rem;
-                margin-bottom: -.7rem;
-            }
-            .hero__text {
-                font-weight: 300;
-    
-                font-size: 1.7rem;
-    
-            }
-
-            .hero__buttons {
-                
-                gap: 1.3rem;
-                button {
-                    width: 18vw;
-
-                }
-            }
-
-        }
-
-        .hero__right {
-            visibility: hidden;
-        }
+ 
      
-    }
-    .hero.hero__1 {
-        background-image: url(../../../../public/Hero/hero-1-tablet.jpg);
-        .hero__left {
-  
-            .hero__title {
-                width: 40ch;
-                font-size: 2rem;
-            }
-            .hero__text {
-                width: 45ch;
-                font-size: 1rem;
-            }
-        }
-
-    }
-    .hero.hero__2 {
-        background-image: url(../../../../public/Hero/hero-2-tablet.jpg);
-
-    }
-    .hero.hero__3 {
-        background-image: url(../../../../public/Hero/hero-3-tablet.jpg);
-        .hero__left {
-  
-            .hero__title {
-         
-         
-            }
-            .hero__text {
-                font-size: .9rem;
-         
-            }
-        }
-    }
-    .hero__4 {
-        background-image: url(../../../../public/Hero/hero-4-tablet.jpg);
-    }
-
-}
 
     // DESKTOP
     @media only screen and (min-width: 1280px) {
     .hero {
-        aspect-ratio:  1 / 0.4375;
-        padding: 7.5rem 3rem 0 3rem;
 
         .hero__left {
             width: 50%;
             @include flex(column, flex-start, flex-start);
-            .hero__title {
-                font-weight: 300;
-    
-                font-size: 3.7rem;
-                line-height: 4.3rem;
-                margin-bottom: -.7rem;
-            }
-            .hero__text {
-                font-weight: 300;
-    
-                font-size: 2rem;
-    
-            }
-            .hero__buttons {
-                
-                gap: 1.3rem;
-                button {
-                    width: 11vw;
-                    height: 3.5rem;
 
-                }
-            }
         }
         .hero__right {
             width: 50%;
@@ -326,3 +204,6 @@
 }
 
 
+
+
+*/

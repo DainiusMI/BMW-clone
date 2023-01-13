@@ -82,13 +82,13 @@
 @media only screen and (min-width: 768px) {
 
     .services {
-        aspect-ratio: 1 / 0.4375;
+ 
 
         
         @include flex(column, flex-start, flex-start);
 
-        padding: 3rem 2.5rem 0 2.5rem;
-        gap: 1rem;
+
+    
 
         .service__title {
             font-size: 2rem;
@@ -135,7 +135,7 @@
 @media only screen and (min-width: 1280px) {
 
     .services {
-        aspect-ratio: 1 / 0.3445;
+
     }
 
     #service-1 {

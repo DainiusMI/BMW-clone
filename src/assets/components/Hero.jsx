@@ -1,6 +1,5 @@
 import React, {useState, useEffect, useRef} from "react";
-import Selector from "./Selector";
-
+import DynamicSection from "./DynamicSection";
 import mainDataJSON from "../mainData.json"
 
 const heroDOM = mainDataJSON.hero
@@ -58,60 +57,17 @@ export default function Hero({screenSize}) {
             sectionName="hero"
             item={hero}
 
-            heroState={heroState}
-            setHeroState={setHeroState}
+            elementState={heroState}
+            setElementState={setHeroState}
 
-            activeHero={activeHero}
-            setActiveHero={setActiveHero}
+            activeElement={activeHero}
+            setActiveElement={setActiveHero}
         />
     )
 }
 
 
-function DynamicSection({screenSize, sectionName, item, heroState, setHeroState, activeHero, setActiveHero}) {
-    const imageName = `${sectionName}-${item.id}-${screenSize}.jpg`
-    return (
-        <div 
-            key={`${sectionName}__${item.id}`}
-            className={`${sectionName} ${sectionName}__${item.id}`}
-            style={
-                {"--image-bg": `url("../${sectionName}/${imageName}")`}
-            }
-        >
-            <h1 className={`${sectionName}__title`}>{item.title}</h1>
-            <p className={`${sectionName}__text`}>{item.text}</p>
-            <div className="button__row">
-                {
-                    item.buttons.map((button, idx) => {
-                        return <button 
-                                    key={`${sectionName}__button${idx}`}
-                                    className={button.className}
-                                >{button.text}</button>
-                    })
-                }
-            </div>
-            {
-                item.slogan.length > 0 &&
-                <div className="slogan__container">
-                    {
-                        item.slogan.map((text, idx) => {
-                            return <p 
-                                        key={`${sectionName}__slogan${idx}`}
-                                        className="slogan__text"
-                                    >{text}</p>
-                        })
-                    }
-                </div>
-            }
-            <Selector 
-                state={heroState}
-                setState={setHeroState}
-                active={activeHero}
-                setActive={setActiveHero}
-            />
-        </div>
-    )
-}
+
 
 
 /*    return (    
