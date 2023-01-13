@@ -15,10 +15,26 @@ export default function ModelsTab({screenSize ,goBack, hamburgerState}) {
         const categoryTAG = event.target.dataset.category
         setCategory(categoryTAG)
     }
+    function mobileCategorySelector() {
+        const allCategories = modelsJSON.data.models_categories(category => category.title)
+        console.log(allCategories)
+        return (
+            <div className="category__selector__container">
+                <div className="categpry">
+
+                </div>
+                <div className="category active">
+
+                </div>
+                <div className="categpry">
+
+                </div>
+            </div>
+        )
+    }
     const selectedCategory = modelsJSON.data.models_categories.filter(item => item.category_tag == category)[0]
     return (
         <div className="navbar__tab models__tab">
-
 
             <div className="navigate__back__row" onClick={goBack}>
                 <i className={screenSize !== "desktop" ? "fa-sharp fa-solid fa-chevron-left" : "fa-sharp fa-solid fa-xmark"}/>
@@ -27,26 +43,29 @@ export default function ModelsTab({screenSize ,goBack, hamburgerState}) {
                     <p className="tab__name">{modelsJSON.title}</p>
                 }
             </div>
-            <div className="category__list__row">
-                <div className="category__list__container">
-                {
-                     modelsJSON.data.models_categories.map(item => {
-                        return <p   
-                                    key={item.id}
-                                    id={item.id}
-                                    className={item.category_tag === category ? "selected__category" : null}
-                                    data-category={item.category_tag}
-                                    onClick={changeCategory}
-                                >{item.title}</p>
-                     })
-                }
-                </div>
-                {
-                    screenSize === "desktop" && <button className="blue__button">Shop Inventory</button>
-                }
-            </div>
             {
-                screenSize === "desktop" &&
+                screenSize !== "mobile" &&
+                <div className="category__list__row">
+                    <div className="category__list__container">
+                    {
+                        modelsJSON.data.models_categories.map(item => {
+                            return <p   
+                                        key={item.id}
+                                        id={item.id}
+                                        className={item.category_tag === category ? "selected__category" : null}
+                                        data-category={item.category_tag}
+                                        onClick={changeCategory}
+                                    >{item.title}</p>
+                        })
+                    }
+                    </div>
+                    {
+                        screenSize !== "mobile" && <button className="blue__button">Shop Inventory</button>
+                    }
+                </div>
+            }
+            {
+                screenSize !== "mobile" &&
                 <div className="selected__category__row">
                     <h2 className="category__title">{selectedCategory.inner.text}</h2>
                     {

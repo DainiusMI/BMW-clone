@@ -1,7 +1,7 @@
 @use "./mixin" as *;
-
 @use "./variables" as *;
 
+@use "./ModelsTab";
 
 :root {
     --mavbar-heigth: 4rem;
@@ -133,16 +133,13 @@
     }
 }
 
-
-
-
 .hamburger__menu {
 
     width: 100%;
     @include flex(column, center, center);
     gap: 1.5rem;
     background-color: #fff;
-    padding: 6rem 0;
+    padding: 3rem 0;
 
     position: absolute;
     top: var(--mavbar-heigth);
@@ -150,12 +147,12 @@
 
     &>* {
         cursor: pointer;
-        &:hover {
+        width: 75%;
+        &:not(:last-child):hover {
             color: $project-blue;
         }
     }
     .hamburger__item {
-        width: 75%;
         @include flex(row, center, space-between);
 
         font-size: 1.3rem;
@@ -164,8 +161,37 @@
             pointer-events: none;
         }
     }
-}
+    .search__container {
+        @include flex(row, center, flex-start);
+        gap: 1rem;
+        height: 3rem;
+        background-color: $project-grey-light;
+        padding-left: 1rem;
+        font-size: 1.3rem;
+        position: relative;
+        i {
 
+        }
+        .search__input {
+            background-color: transparent;
+            border: none;
+            font-size: 1.2rem;
+            line-height: 3rem;
+            width: 100%;
+        }
+        .cancel__button {
+            border: none;
+            background-color: #fff;
+            width: 15%;
+            height: 3rem;
+            z-index: 5;
+
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+    }
+}
 
 
 .navbar__item {
@@ -180,232 +206,6 @@
 
 .navbar__tab {
 
-
-}
-
-.models__tab {
-
-    width: 100%;
-    @include flex(column, flex-start, center);
-
-    background-color: $background-silver;
-    position: absolute;                
-    z-index: 3;
-
-    .navigate__back__row {
-        width: 100%;
-    }
-    .category__list__row {
-        width: 100%;
-        @include flex(row, center, space-between);
-
-        font-size: 1.3rem;
-
-        border-bottom: .1rem solid $project-grey;
-        padding-bottom: .8rem;
-
-        .category__list__container {
-            &>* {
-                cursor: pointer;
-                &:hover {
-                    font-weight: 500;
-                }
-            }
-        }
-        .selected__category__row {
-
-        }
-        .blue__button {
-            top: 0;
-            right: 0;
-        }
-    }
-    .models__grid__container {
-        width: 100%;
-        display: grid;
-        .model__card {
-            .model__image {
-                --bg-image: "";
-                background-image: var(--bg-image);
-                background-repeat: no-repeat;
-                aspect-ratio: 1 / 0.4288;
-            }
-            .model__name {
-                font-size: 1.5rem;
-                font-weight: 500;
-            }
-        }
-    }
-
-}
-
-
-// not DESKTOP
-@media only screen and (max-width: 1280px) {
-
-    .models__tab {
-        top: var(--mavbar-heigth);
-
-        .navigate__back__row {  
-            position: relative;
-            height: 3rem;
-            font-size: 1.3rem;
-            border-bottom: 1px solid $project-grey;
-            cursor: pointer;
-            &>* {
-                position: absolute;
-                top: 0;
-                transform: translate(-50%, 50%);
-            }
-            p {
-                left: 50%;
-            }
-            i {
-                left: 7%;
-            }
-            &:hover {
-                color: $project-blue;
-            }
-        }
-
-        .category__list__container {
-            width: 100%;
-            padding: 1rem 2rem;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
-            &>* {
-                justify-self: center;
-            }
-            #spacer {
-                display: none;
-            }
-        }
-        .models__grid__container {
-            grid-template-columns: 1fr;
-            .model__card {
-                @include flex(row, center,flex-start);
-                cursor: pointer;
-                &:not(:first-child) {
-                    border-top: 1px solid $project-grey;
-                }
-                .model__image {
-                    width: 60%;
-                    background-size: 100%;
-                    margin-left: 5%;
-                }
-                .model__name {
-                    width: 30%;
-                    text-align: center;
-                }
-            }
-        }
-    }
-
-}
-
-// DESKTOP
-@media only screen and (min-width: 1280px) {
-
-    .models__tab {
-        padding: var(--mavbar-heigth) 12vw 15vw 12vw;
-        gap: 3rem;
-        .navigate__back__row { 
-            i {
-                width: 3rem;
-                aspect-ratio: 1 / 1;
-                border-radius: 50%;
-                background-color: #fff;
-                font-size: 1.3rem;
-                @include flex(row, center, center);
-
-                box-shadow: 2px 7px 16px -3px rgba(0,0,0,0.75);
-                -webkit-box-shadow: 2px 7px 16px -3px rgba(0,0,0,0.75);
-                -moz-box-shadow: 2px 7px 16px -3px rgba(0,0,0,0.75);
-
-                position: absolute;
-                top: 3vw;
-                right: 3vw;
-                
-                &:hover {
-                    background-color: $background-silver;
-                }
-            }
-        }
-        .category__list__row {
-
-            .category__list__container {
-                @include flex(row, center, flex-start);
-                gap: 1rem;
-                line-height: 2.5rem;
-                #spacer {
-                    pointer-events: none;
-                }
-                :nth-last-child(-n+3) {
-                    font-weight: 300;
-                }
-                .selected__category {
-                    font-weight: 500;
-                    border-bottom: .2rem solid $project-grey;
-                    padding-bottom: .8rem;
-                    margin-bottom: -.95rem;
-                }
-            }
-            .blue__button {
-                background-color: $project-blue;
-                border: none;
-                height: 2.5rem;
-                width: 10rem;
-                font-weight: 600;
-                color: #fff;
-                margin-bottom: -.3rem;
-                &:hover {
-                    background-color: #1D55A2;
-                }
-            }
-        }
-        .selected__category__row {
-            width: 100%;
-            @include flex(row, flex-end, flex-start);
-            gap: 1.2rem;
-            .category__title {
-                font-size: 2.5rem;
-                font-weight: 300;
-                line-height: 2.5rem;
-            }
-            &>a {
-                color: $project-black;
-                font-weight: 500;
-                font-size: 1.2rem;
-            }
-        }
-        .models__grid__container {
-
-            grid-template-columns: repeat(6, 1fr);
-            .model__card {
-                @include flex(column, center, center);
-                gap: .2rem;
-                padding: 1rem .5rem;
-                cursor: pointer;
-                &:hover {   
-                    background-color: #fff;
-                    
-                    box-shadow: 2px 7px 16px -3px rgba(0,0,0,0.75);
-                    -webkit-box-shadow: 2px 7px 16px -3px rgba(0,0,0,0.75);
-                    -moz-box-shadow: 2px 7px 16px -3px rgba(0,0,0,0.75);
-                }
-                .model__image {
-                    width: 100%;
-                    background-size: 100%;
-
-                }
-                .model__name {
-                    text-align: center;
-                }
-            }
-
-        }
-    }
 
 }
 
