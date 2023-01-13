@@ -144,7 +144,7 @@
     position: absolute;
     top: var(--mavbar-heigth);
     left: 0;
-
+    z-index: 2;
     &>* {
         cursor: pointer;
         width: 75%;

@@ -381,6 +381,7 @@
   position: absolute;
   top: var(--mavbar-heigth);
   left: 0;
+  z-index: 2;
 }
 .hamburger__menu > * {
   cursor: pointer;
@@ -578,7 +579,6 @@
   background-size: 100%;
   background-repeat: no-repeat;
   color: #fff;
-  z-index: -1;
   position: relative;
 }
 .hero .hero__left {
