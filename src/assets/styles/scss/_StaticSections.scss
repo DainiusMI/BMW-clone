@@ -48,6 +48,7 @@
             color: $project-black;
             
             justify-self: flex-end;
+            text-underline-offset: .3rem;
             i {
                 margin-left: .3rem;
             }
@@ -73,6 +74,49 @@
     cursor: pointer;
     &:hover {
         background-color: $project-grey-dark;
+    }
+}
+
+
+.news__section {
+    grid-template-columns: 1fr;
+    gap: .5rem;
+    padding: 0;
+    margin-top: 3rem;
+    .news__card {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        @include flex(column, center, flex-end);
+        gap: .2rem;
+        padding:2.5rem;
+
+        color: #fff;
+        position: relative;
+        .news__image {
+            aspect-ratio: 1 / 1;
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            z-index: -1;
+        }
+        .card__title {
+            font-size: 1rem;
+            &.bold {
+                font-weight: 400;
+            }
+        }
+        .card__text {
+            font-size: 1.5rem;
+            font-weight: 300;
+        }
+        .card__link {
+            color: #fff;
+            margin-top: .2rem;
+            &:hover {
+                color: #fff;
+                text-decoration-color: $project-grey;
+            }
+        }
     }
 }
 
@@ -110,7 +154,12 @@
 
 // TABLET 
 @media only screen and (min-width: 768px) {
-
+    .news__section {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        padding: 2rem;
+        margin-top: 0;
+    }
     .builds__section {
         grid-template-columns: repeat(4, 1fr);
         .builds__card {
@@ -141,7 +190,27 @@
             }
         }
     }
-    
+    .news__section {
+        .news__card {
+            aspect-ratio: 1 / 0.5719;
+            padding:1.5rem;
+            gap: .5rem;
+            .news__image {
+                aspect-ratio: 1 / 0.5719;
+            }
+            .card__title {
+                font-size: .8rem;
+            }
+            .card__text {
+                font-size: 1.8rem;
+                font-weight: 400;
+            }
+            .card__link {
+                margin-top: .5rem;
+            }
+        }
+
+    }
     .ownership__section {
         grid-template-columns: repeat(4, 1fr);
         gap: .5rem;

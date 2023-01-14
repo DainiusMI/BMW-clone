@@ -86,7 +86,8 @@ const buildData = [
     }
   }
 ]
-*/
+
+
 import connectIMG from "../public/connect.png";
 import creditIMG from "../public/credit-score.png";
 import financingIMG from "../public/financing.png";
@@ -140,6 +141,8 @@ const ownershipData = [
       }
   },
 ]
+*/
+
 
 export default function App() {
   const [screenSize, setScreenSize] = useState("desktop")
@@ -161,19 +164,12 @@ export default function App() {
       <Navbar screenSize={screenSize}/>
       <Hero screenSize={screenSize}/>
 
-      <div className="news__section">
-        {
-          newsData.map(card => {
-            return <NewsCard 
-                      key={card.id} 
-                      id={card.id}
-                      title={card.title}
-                      description={card.description}
-                      link={card.link}
-                    />
-          })
-        }
-      </div>
+      <StaticSection 
+        sectionName="news"
+        dataObject={mainData.news}
+        screenSize={screenSize}
+      />
+
       <StaticSection 
         sectionName="builds"
         dataObject={mainData.builds}
@@ -198,6 +194,21 @@ export default function App() {
 
 /*
 
+      <div className="news__section">
+        {
+        
+          newsData.map(card => {
+            return <NewsCard 
+                      key={card.id} 
+                      id={card.id}
+                      title={card.title}
+                      description={card.description}
+                      link={card.link}
+                    />
+          })
+          
+        }
+      </div>
       <div className="build__section section">
         <h2 className="section__title">Build the BMW of your dreams.</h2>
         <div className="card__container">
@@ -241,36 +252,41 @@ export default function App() {
 
       </div>
 
-      */
-
-function DefaultCard({title, text, image, link}) {
-  const icon = "fa-solid fa-arrow-up-right-from-square"
-  return (
-    <div className="card__default">
-      <div className="card__image"  style={{backgroundImage: `url(${image})`}}/>
-      <div className={text !== "" ? "card__title bold" : "card__title"}>{title}</div>
-      {text !== "" && <div className="card__text">{text}</div>}
-      <a href={link.url} className="card__link">{link.text} {link.hasIcon && <i className={icon}/>}</a>
-    </div>
-  )
-}
-
-
+      
+      function DefaultCard({title, text, image, link}) {
+        const icon = "fa-solid fa-arrow-up-right-from-square"
+        return (
+          <div className="card__default">
+          <div className="card__image"  style={{backgroundImage: `url(${image})`}}/>
+          <div className={text !== "" ? "card__title bold" : "card__title"}>{title}</div>
+          {text !== "" && <div className="card__text">{text}</div>}
+          <a href={link.url} className="card__link">{link.text} {link.hasIcon && <i className={icon}/>}</a>
+          </div>
+          )
+        }
+        
+*/
+        
 function StaticSection({screenSize, sectionName, dataObject}) {
   const icon = "fa-solid fa-arrow-up-right-from-square"
+  
 
     return (
       <div className={`static__section ${sectionName}__section`}>
-        <h3 className={`section__title `}>{dataObject.section_title}</h3>
+        {
+          dataObject.section_title !== undefined &&
+          <h3 className={`section__title `}>{dataObject.section_title}</h3>
+          }
         {
           dataObject.data.map(item => {
+            const imageName = typeof item.image === "string" ? item.image : item.image[screenSize]
             return (
               <div
                 key={`${sectionName}-${item.id}`} 
                 className={`card__default ${sectionName}__card`}>
                 <div 
                   className={`card__image ${sectionName}__image`}  
-                  style={{"--image-bg": `url("../${sectionName}/${item.image}")`}}
+                  style={{"--image-bg": `url("../${sectionName}/${imageName}")`}}
                 />
                   <div className={item.text !== "" ? "card__title bold" : "card__title"}>{item.title}</div>
                 {

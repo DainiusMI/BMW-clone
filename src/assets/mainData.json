@@ -91,19 +91,66 @@
             }
         ]
     },
-    "news": [
-        {
-            "id": 1,
-            "image": "build-3.jpg",
-            "title": "3 Series Sedan",
-            "text": "",
-            "buttons": {
-                "text": "Start Designing",
-                "className": "button__black",
-                "icon": null
+    "news": {
+        "data": [
+            {
+                "id": 1,
+                "title": "THE 2023 BMW X7",
+                "text": "NEXT-LEVEL LUXURY",
+                "image": {
+                    "mobile": "card-x7-mobile.jpg",
+                    "tablet": "card-x7-tablet.jpg",
+                    "desktop": "card-x7-desktop.jpg"
+                },
+                "link": {
+                    "text": "Learn More",
+                    "icon": false
+                }
+            },
+            {
+                "id": 2,
+                "title": "THE 2023 BMW X5",
+                "text": "LEAD WITH CONFIDENCE",
+                "image": {
+                    "mobile": "card-x5-mobile.jpg",
+                    "tablet": "card-x5-tablet.jpg",
+                    "desktop": "card-x5-desktop.jpg"
+                },
+                "link": {
+                    "text": "Learn More",
+                    "icon": false
+                }
+            },
+            {
+                "id": 3,
+                "title": "THE 2023 BMW 5 SERIES SEDAN",
+                "text": "THE 5",
+                "image": {
+                    "mobile": "card-5-mobile.jpg",
+                    "tablet": "card-5-tablet.jpg",
+                    "desktop": "card-5-desktop.jpg"
+                },
+                "link": {
+                    "text": "Learn More",
+                    "icon": false
+                }
+            },
+            {
+                "id": 4,
+                "title": "POWER AND PRESTIGE",
+                "text": "THE 8",
+                "image": {
+                    "mobile": "card-8-mobile.jpg",
+                    "tablet": "card-8-tablet.jpg",
+                    "desktop": "card-8-desktop.jpg"
+                },
+                "link": {
+                    "text": "Learn More",
+                    "icon": false
+                }
             }
-        }
-    ],
+        ]
+    },
     "builds": {
         "section_title": "Build the BMW of your dreams.",
         "data": [
