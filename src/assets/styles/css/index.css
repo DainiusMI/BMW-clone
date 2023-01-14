@@ -748,6 +748,96 @@
     width: 20ch;
   }
 }
+.selector {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  position: absolute;
+}
+.selector .hero__option {
+  position: relative;
+  width: 2.5rem;
+  aspect-ratio: 1/1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.selector .hero__option i {
+  font-size: 0.7rem;
+}
+.selector .hero__option:hover {
+  color: #1C69D3;
+}
+.selector .hero__option svg {
+  position: absolute;
+  transform: rotate(-90deg);
+  width: 2.5rem;
+  aspect-ratio: 1/1;
+  pointer-events: none;
+}
+.selector .hero__option svg circle {
+  width: 2.5rem;
+  aspect-ratio: 1/1;
+  fill: none;
+  stroke-width: 2px;
+  transform: translate(2px, 2px);
+  stroke-dasharray: 113;
+  stroke-dashoffset: 113;
+}
+.selector .hero__option svg circle:nth-child(1) {
+  stroke-dashoffset: 0;
+}
+.selector .hero__option svg circle:nth-child(2) {
+  stroke: #1C69D3;
+  stroke-dashoffset: 113;
+}
+
+@media only screen and (max-width: 768px) {
+  .selector {
+    color: #747373;
+    bottom: -1.5rem;
+    left: 50%;
+    transform: translate(-50%, 50%);
+  }
+  .selector .hero__option svg circle {
+    stroke: #747373;
+  }
+  .selector .hero__option svg circle:nth-child(1) {
+    stroke: #747373;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .selector {
+    color: #fff;
+    left: 3rem;
+    bottom: 2rem;
+  }
+  .selector .hero__option svg circle {
+    stroke: #fff;
+  }
+  .selector .hero__option svg circle:nth-child(1) {
+    stroke: #fff;
+  }
+}
+@-webkit-keyframes circleProgress {
+  from {
+    stroke-dashoffset: 113;
+  }
+  to {
+    stroke-dashoffset: -293.8;
+  }
+}
+@keyframes circleProgress {
+  from {
+    stroke-dashoffset: 113;
+  }
+  to {
+    stroke-dashoffset: -293.8;
+  }
+}
 .static__section {
   width: 100%;
   padding: 3rem 1.5rem;
@@ -1158,96 +1248,6 @@
   }
   .footer__element .item__list {
     margin: 0;
-  }
-}
-.selector {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  position: absolute;
-}
-.selector .hero__option {
-  position: relative;
-  width: 2.5rem;
-  aspect-ratio: 1/1;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-.selector .hero__option i {
-  font-size: 0.7rem;
-}
-.selector .hero__option:hover {
-  color: #1C69D3;
-}
-.selector .hero__option svg {
-  position: absolute;
-  transform: rotate(-90deg);
-  width: 2.5rem;
-  aspect-ratio: 1/1;
-  pointer-events: none;
-}
-.selector .hero__option svg circle {
-  width: 2.5rem;
-  aspect-ratio: 1/1;
-  fill: none;
-  stroke-width: 2px;
-  transform: translate(2px, 2px);
-  stroke-dasharray: 113;
-  stroke-dashoffset: 113;
-}
-.selector .hero__option svg circle:nth-child(1) {
-  stroke-dashoffset: 0;
-}
-.selector .hero__option svg circle:nth-child(2) {
-  stroke: #1C69D3;
-  stroke-dashoffset: 113;
-}
-
-@media only screen and (max-width: 768px) {
-  .selector {
-    color: #747373;
-    bottom: -1.5rem;
-    left: 50%;
-    transform: translate(-50%, 50%);
-  }
-  .selector .hero__option svg circle {
-    stroke: #747373;
-  }
-  .selector .hero__option svg circle:nth-child(1) {
-    stroke: #747373;
-  }
-}
-@media only screen and (min-width: 768px) {
-  .selector {
-    color: #fff;
-    left: 3rem;
-    bottom: 2rem;
-  }
-  .selector .hero__option svg circle {
-    stroke: #fff;
-  }
-  .selector .hero__option svg circle:nth-child(1) {
-    stroke: #fff;
-  }
-}
-@-webkit-keyframes circleProgress {
-  from {
-    stroke-dashoffset: 113;
-  }
-  to {
-    stroke-dashoffset: -293.8;
-  }
-}
-@keyframes circleProgress {
-  from {
-    stroke-dashoffset: 113;
-  }
-  to {
-    stroke-dashoffset: -293.8;
   }
 }
 * {
