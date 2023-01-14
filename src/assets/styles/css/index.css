@@ -597,6 +597,7 @@
   gap: 1rem;
 }
 .dynamic__section .button__row button {
+  font-family: "Roboto", sans-serif;
   height: 3rem;
   border: none;
   font-size: 1.1rem;
@@ -747,6 +748,68 @@
     width: 20ch;
   }
 }
+.static__section {
+  width: 100%;
+  padding: 3rem 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+.static__section > * {
+  justify-self: center;
+}
+.static__section .card__default {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.static__section .card__default .card__image {
+  --image-bg: "";
+  width: 100%;
+  background-image: var(--image-bg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.static__section .card__default .card__title.bold {
+  font-weight: 600;
+}
+.static__section .card__default .card__text {
+  font-size: 0.8rem;
+  font-weight: 300;
+  text-align: center;
+}
+.static__section .card__default .card__link {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+  color: #221F1F;
+}
+.static__section .section__title, .static__section button {
+  grid-column: 1/-1;
+}
+
+.button__black {
+  background-color: #221F1F;
+  width: 12rem;
+  height: 3rem;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+}
+.button__black:hover {
+  background-color: #4C4C4C;
+}
+
+.builds__section {
+  background-color: #F6F6F6;
+}
+.builds__section .builds__card .builds__image {
+  aspect-ratio: 1/0.5;
+}
 .news__section {
   width: 100%;
   display: flex;
@@ -857,156 +920,6 @@
   }
   #card-4 {
     background-image: url(../../../../public/Card/card-8-desktop.jpg);
-  }
-}
-.section {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.section .section__title {
-  font-size: 1.3rem;
-  font-weight: 300;
-  text-align: center;
-}
-.section .card__container {
-  display: grid;
-}
-
-.build__section {
-  background-color: #F6F6F6;
-}
-.build__section .card__container .card__default .card__image {
-  width: 100%;
-  aspect-ratio: 1/0.5;
-  background-size: cover;
-}
-.build__section button {
-  background-color: #221F1F;
-  width: 12rem;
-  height: 3rem;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #fff;
-  margin-top: 2rem;
-  cursor: pointer;
-}
-.build__section button:hover {
-  background-color: #4C4C4C;
-}
-
-.ownership__section .card__container .card__default .card__image {
-  width: 35%;
-  aspect-ratio: 1/1;
-  background-size: cover;
-}
-
-.card__default {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.card__default .card__image {
-  background-repeat: no-repeat;
-}
-.card__default .card__title {
-  text-align: center;
-}
-.card__default .card__title.bold {
-  font-weight: 600;
-}
-.card__default .card__text {
-  font-size: 0.8rem;
-  font-weight: 300;
-  text-align: center;
-}
-.card__default .card__link {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: #221F1F;
-}
-
-@media only screen and (max-width: 768px) {
-  .section {
-    padding: 3rem 1.5rem;
-    gap: 1.5rem;
-  }
-  .section .card__container {
-    width: calc(100% - 3rem);
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-  }
-  .section .card__container .card__default {
-    gap: 0.5rem;
-    gap: 1.5rem;
-  }
-}
-@media only screen and (min-width: 768px) {
-  .section {
-    padding: 4rem 2rem;
-    gap: 2rem;
-  }
-  .section .card__container {
-    width: calc(100% - 4rem);
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-  }
-  .section .card__container .card__default {
-    gap: 0.5rem;
-  }
-  .ownership__section {
-    margin-top: 2rem;
-  }
-}
-@media only screen and (min-width: 768px) {
-  .section {
-    padding: 4rem 2.5rem;
-  }
-  .section .section__title {
-    font-size: 1.5rem;
-  }
-  .build__section {
-    padding: 4rem 2.5rem;
-  }
-  .build__section .card__container {
-    width: calc(100% - 5rem);
-    grid-template-columns: repeat(4, 1fr);
-  }
-  .ownership__section {
-    margin-top: 0rem;
-    gap: 2.5rem;
-  }
-  .ownership__section .card__container .card__default {
-    gap: 0.8rem;
-  }
-  .ownership__section .card__container .card__default .card__image {
-    width: 18%;
-    margin-bottom: 0.7rem;
-  }
-  .ownership__section .card__container .card__default .card__title {
-    font-size: 1.2rem;
-  }
-  .ownership__section .card__container .card__default .card__text {
-    width: 30ch;
-    font-size: 1rem;
-  }
-}
-@media only screen and (min-width: 1280px) {
-  .build__section {
-    padding: 5rem 2.5rem;
-  }
-  .build__section .section__title {
-    font-size: 1.8rem;
-  }
-  .ownership__section {
-    gap: 3rem;
-  }
-  .ownership__section .card__container {
-    grid-template-columns: repeat(4, 1fr);
   }
 }
 .models__section {

@@ -6,6 +6,7 @@ import Services from "./assets/components/Services";
 import Models from "./assets/components/ModelsRow";
 import Footer from "./assets/components/Footer";
 
+import mainData from "./assets/mainData.json"
 
 const newsData = [
   {
@@ -33,7 +34,7 @@ const newsData = [
     link: ""
   },
 ]
-
+/*
 import buildIMG1 from "../public/Build/build-3.jpg";
 import buildIMG2 from "../public/Build/build-x3.jpg";
 import buildIMG3 from "../public/Build/build-5.jpg";
@@ -85,7 +86,7 @@ const buildData = [
     }
   }
 ]
-
+*/
 import connectIMG from "../public/connect.png";
 import creditIMG from "../public/credit-score.png";
 import financingIMG from "../public/financing.png";
@@ -173,25 +174,13 @@ export default function App() {
           })
         }
       </div>
+      <StaticSection 
+        sectionName="builds"
+        dataObject={mainData.builds}
+      />
 
-      <div className="build__section section">
-        <h2 className="section__title">Build the BMW of your dreams.</h2>
-        <div className="card__container">
-          {
-            buildData.map(card => {
-              return <DefaultCard 
-                key={card.id}
-                id={card.id}
-                image={card.image}
-                title={card.title}
-                text={card.text}
-                link={card.link}  
-              />
-            })
-          }
-        </div>
-          <button>Build Your Own</button>
-      </div>
+
+
 
       <Services screenSize={screenSize}/>
 
@@ -221,6 +210,29 @@ export default function App() {
   )
 }
 
+/*
+
+      <div className="build__section section">
+        <h2 className="section__title">Build the BMW of your dreams.</h2>
+        <div className="card__container">
+          {
+            buildData.map(card => {
+              return <DefaultCard 
+                key={card.id}
+                id={card.id}
+                image={card.image}
+                title={card.title}
+                text={card.text}
+                link={card.link}  
+              />
+            })
+          }
+        </div>
+          <button>Build Your Own</button>
+      </div>
+
+
+      */
 
 function DefaultCard({title, text, image, link}) {
   const icon = "fa-solid fa-arrow-up-right-from-square"
@@ -232,4 +244,43 @@ function DefaultCard({title, text, image, link}) {
       <a href={link.url} className="card__link">{link.text} {link.hasIcon && <i className={icon}/>}</a>
     </div>
   )
+}
+
+
+function StaticSection({screenSize, sectionName, dataObject}) {
+  const icon = "fa-solid fa-arrow-up-right-from-square"
+
+    return (
+      <div className={`static__section ${sectionName}__section`}>
+        <h3 className={`section__title `}>{dataObject.section_title}</h3>
+        {
+          dataObject.data.map(item => {
+            return (
+              <div
+                key={`${sectionName}-${item.id}`} 
+                className={`card__default ${sectionName}__card`}>
+                <div 
+                  className={`card__image ${sectionName}__image`}  
+                  style={{"--image-bg": `url("../${sectionName}/${item.image}")`}}
+                />
+                  <div className={item.text !== "" ? "card__title bold" : "card__title"}>{item.title}</div>
+                {
+                  item.text !== "" &&
+                    <div className="card__text">{item.text}</div>
+                }
+                <a 
+                  href="" 
+                  className={`card__link ${sectionName}-link`}
+                >{item.link.text} {item.link.hasIcon && <i className={icon}/>}</a>
+              </div>
+            )
+          })
+        }
+        {
+          dataObject.button !== undefined &&
+          <button className={dataObject.button.className}>{dataObject.button.text}</button>
+        }
+      </div>
+    )
+
 }

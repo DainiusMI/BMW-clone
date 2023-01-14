@@ -1,0 +1,82 @@
+@use "./mixin" as *;
+@use "./variables" as *;
+
+
+
+.static__section {
+    width: 100%;
+    padding: 3rem 1.5rem;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    &>* {
+        justify-self: center;
+    }
+    .section__title {
+
+    }
+    .card__default {
+        width: 100%;
+        @include flex(column, center, center);
+        .card__image {
+            --image-bg: "";
+    
+            width: 100%;
+            background-image: var(--image-bg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .card__title {
+    
+            &.bold {
+                font-weight: 600;
+            }
+        }
+        .card__text {
+            font-size: .8rem;
+            font-weight: 300;
+            text-align: center;
+        }
+        .card__link {
+            font-size: .8rem;
+            font-weight: 600;
+            text-align: center;
+            color: $project-black;
+        }
+    }
+    .section__title, button {
+        grid-column: 1 / -1;
+    }
+}
+
+.button__black {
+    background-color: $project-black;
+    width: 12rem;
+    height: 3rem;
+    border: none;
+
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+
+    cursor: pointer;
+    &:hover {
+        background-color: $project-grey-dark;
+    }
+}
+
+
+.builds__section {
+    background-color: $background-silver;
+
+    .builds__card {
+
+        .builds__image {
+            aspect-ratio:  1 / 0.5;
+        }
+        .builds__link {
+
+        }
+    }
+}

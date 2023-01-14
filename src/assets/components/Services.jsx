@@ -2,9 +2,9 @@ import React, {useState, useEffect} from "react";
 import DynamicSection from "./DynamicSection";
 import mainDataJSON from "../mainData.json"
 
-const servicesJSON = mainDataJSON.services
+const servicesJSON = mainDataJSON.services.data
 
-
+/*
 const servicesData = [
     {   
         id: 1,
@@ -37,6 +37,8 @@ const servicesData = [
         isActive: false
     }
 ]
+*/
+
 
 export default function Services({screenSize}) {
     const [serviceState, setServiceState] = useState(servicesJSON)

@@ -1,169 +1,277 @@
 {
-    "hero": [
-        {
-            "id": 1,
-            "title": "PACK A SURPIZE THIS SEASON",
-            "text": "The BMW Road Home Sales Event offers a credit of up to $3.250 on select BMW models - now through Janury 3rd",
-            "image": {
-                "mobile": "hero-1-mobile.jpg",
-                "tablet": "hero-1-tablet.jpg",
-                "desktop": "hero-1-desktop.jpg"
-            },
-            "buttons": [
-                {
-                    "text": "Offers Details",
-                    "className": "button__blue"
+    "hero": {
+        "data": [
+            {
+                "id": 1,
+                "title": "PACK A SURPIZE THIS SEASON",
+                "text": "The BMW Road Home Sales Event offers a credit of up to $3.250 on select BMW models - now through Janury 3rd",
+                "image": {
+                    "mobile": "hero-1-mobile.jpg",
+                    "tablet": "hero-1-tablet.jpg",
+                    "desktop": "hero-1-desktop.jpg"
                 },
-                {
-                    "text": "Offers Details",
-                    "className": "button__white"
-                }
-            ],
-            "slogan": [],
-            "isActive": true
-        },
-        {
-            "id": 2,
-            "title": "EMBODY THE MAXIMUM",
-            "text":  "THE FIRST EVER BMW XM",
-            "image": {
-                "mobile": "hero-2-mobile.jpg",
-                "tablet": "hero-2-tablet.jpg",
-                "desktop": "hero-2-desktop.jpg"
+                "buttons": [
+                    {
+                        "text": "Offers Details",
+                        "className": "button__blue"
+                    },
+                    {
+                        "text": "Offers Details",
+                        "className": "button__white"
+                    }
+                ],
+                "slogan": [],
+                "isActive": true
             },
-            "buttons": [
-                {
-                    "text": "Learn More",
-                    "className": "button__blue"
+            {
+                "id": 2,
+                "title": "EMBODY THE MAXIMUM",
+                "text":  "THE FIRST EVER BMW XM",
+                "image": {
+                    "mobile": "hero-2-mobile.jpg",
+                    "tablet": "hero-2-tablet.jpg",
+                    "desktop": "hero-2-desktop.jpg"
                 },
-                {
-                    "text": "Pre-Order",
-                    "className": "button__white"
-                }
-            ],
-            "slogan": ["The", "Ultimate", "Driving Machine ®"],
-            "isActive": false
-        },
-        {
-            "id": 3,
-            "title": "AS ELECTRIC AS YOU",
-            "text":  "iX shown on left, i4 shown on the right",
-            "image": {
-                "mobile": "hero-3-mobile.jpg",
-                "tablet": "hero-3-tablet.jpg",
-                "desktop": "hero-3-desktop.jpg"
+                "buttons": [
+                    {
+                        "text": "Learn More",
+                        "className": "button__blue"
+                    },
+                    {
+                        "text": "Pre-Order",
+                        "className": "button__white"
+                    }
+                ],
+                "slogan": ["The", "Ultimate", "Driving Machine ®"],
+                "isActive": false
             },
-            "buttons": [
-                {
-                    "text": "Explore the iX",
-                    "className": "button__blue"
+            {
+                "id": 3,
+                "title": "AS ELECTRIC AS YOU",
+                "text":  "iX shown on left, i4 shown on the right",
+                "image": {
+                    "mobile": "hero-3-mobile.jpg",
+                    "tablet": "hero-3-tablet.jpg",
+                    "desktop": "hero-3-desktop.jpg"
                 },
-                {
-                    "text": "Explore the i4",
-                    "className": "button__white"
-                }
-            ],
-            "slogan": ["The Ultimate", "Electric", "Driving Machine"],
-            "isActive": false
-        },
-        {
-            "id": 4,
-            "title":  "THE M2",
-            "text": "DISCOVER THE 2023 BMW M2 COUPE",
-            "image": {
-                "mobile": "hero-4-mobile.jpg",
-                "tablet": "hero-4-tablet.jpg",
-                "desktop": "hero-4-desktop.jpg"
+                "buttons": [
+                    {
+                        "text": "Explore the iX",
+                        "className": "button__blue"
+                    },
+                    {
+                        "text": "Explore the i4",
+                        "className": "button__white"
+                    }
+                ],
+                "slogan": ["The Ultimate", "Electric", "Driving Machine"],
+                "isActive": false
             },
-            "buttons": [
-                {
-                    "text": "Build Yours",
-                    "className": "button__blue"
+            {
+                "id": 4,
+                "title":  "THE M2",
+                "text": "DISCOVER THE 2023 BMW M2 COUPE",
+                "image": {
+                    "mobile": "hero-4-mobile.jpg",
+                    "tablet": "hero-4-tablet.jpg",
+                    "desktop": "hero-4-desktop.jpg"
                 },
-                {
-                    "text": "Learn More",
-                    "className": "button__white"
-                }
-            ],
-            "slogan":  ["The", "Ultimate", "Driving Machine ®"],
-            "isActive": false
-        }
-    ],
+                "buttons": [
+                    {
+                        "text": "Build Yours",
+                        "className": "button__blue"
+                    },
+                    {
+                        "text": "Learn More",
+                        "className": "button__white"
+                    }
+                ],
+                "slogan":  ["The", "Ultimate", "Driving Machine ®"],
+                "isActive": false
+            }
+        ]
+    },
     "news": [
-
-    ],
-    "services": [
         {
             "id": 1,
-            "title": "DOWNLOAD THE NEW MY BMW APP",
+            "image": "build-3.jpg",
+            "title": "3 Series Sedan",
             "text": "",
-            "image": {
-                "mobile": "service-1-mobile.jpg",
-                "tablet": "service-1-tablet.jpg",
-                "desktop": "service-1-desktop.jpg"
-            },
-            "buttons": [
-                {
-                    "text": "Learn More",
-                    "className": "button__white"
-                }
-            ],
-            "slogan": [],
-            "isActive": true
-        },
-        {
-            "id": 2,
-            "title": "INTRODUCING BMW ULTIMATE CARE OIL SERVICES",
-            "text": "3 yaers prepaid for $199 for BMWs that have reached 60 months or 60.000 miles.",
-            "image": {
-                "mobile": "service-2-mobile.jpg",
-                "tablet": "service-2-tablet.jpg",
-                "desktop": "service-2-desktop.jpg"
-            },
-            "buttons": [
-                {
-                    "text": "Learn More",
-                    "className": "button__white"
-                }
-            ],
-            "slogan": [],
-            "isActive": false
-        },
-        {
-            "id": 3,
-            "title": "DESIGNED FOR THE DRIVEN",
-            "text": "Ear up to 5X POINTS on eligible purchases.",
-            "image": {
-                "mobile": "service-3-mobile.jpg",
-                "tablet": "service-3-tablet.jpg",
-                "desktop": "service-3-desktop.jpg"
-            },
-            "buttons": [
-                {
-                    "text": "Learn More",
-                    "className": "button__white"
-                }
-            ],
-            "slogan": [],
-            "isActive": false
-        },
-        {
-            "id": 4,
-            "title": "BMW VALUE SERVICE",
-            "text": "Think we're expensive? Think again.",
-            "image": {
-                "mobile": "service-4-mobile.jpg",
-                "tablet": "service-4-tablet.jpg",
-                "desktop": "service-4-desktop.jpg"
-            },
-            "buttons": [
-                {
-                    "text": "Learn More",
-                    "className": "button__white"
-                }
-            ],
-            "slogan": [],
-            "isActive": false
+            "buttons": {
+                "text": "Start Designing",
+                "className": "button__black",
+                "icon": null
+            }
         }
-    ]
+    ],
+    "builds": {
+        "section_title": "Build the BMW of your dreams.",
+        "data": [
+            {
+                "id": 1,
+                "image": "build-3.jpg",
+                "title": "3 Series Sedan",
+                "text": "",
+                "link": {
+                    "text": "Start Designing",
+                    "icon": false
+                }
+            },
+            {
+                "id": 2,
+                "image": "build-x3.jpg",
+                "title": "X3",
+                "text": "",
+                "link": {
+                    "text": "Start Designing",
+                    "icon": false
+                }
+            },
+            {
+                "id": 3,
+                "image": "build-5.jpg",
+                "title": "5 Series Sedan",
+                "text": "",
+                "link": {
+                    "text": "Start Designing",
+                    "icon": false
+                }
+            },
+            {
+                "id": 4,
+                "image": "build-x5.jpg",
+                "title": "X5",
+                "text": "",
+                "link": {
+                    "text": "Start Designing",
+                    "icon": false
+                }
+            }
+        ],
+        "button": {
+            "text": "Build Your Own",
+            "className": "button__black"
+        }
+    },
+    "services": {
+        "data":  [
+            {
+                "id": 1,
+                "title": "DOWNLOAD THE NEW MY BMW APP",
+                "text": "",
+                "image": {
+                    "mobile": "service-1-mobile.jpg",
+                    "tablet": "service-1-tablet.jpg",
+                    "desktop": "service-1-desktop.jpg"
+                },
+                "buttons": [
+                    {
+                        "text": "Learn More",
+                        "className": "button__white"
+                    }
+                ],
+                "slogan": [],
+                "isActive": true
+            },
+            {
+                "id": 2,
+                "title": "INTRODUCING BMW ULTIMATE CARE OIL SERVICES",
+                "text": "3 yaers prepaid for $199 for BMWs that have reached 60 months or 60.000 miles.",
+                "image": {
+                    "mobile": "service-2-mobile.jpg",
+                    "tablet": "service-2-tablet.jpg",
+                    "desktop": "service-2-desktop.jpg"
+                },
+                "buttons": [
+                    {
+                        "text": "Learn More",
+                        "className": "button__white"
+                    }
+                ],
+                "slogan": [],
+                "isActive": false
+            },
+            {
+                "id": 3,
+                "title": "DESIGNED FOR THE DRIVEN",
+                "text": "Ear up to 5X POINTS on eligible purchases.",
+                "image": {
+                    "mobile": "service-3-mobile.jpg",
+                    "tablet": "service-3-tablet.jpg",
+                    "desktop": "service-3-desktop.jpg"
+                },
+                "buttons": [
+                    {
+                        "text": "Learn More",
+                        "className": "button__white"
+                    }
+                ],
+                "slogan": [],
+                "isActive": false
+            },
+            {
+                "id": 4,
+                "title": "BMW VALUE SERVICE",
+                "text": "Think we're expensive? Think again.",
+                "image": {
+                    "mobile": "service-4-mobile.jpg",
+                    "tablet": "service-4-tablet.jpg",
+                    "desktop": "service-4-desktop.jpg"
+                },
+                "buttons": [
+                    {
+                        "text": "Learn More",
+                        "className": "button__white"
+                    }
+                ],
+                "slogan": [],
+                "isActive": false
+            }
+        ]
+    },
+    "ownership": {
+        "section_title": "Build the BMW of your dreams.",
+        "data": [
+            {
+                "id": 1,
+                "image": "value.jpg",
+                "title": "Trade-in Value",
+                "text": "Get the latest information on your vehicle’s trade-in value today.",
+                "link": {
+                    "text": "Visit Black Book",
+                    "icon": true
+                }
+            },
+            {
+                "id": 2,
+                "image": "credit-score.jpg",
+                "title": "Check Your Credit Score",
+                "text": "See where you stand on your journey to owning a BMW.",
+                "link": {
+                    "text": "Visit Equifax",
+                    "icon": true
+                }
+            },
+            {
+                "id": 3,
+                "image": "financing.jpg",
+                "title": "Apply for Financing",
+                "text": "Own the BMW of your dreams with BMW Financial Services.",
+                "link": {
+                    "text": "Get Started",
+                    "icon": true
+                }
+            },
+            {
+                "id": 4,
+                "image": "connect.jpg",
+                "title": "Stay Connected",
+                "text": "Receive the latest offers, releases, and news from BMW.",
+                "link": {
+                    "text": "Sign Up Now",
+                    "icon": false
+                }
+            }
+        ]
+    }
 }

@@ -2,7 +2,7 @@ import React, {useState, useEffect, useRef} from "react";
 import DynamicSection from "./DynamicSection";
 import mainDataJSON from "../mainData.json"
 
-const heroDOM = mainDataJSON.hero
+const heroDOM = mainDataJSON.hero.data
 /*
 const heroData = [
     {   
