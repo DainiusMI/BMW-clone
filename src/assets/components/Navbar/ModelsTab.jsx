@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react"
-import useImage from "../hooks/useImage"
 import modelsJSON from "./models.json"
 
 
