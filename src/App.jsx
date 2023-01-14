@@ -184,24 +184,10 @@ export default function App() {
 
       <Services screenSize={screenSize}/>
 
-      <div className="ownership__section section">
-        <h2 className="section__title">Ownership starts here.</h2>
-        <div className="card__container">
-          {
-            ownershipData.map(card => {
-              return <DefaultCard 
-                key={card.id}
-                id={card.id}
-                image={card.image}
-                title={card.title}
-                text={card.text}
-                link={card.link}  
-              />
-            })
-          }
-        </div>
-
-      </div>
+      <StaticSection 
+          sectionName="ownership"
+          dataObject={mainData.ownership}
+      />
 
       {screenSize === "desktop" && <Models />}
 
@@ -231,6 +217,29 @@ export default function App() {
           <button>Build Your Own</button>
       </div>
 
+
+
+
+
+
+      <div className="ownership__section section">
+        <h2 className="section__title">Ownership starts here.</h2>
+        <div className="card__container">
+          {
+            ownershipData.map(card => {
+              return <DefaultCard 
+                key={card.id}
+                id={card.id}
+                image={card.image}
+                title={card.title}
+                text={card.text}
+                link={card.link}  
+              />
+            })
+          }
+        </div>
+
+      </div>
 
       */
 
@@ -271,7 +280,7 @@ function StaticSection({screenSize, sectionName, dataObject}) {
                 <a 
                   href="" 
                   className={`card__link ${sectionName}-link`}
-                >{item.link.text} {item.link.hasIcon && <i className={icon}/>}</a>
+                >{item.link.text} {item.link.icon && <i className={icon}/>}</a>
               </div>
             )
           })

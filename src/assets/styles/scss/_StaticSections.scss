@@ -14,7 +14,8 @@
         justify-self: center;
     }
     .section__title {
-
+        font-size: 1.5rem;
+        font-weight: 300;
     }
     .card__default {
         width: 100%;
@@ -28,7 +29,9 @@
             background-repeat: no-repeat;
         }
         .card__title {
-    
+            font-size: 1.1rem;
+            font-weight: 300;
+            text-align: center;
             &.bold {
                 font-weight: 600;
             }
@@ -43,6 +46,14 @@
             font-weight: 600;
             text-align: center;
             color: $project-black;
+            
+            justify-self: flex-end;
+            i {
+                margin-left: .3rem;
+            }
+            &:hover {
+                color: $project-grey;
+            }
         }
     }
     .section__title, button {
@@ -52,11 +63,10 @@
 
 .button__black {
     background-color: $project-black;
-    width: 12rem;
-    height: 3rem;
+    width: 10rem;
+    height: 2.7rem;
     border: none;
 
-    font-size: 1.1rem;
     font-weight: 600;
     color: #fff;
 
@@ -71,12 +81,75 @@
     background-color: $background-silver;
 
     .builds__card {
-
+        gap: 1rem;
         .builds__image {
             aspect-ratio:  1 / 0.5;
         }
         .builds__link {
 
+        }
+    }
+}
+.ownership__section {
+    margin-top: 3rem;
+    .ownership__card {
+        gap: 1rem;
+        padding: 2rem;
+        .ownership__image {
+            aspect-ratio: 1 / 1;
+            width: 35%;
+        }
+        .card__text {
+            font-size: 1rem;
+        }
+    }
+}
+
+
+
+
+// TABLET 
+@media only screen and (min-width: 768px) {
+
+    .builds__section {
+        grid-template-columns: repeat(4, 1fr);
+        .builds__card {
+            gap: .5rem;
+            
+        }
+        .section__title, .button__black {
+            margin-block: 1rem;
+        }
+    }
+
+    .ownership__section {
+        margin-top: 0;
+    }
+}
+
+
+// DESKTOP
+@media only screen and (min-width: 1280px) {
+
+    .static__section {
+        .section__title {
+            font-size: 1.9rem;
+        }
+        .card__default {
+            .card__title {
+                font-size: 1.3rem;
+            }
+        }
+    }
+    
+    .ownership__section {
+        grid-template-columns: repeat(4, 1fr);
+        gap: .5rem;
+        padding-block: 5rem;
+        .ownership__card {
+            .ownership__image {
+                width: 25%;
+            }
         }
     }
 }
