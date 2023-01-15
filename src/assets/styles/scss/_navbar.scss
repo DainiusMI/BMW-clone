@@ -243,9 +243,9 @@
 @media only screen and (min-width: 768px) {
     .navigate__back__row { 
         height: 4rem;
-        font-weight: 300;
+        font-weight: 500;
+        font-size: 1.2rem;
         position: relative;
-        
     }
 }
 
@@ -256,6 +256,7 @@
         position: static;
         border: none;
         height: 0;
+        margin: 0;
         i {
             width: 3rem;
             aspect-ratio: 1 / 1;
@@ -269,8 +270,8 @@
             -moz-box-shadow: 2px 7px 16px -3px rgba(0,0,0,0.75);
 
             position: absolute;
-            top: 3vw;
-            right: 3vw;
+            top: 5vw;
+            right: 5vw;
             
             
             &:hover {

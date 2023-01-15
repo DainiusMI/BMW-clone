@@ -56,7 +56,6 @@
 
     .models__tab {
 
-
         .category__list__container {
             padding: 1rem 2rem;
             display: grid;
@@ -182,21 +181,14 @@
 @media only screen and (min-width: 1280px) {
 
     .models__tab {
-        padding: var(--mavbar-heigth) 12vw 15vw 12vw;
+
         gap: 3rem;
-        top: 0;
-    
-        .category__list__row {
-            .category__list__container {
+        padding-top: 3vw;
 
-            }
-            .blue__button {
-
-            }
+        &>*:not(.navigate__back__row) {
+            width: 75%;
         }
-        .selected__category__row {
 
-        }
         .models__grid__container {
             grid-template-columns: repeat(6, 1fr);
         

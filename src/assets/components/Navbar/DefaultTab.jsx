@@ -21,7 +21,7 @@ export default function DefaultTab({tabName, dataObject, screenSize, goBack}) {
             return (
                 <div className="tab__input__container">
                     <p className="tab__input__placeholder">{item.input.placeholder}</p>
-                    <input type="text" onBlur={setInputDisabled} />
+                    <input id={`${item.id}_input`} type="text" autoFocus onBlur={setInputDisabled} />
                 </div>
             )
         }
@@ -55,14 +55,14 @@ export default function DefaultTab({tabName, dataObject, screenSize, goBack}) {
                                     item.links !== null &&
                                     item.links.map((link, idx) => {
                                         return item.link_tag === "a" ?
-                                                    <div className="tab__link">
-                                                        <a href="" key={`${item.title}-link${idx}`} className="tab__link__text">{link.text}</a>
+                                                    <div key={`${item.title}-link${idx}`} className="tab__link">
+                                                        <a href="" className="tab__link__text">{link.text}</a>
                                                         {link.icon && <i className={shevron}/>}
                                                     </div>
                                                     :
                                                     item.link_tag === "p" &&
-                                                    <div className="tab__link">
-                                                         <p key={`${item.title}-link${idx}`} className="tab__link__text">{link.text}</p>
+                                                    <div key={`${item.title}-link${idx}`} className="tab__link">
+                                                         <p className="tab__link__text">{link.text}</p>
                                                          {link.icon && <i className={icon}/>}
                                                     </div>
                                     })

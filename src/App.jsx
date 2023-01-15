@@ -34,8 +34,8 @@ export default function App() {
   })
 
   function hideMainContent() {
-    const hideInCase = ["models"]
-    return hideInCase.includes(navbarState.openedTabName) ? true : false
+    const hideInCase = ["models", "owners", "shopping"]
+    return hideInCase.includes(navbarState.openedTabName) ? false : true
   }
 
   return (
@@ -45,11 +45,13 @@ export default function App() {
         navbarState={navbarState}
         setNavbarState={setNavbarState}
         hideMainContent={hideMainContent}
-      />      
-      <Hero screenSize={screenSize}/>
-      
+      /> 
       {
-        !hideMainContent() &&         
+        navbarState.openedTabName !== "models" &&
+        <Hero screenSize={screenSize}/>
+      }     
+      {
+        hideMainContent() &&
         <StaticSection 
           sectionName="news"
           dataObject={mainData.news}
@@ -57,29 +59,29 @@ export default function App() {
         />
       }
       {
-        !hideMainContent() &&         
+        hideMainContent() &&
         <StaticSection 
           sectionName="builds"
           dataObject={mainData.builds}
         />
       }
       {
-        !hideMainContent() && 
+       hideMainContent() &&
         <Services screenSize={screenSize}/>
       }
       {
-        !hideMainContent() && 
+       hideMainContent() &&
         <StaticSection 
             sectionName="ownership"
             dataObject={mainData.ownership}
         />
       }
       {
-        screenSize === "desktop" && !hideMainContent() && 
+        screenSize === "desktop" &&hideMainContent() &&
           <Models />
       }
       {
-        !hideMainContent() && 
+       hideMainContent() &&
         <Footer screenSize={screenSize}/>
       }
     </main>

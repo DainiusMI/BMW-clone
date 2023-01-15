@@ -102,15 +102,135 @@
 }
 
 .owners {
+   
+}
+#bmw_owners {
+
+    .tab__section__title {
+        font-size: 1.5rem;
+        font-weight: 300;
+        margin-bottom: .5rem;
+    }
+    .tab__link {
+        font-weight: 600;
+    }
+}
+
+
+
+// TABLET
+@media only screen and (max-width: 768px) {
     #bmw_owners {
-        margin-bottom: 3rem;
-        .tab__section__title {
-            font-size: 1.5rem;
-            font-weight: 300;
-            margin-bottom: .5rem;
+        padding-bottom: 3rem;
+    }
+}
+
+// TABLET
+@media only screen and (min-width: 768px) {
+
+
+    .default__tab { 
+        gap: 0;
+        .tab__section {
+            padding-inline: 10%;
+            padding-block: 4rem;
         }
-        .tab__link {
-            font-weight: 600;
+        &>*:last-child {
+            @include flex(row, flex-start, space-between);
+            padding-top: 3rem;
+            position: relative;
+            &::before {
+                content: "";
+                transform: translateY(-50%);
+                width: 80%;
+                height: 1px;
+                background-color: $project-grey;
+
+                position: absolute;
+                top: 0;
+                left: 10%;
+            }
         }
     }
+    .owners {
+
+    }
+    #bmw_owners {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.2rem;
+        .tab__section__title {
+            font-size: 2rem;
+            width: 10ch;
+            grid-row: 1 / 4;
+            display: grid;
+            align-self: flex-end;
+            margin-bottom: -.5rem;
+        }
+    }
+}
+
+
+// DESKTOP
+@media only screen and (min-width: 1280px) {
+    .default__tab { 
+        margin-top: 6rem;
+        padding-top: 5%;
+        @include flex(row, flex-start, flex-start);
+        gap: 3rem;
+        &>*:first-child {
+            width: 40%;
+        }
+        &>*:last-child {
+            width: 60%;
+            &::before {
+                width: 0;
+                height: 0;
+            }
+        }
+        .tab__section {
+            padding-inline: 0;
+            padding-block: 0;
+        }
+    }
+    #bmw_owners {
+        @include flex(column, flex-start, flex-start);
+        padding-left: 35%;
+        
+        .tab__section__title {
+            align-self: flex-start;
+            font-size: 2.5rem;
+            margin-bottom: -1rem;
+        }
+    }
+    .shopping {
+        gap: 0;
+        padding-inline: 10%;
+
+        .tab__section {
+           &:first-of-type {
+            width: 40%;
+            padding-right: 4rem;
+           }
+           &:last-of-type {
+            width: 60%;
+            padding-left: 4rem;
+            position: relative;
+            &::after {
+                content: "";
+                width: 1px;
+                height: 100%;
+                background-color: $project-grey;
+
+                position: absolute;
+                top: 50%;
+                left: 0;
+                transform: translate(50%, -50%);
+            }
+           }
+            width: 50%;
+        }
+    }
+
+
 }

@@ -142,7 +142,7 @@ export default function Navbar({screenSize, navbarState, setNavbarState, hideMai
     }
 
     return (
-        <div className={screenSize === "desktop" ? hideMainContent() ? "header" : "header fixed" : "header"}>
+        <div className={screenSize === "desktop" ? hideMainContent() ? "header fixed" : "header" : "header"}>
             <nav 
                 className={navbarClassName()}  
                 onClick={handleMaximize}

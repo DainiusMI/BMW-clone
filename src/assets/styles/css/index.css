@@ -174,9 +174,11 @@
 }
 @media only screen and (min-width: 1280px) {
   .models__tab {
-    padding: var(--mavbar-heigth) 12vw 15vw 12vw;
     gap: 3rem;
-    top: 0;
+    padding-top: 3vw;
+  }
+  .models__tab > *:not(.navigate__back__row) {
+    width: 75%;
   }
   .models__tab .models__grid__container {
     grid-template-columns: repeat(6, 1fr);
@@ -271,18 +273,123 @@
 .shopping #local_inventory {
   gap: 1.5rem;
 }
-.owners #bmw_owners {
-  margin-bottom: 3rem;
-}
-.owners #bmw_owners .tab__section__title {
+#bmw_owners .tab__section__title {
   font-size: 1.5rem;
   font-weight: 300;
   margin-bottom: 0.5rem;
 }
-.owners #bmw_owners .tab__link {
+#bmw_owners .tab__link {
   font-weight: 600;
 }
 
+@media only screen and (max-width: 768px) {
+  #bmw_owners {
+    padding-bottom: 3rem;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .default__tab {
+    gap: 0;
+  }
+  .default__tab .tab__section {
+    padding-inline: 10%;
+    padding-block: 4rem;
+  }
+  .default__tab > *:last-child {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-top: 3rem;
+    position: relative;
+  }
+  .default__tab > *:last-child::before {
+    content: "";
+    transform: translateY(-50%);
+    width: 80%;
+    height: 1px;
+    background-color: #747373;
+    position: absolute;
+    top: 0;
+    left: 10%;
+  }
+  #bmw_owners {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+  }
+  #bmw_owners .tab__section__title {
+    font-size: 2rem;
+    width: 10ch;
+    grid-row: 1/4;
+    display: grid;
+    align-self: flex-end;
+    margin-bottom: -0.5rem;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .default__tab {
+    margin-top: 6rem;
+    padding-top: 5%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 3rem;
+  }
+  .default__tab > *:first-child {
+    width: 40%;
+  }
+  .default__tab > *:last-child {
+    width: 60%;
+  }
+  .default__tab > *:last-child::before {
+    width: 0;
+    height: 0;
+  }
+  .default__tab .tab__section {
+    padding-inline: 0;
+    padding-block: 0;
+  }
+  #bmw_owners {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-left: 35%;
+  }
+  #bmw_owners .tab__section__title {
+    align-self: flex-start;
+    font-size: 2.5rem;
+    margin-bottom: -1rem;
+  }
+  .shopping {
+    gap: 0;
+    padding-inline: 10%;
+  }
+  .shopping .tab__section {
+    width: 50%;
+  }
+  .shopping .tab__section:first-of-type {
+    width: 40%;
+    padding-right: 4rem;
+  }
+  .shopping .tab__section:last-of-type {
+    width: 60%;
+    padding-left: 4rem;
+    position: relative;
+  }
+  .shopping .tab__section:last-of-type::after {
+    content: "";
+    width: 1px;
+    height: 100%;
+    background-color: #747373;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(50%, -50%);
+  }
+}
 :root {
   --mavbar-heigth: 4rem;
 }
@@ -519,7 +626,8 @@
 @media only screen and (min-width: 768px) {
   .navigate__back__row {
     height: 4rem;
-    font-weight: 300;
+    font-weight: 500;
+    font-size: 1.2rem;
     position: relative;
   }
 }
@@ -528,6 +636,7 @@
     position: static;
     border: none;
     height: 0;
+    margin: 0;
   }
   .navigate__back__row i {
     width: 3rem;
@@ -543,8 +652,8 @@
     -webkit-box-shadow: 2px 7px 16px -3px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 2px 7px 16px -3px rgba(0, 0, 0, 0.75);
     position: absolute;
-    top: 3vw;
-    right: 3vw;
+    top: 5vw;
+    right: 5vw;
   }
   .navigate__back__row i:hover {
     background-color: #F6F6F6;
