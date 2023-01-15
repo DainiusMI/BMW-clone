@@ -1,0 +1,75 @@
+{
+    "title": "Shopping",
+    "data": [
+        {
+            "id": 1,
+            "title": "Explore Local Inventory",
+            "input": {
+                "placeholder": "ZIP Code"
+            },
+            "links": [],
+            "buttons": [
+                {
+                    "text": "Shop New",
+                    "className": "button__black"
+                },
+                {
+                    "text": "Shop Pre-Owned",
+                    "className": "button__black"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "title": "Shopping Tools",
+            "input": null,
+            "links": [
+                {
+                    "text": "Find Your Trade-In Value",
+                    "icon": true
+                },
+                {
+                    "text": "Estimate Payment",
+                    "icon": false
+                },
+                {
+                    "text": "Request a Test Drive",
+                    "icon": false
+                },
+                {
+                    "text": "Shop BMW Parts & Accessories",
+                    "icon": true
+                },
+                {
+                    "text": "Shop Online",
+                    "icon": false
+                }
+            ],
+            "buttons": null
+        },
+        {
+            "id": 3,
+            "title": "Offers & Financing",
+            "input": null,
+            "links": [
+                {
+                    "text": "Lease & Financing Offers",
+                    "icon": false
+                },
+                {
+                    "text": "BMW Certified Offers",
+                    "icon": false
+                },
+                {
+                    "text": "Apply for Financing",
+                    "icon": true
+                },
+                {
+                    "text": "BMW Financial Services",
+                    "icon": false
+                }                
+            ],
+            "buttons": null
+        }
+    ]
+}

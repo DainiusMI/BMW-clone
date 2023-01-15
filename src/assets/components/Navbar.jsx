@@ -4,7 +4,7 @@ import NavbarLeftSideItem from "./Navbar/NavbarLeftSideItem";
 import NavbarRightSideItem from "./Navbar/NavbarRightSideItem";
 
 import Hamburger from "./Navbar/Hamburger";
-
+import DefaultTab from "./Navbar/DefaultTab";
 import ModelsTab from "./Navbar/ModelsTab";
 
 import navbarJSON from "./Navbar/navbar.json" 
@@ -136,6 +136,11 @@ export default function Navbar({screenSize, navbarState, setNavbarState, hideMai
         }))
     }
 
+    function isDefaultTab() {
+        const defaultTabList = ["shopping", "owners"]
+        return defaultTabList.includes(navbarState.openedTabName) ? true : false
+    }
+
     return (
         <div className={screenSize === "desktop" ? hideMainContent() ? "header" : "header fixed" : "header"}>
             <nav 
@@ -199,7 +204,22 @@ export default function Navbar({screenSize, navbarState, setNavbarState, hideMai
                     : null
             }
             {
-                navbarState.openedTabName === "models" && <ModelsTab screenSize={screenSize} goBack={goBack} hamburgerState={hamburgerState}/>
+
+                isDefaultTab() === true && 
+                    <DefaultTab
+                        tabName={navbarState.openedTabName}
+                        dataObject={navbarJSON.tabs[navbarState.openedTabName]}
+                        screenSize={screenSize} 
+                        goBack={goBack} 
+                    />
+        
+            }
+            {
+                navbarState.openedTabName === "models" && 
+                    <ModelsTab 
+                        screenSize={screenSize} 
+                        goBack={goBack} 
+                    />
             }
         </div>
     )

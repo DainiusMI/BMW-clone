@@ -52,5 +52,187 @@
                 "className": "fa-solid fa-magnifying-glass"
             }
         ]
+    },
+    "tabs": {
+        "shopping": {
+            "id": "shopping",
+            "title": "Shopping",
+            "data": [
+                {
+                    "id": "local_inventory",
+                    "title": "Explore Local Inventory",
+                    "input": {
+                        "placeholder": "ZIP Code"
+                    },
+                    "links": null,
+                    "link_tag": null,
+                    "buttons": [
+                        {
+                            "text": "Shop New",
+                            "className": "button__black"
+                        },
+                        {
+                            "text": "Shop Pre-Owned",
+                            "className": "button__black"
+                        }
+                    ]
+                },
+                {
+                    "id": "shopping_tools",
+                    "title": "Shopping Tools",
+                    "input": null,
+                    "links": [
+                        {
+                            "text": "Find Your Trade-In Value",
+                            "icon": true
+                        },
+                        {
+                            "text": "Estimate Payment",
+                            "icon": false
+                        },
+                        {
+                            "text": "Request a Test Drive",
+                            "icon": false
+                        },
+                        {
+                            "text": "Shop BMW Parts & Accessories",
+                            "icon": true
+                        },
+                        {
+                            "text": "Shop Online",
+                            "icon": false
+                        }
+                    ],
+                    "link_tag": "p",
+                    "buttons": null
+                },
+                {
+                    "id": "offers_and_financing",
+                    "title": "Offers & Financing",
+                    "input": null,
+                    "links": [
+                        {
+                            "text": "Lease & Financing Offers",
+                            "icon": false
+                        },
+                        {
+                            "text": "BMW Certified Offers",
+                            "icon": false
+                        },
+                        {
+                            "text": "Apply for Financing",
+                            "icon": true
+                        },
+                        {
+                            "text": "BMW Financial Services",
+                            "icon": false
+                        }                
+                    ],
+                    "link_tag": "p",
+                    "buttons": null
+                }
+            ]
+        },
+        "owners": {
+            "id": "owners",
+            "title": "Owners",
+            "data": [
+                {
+                    "id": "bmw_owners",
+                    "title": "BMW OWNERS",
+                    "input": null,
+                    "links": [
+                        {
+                            "text": "Sign in to My BMW",
+                            "icon": true
+                        },
+                        {
+                            "text": "Register for My BMW",
+                            "icon": true
+                        },
+                        {
+                            "text": "Log in to BMW ConnectedDrive",
+                            "icon": true
+                        }
+                    ],
+                    "link_tag": "a",
+                    "buttons": null
+                },
+                {
+                    "id": "get_to_know",
+                    "title": "Get to know your BMW",
+                    "input": null,
+                    "links": [
+                        {
+                            "text": "My BMW App",
+                            "icon": false
+                        },
+                        {
+                            "text": "BMW Financial Services My Account",
+                            "icon": true
+                        },
+                        {
+                            "text": "Make a Payment",
+                            "icon": true
+                        },
+                        {
+                            "text": "The BMW Card",
+                            "icon": true
+                        },
+                        {
+                            "text": "BMW Genius",
+                            "icon": false
+                        },
+                        {
+                            "text": "Owner's Manual",
+                            "icon": false
+                        },
+                        {
+                            "text": "BMW ConnectedDrive",
+                            "icon": false
+                        },
+                        {
+                            "text": "BMW Parts & Accessories",
+                            "icon": true
+                        } 
+                    ],
+                    "link_tag": "p",
+                    "buttons": null
+                },
+                {
+                    "id": "care_for_bmw",
+                    "title": "Caring for your BMW",
+                    "input": null,
+                    "links": [
+                        {
+                            "text": "BMW Maintenance Programs",
+                            "icon": false
+                        },
+                        {
+                            "text": "BMW Service",
+                            "icon": false
+                        },
+                        {
+                            "text": "Warranty Information",
+                            "icon": false
+                        },
+                        {
+                            "text": "Safety and Emission Recalls",
+                            "icon": false
+                        },
+                        {
+                            "text": "Protection Products",
+                            "icon": false
+                        },
+                        {
+                            "text": "BMW Vehicle Return",
+                            "icon": false
+                        }
+                    ],
+                    "link_tag": "p",
+                    "buttons": null
+                }
+            ]
+        }
     }
 }

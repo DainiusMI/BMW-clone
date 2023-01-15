@@ -8,7 +8,6 @@ import StaticSection from "./assets/components/StaticSection";
 import mainData from "./assets/mainData.json"
 
 
-
 export default function App() {
 
   // track device screen size
@@ -39,7 +38,6 @@ export default function App() {
     return hideInCase.includes(navbarState.openedTabName) ? true : false
   }
 
-
   return (
     <main>
       <Navbar 
@@ -47,11 +45,9 @@ export default function App() {
         navbarState={navbarState}
         setNavbarState={setNavbarState}
         hideMainContent={hideMainContent}
-      />
-      {
-        !hideMainContent() && 
-        <Hero screenSize={screenSize}/>
-      }
+      />      
+      <Hero screenSize={screenSize}/>
+      
       {
         !hideMainContent() &&         
         <StaticSection 
@@ -81,7 +77,7 @@ export default function App() {
       {
         screenSize === "desktop" && !hideMainContent() && 
           <Models />
-        }
+      }
       {
         !hideMainContent() && 
         <Footer screenSize={screenSize}/>

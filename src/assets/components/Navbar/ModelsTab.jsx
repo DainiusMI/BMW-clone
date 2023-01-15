@@ -4,7 +4,7 @@ import modelsJSON from "./models.json"
 
 
 
-export default function ModelsTab({screenSize ,goBack, hamburgerState}) {
+export default function ModelsTab({screenSize, goBack}) {
 
     const [category, setCategory] = useState("all_models")
     function filteredModels() {

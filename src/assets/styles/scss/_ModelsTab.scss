@@ -2,10 +2,6 @@
 @use "./variables" as *;
 
 
-body {
-
-}
-
 .models__tab {
     width: 100%;
     @include flex(column, flex-start, center);
@@ -29,7 +25,6 @@ body {
             }
         }
         .selected__category__row {
-
         }
         .blue__button {
             top: 0;
@@ -55,40 +50,13 @@ body {
 
 }
 
-.navigate__back__row {  
-    width: 100%;
-
-    height: 3rem;
-    font-size: 1.3rem;
-    border-bottom: 1px solid $project-grey;
-    cursor: pointer;
-    &>* {
-        position: absolute;
-        top: 50%;
-        transform: translate(-50%, -50%);
-    }
-    p {
-        right: 50%;
-    }
-    i {
-        right: 93%;
-    }
-    &:hover {
-        color: $project-blue;
-    }
-}
 
 // MOBILE
 @media only screen and (max-width: 767px) {
 
     .models__tab {
-        top: var(--mavbar-heigth);
-        .navigate__back__row { 
-            height: 4rem;
-            font-weight: 300;
-            position: relative;
 
-        }
+
         .category__list__container {
             padding: 1rem 2rem;
             display: grid;
@@ -130,13 +98,6 @@ body {
         @include flex(column, center, center);
         &>*:not(.navigate__back__row) {
             width: 90%;
-        }
-        .navigate__back__row { 
-            height: 4rem;
-            font-weight: 300;
-            position: relative;
-
-            
         }
 
         .category__list__row {
@@ -224,32 +185,7 @@ body {
         padding: var(--mavbar-heigth) 12vw 15vw 12vw;
         gap: 3rem;
         top: 0;
-        .navigate__back__row { 
-            position: static;
-            border: none;
-            height: 0;
-            i {
-                width: 3rem;
-                aspect-ratio: 1 / 1;
-                border-radius: 50%;
-                background-color: #fff;
-                font-size: 1.3rem;
-                @include flex(row, center, center);
-
-                box-shadow: 2px 7px 16px -3px rgba(0,0,0,0.75);
-                -webkit-box-shadow: 2px 7px 16px -3px rgba(0,0,0,0.75);
-                -moz-box-shadow: 2px 7px 16px -3px rgba(0,0,0,0.75);
-
-                position: absolute;
-                top: 3vw;
-                right: 3vw;
-                
-                
-                &:hover {
-                    background-color: $background-silver;
-                }
-            }
-        }
+    
         .category__list__row {
             .category__list__container {
 
