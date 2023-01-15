@@ -2,26 +2,23 @@
 @use "./variables" as *;
 
 
+body {
+
+}
 
 .models__tab {
-
     width: 100%;
     @include flex(column, flex-start, center);
-
     background-color: $background-silver;
-    
-    
-    z-index: 20;
 
     .category__list__row {
         width: 100%;
         @include flex(row, center, space-between);
-
-        font-size: 1.1rem;
-
         border-bottom: .1rem solid $project-grey;
         padding-bottom: .8rem;
 
+        font-size: 1.1rem;
+        
         .category__list__container {
             width: 100%;
             &>* {

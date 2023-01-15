@@ -3,16 +3,16 @@
 
 .models__section {
     width: 100%;
+    @include flex(row, center, flex-start);
+    gap: 2rem;
     background-color: $project-black;
     color: #fff;
     padding: 1.5rem 4rem 2rem 4rem;
     font-weight: 600;
-    gap: 2rem;
     .models__row {
         @include flex(row, center, space-between);
         width: 80%;
         .row__item {
-   
             cursor: pointer;
             &:hover {
                 color: $project-grey;

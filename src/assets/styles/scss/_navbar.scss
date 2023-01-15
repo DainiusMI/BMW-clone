@@ -10,10 +10,12 @@
 .header {
     width: 100%;
     z-index: 10;
+    position: relative;
     &.fixed {
         position: fixed;
         top: 0;    
     }
+
 }
 
 .navbar {
@@ -29,6 +31,9 @@
     color: $text-white;
     font-weight: 600;
 
+    position: absolute;
+    top: 0;
+    z-index: 15;
     &>*{
         @include flex(row, center, center);
         gap: 1rem;

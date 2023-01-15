@@ -10,8 +10,9 @@ import mainData from "./assets/mainData.json"
 
 
 export default function App() {
-  const [screenSize, setScreenSize] = useState("desktop")
 
+  // track device screen size
+  const [screenSize, setScreenSize] = useState("desktop")
   function handleScreenSize() {
     window.innerWidth < 768 ? 
       setScreenSize("mobile") :
@@ -24,35 +25,67 @@ export default function App() {
     window.addEventListener("resize", handleScreenSize)
   }, [])
   
+  // track users interaction with navbar
+  const [navbarState, setNavbarState] = React.useState({
+    className: "navbar",
+    openedTabName: null,
+    isHome: true,
+    isMinmized: false,
+    isLight: false
+  })
+
+  function hideMainContent() {
+    const hideInCase = ["models"]
+    return hideInCase.includes(navbarState.openedTabName) ? true : false
+  }
 
 
-  
   return (
     <main>
-      <Navbar screenSize={screenSize}/>
-      <Hero screenSize={screenSize}/>
-
-      <StaticSection 
-        sectionName="news"
-        dataObject={mainData.news}
+      <Navbar 
         screenSize={screenSize}
+        navbarState={navbarState}
+        setNavbarState={setNavbarState}
+        hideMainContent={hideMainContent}
       />
-
-      <StaticSection 
-        sectionName="builds"
-        dataObject={mainData.builds}
-      />
-
-      <Services screenSize={screenSize}/>
-
-      <StaticSection 
-          sectionName="ownership"
-          dataObject={mainData.ownership}
-      />
-
-      {screenSize === "desktop" && <Models />}
-
-      <Footer screenSize={screenSize}/>
+      {
+        !hideMainContent() && 
+        <Hero screenSize={screenSize}/>
+      }
+      {
+        !hideMainContent() &&         
+        <StaticSection 
+          sectionName="news"
+          dataObject={mainData.news}
+          screenSize={screenSize}
+        />
+      }
+      {
+        !hideMainContent() &&         
+        <StaticSection 
+          sectionName="builds"
+          dataObject={mainData.builds}
+        />
+      }
+      {
+        !hideMainContent() && 
+        <Services screenSize={screenSize}/>
+      }
+      {
+        !hideMainContent() && 
+        <StaticSection 
+            sectionName="ownership"
+            dataObject={mainData.ownership}
+        />
+      }
+      {
+        screenSize === "desktop" && !hideMainContent() && 
+          <Models />
+        }
+      {
+        !hideMainContent() && 
+        <Footer screenSize={screenSize}/>
+      }
     </main>
   )
 }
