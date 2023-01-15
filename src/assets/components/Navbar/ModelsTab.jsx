@@ -66,7 +66,7 @@ export default function ModelsTab({screenSize, goBack}) {
                             className="model__card">
                                 <div 
                                     className="model__image" 
-                                    style={{"--bg-image": `url("../Models/${model.imageName}")`}}
+                                    style={{"--bg-image": `url("../models/${model.imageName}")`}}
                                     //data-image={`../../../../public/Models/${model.imageName}`}
                                 />
                                 <p className="model__name">{model.name}</p>
