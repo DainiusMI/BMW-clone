@@ -24,6 +24,9 @@ export default function App() {
     window.addEventListener("resize", handleScreenSize)
   }, [])
   
+
+
+  
   return (
     <main>
       <Navbar screenSize={screenSize}/>

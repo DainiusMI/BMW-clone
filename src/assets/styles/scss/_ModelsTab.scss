@@ -9,8 +9,9 @@
     @include flex(column, flex-start, center);
 
     background-color: $background-silver;
-    position: absolute;                
-    z-index: 3;
+    
+    
+    z-index: 20;
 
     .category__list__row {
         width: 100%;

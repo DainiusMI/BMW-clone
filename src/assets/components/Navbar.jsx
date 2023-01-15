@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import NavbarLeftSideItem from "./Navbar/NavbarLeftSideItem";
 import NavbarRightSideItem from "./Navbar/NavbarRightSideItem";
+
 import Hamburger from "./Navbar/Hamburger";
 
 import ModelsTab from "./Navbar/ModelsTab";
@@ -85,6 +86,9 @@ export default function Navbar({screenSize}) {
         if (hamburgerState.isExpanded) {
             name += " hamburg_opened"
         }
+        if (navbarState.openedTabName === "models") {
+            name += " hidden"
+        }
         return name
     }
     function openNavbarTab(event) {
@@ -105,7 +109,7 @@ export default function Navbar({screenSize}) {
     function handleMinimize() {
         navbarState.isHome !== false ?
             null :
-            navbarState.openedTabName &&
+            //navbarState.openedTabName &&
                 setNavbarState(prevState => ({
                     ...prevState,
                     isMinmized: true
@@ -136,7 +140,7 @@ export default function Navbar({screenSize}) {
 
 
     return (
-        <div className="header">
+        <div className={screenSize === "desktop" ? "header fixed" : "header"}>
             <nav 
                 className={navbarClassName()}  
                 onClick={handleMaximize}
@@ -145,7 +149,7 @@ export default function Navbar({screenSize}) {
                <div className="navbar__left__side">
                    <div className="navbar__logo"/>
                    {
-                        screenSize === "desktop" &&
+                        screenSize === "desktop" && navbarState.isMinmized === false ?
                             navbarJSON.data.left.map(item => {
                                 return <NavbarLeftSideItem 
                                             key={item.id}
@@ -155,12 +159,19 @@ export default function Navbar({screenSize}) {
                                             openNavbarTab={openNavbarTab}
                                 />
                             })
+                            :
+                            screenSize === "desktop" &&
+                                <p className="navbar__slogan">The <span className="slogan__bold">Ultimate</span> Driving Machine®</p>
                    }
                </div>
                <div className="navbar__right__side">
                     {
                         screenSize === "desktop" ?
-                            navbarJSON.data.right.map(item => <NavbarRightSideItem key={item.id} item={item} openNavbarTab={openNavbarTab}/>) :
+                            navbarState.isMinmized === false ?
+                                navbarJSON.data.right.map(item => <NavbarRightSideItem key={item.id} item={item} openNavbarTab={openNavbarTab}/>) :
+                                <i className= "humbuger__icon fa-sharp fa-solid fa-bars" />                            
+                            
+                            :
                             hamburgerState.isExpanded ?
                                 <NavbarRightSideItem item={navbarJSON.data.right[1]} openNavbarTab={openNavbarTab}/> :
                                 <NavbarRightSideItem item={navbarJSON.data.right[0]} openNavbarTab={openNavbarTab}/>
