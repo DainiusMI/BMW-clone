@@ -55,7 +55,6 @@
 @media only screen and (max-width: 767px) {
 
     .models__tab {
-
         .category__list__container {
             padding: 1rem 2rem;
             display: grid;
@@ -181,14 +180,12 @@
 @media only screen and (min-width: 1280px) {
 
     .models__tab {
-
         gap: 3rem;
         padding-top: 3vw;
 
         &>*:not(.navigate__back__row) {
             width: 75%;
         }
-
         .models__grid__container {
             grid-template-columns: repeat(6, 1fr);
         

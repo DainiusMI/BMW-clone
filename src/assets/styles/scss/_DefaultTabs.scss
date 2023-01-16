@@ -82,30 +82,12 @@
 
 
 .shopping {
-
-    #shopping__first {
-
-    }
-    #shopping__second {
-
-    }
-
     #local_inventory {
         gap: 1.5rem;
     }
-    #shopping_tools {
-
-    }
-    #offers_and_financing {
-
-    }
 }
 
-.owners {
-   
-}
 #bmw_owners {
-
     .tab__section__title {
         font-size: 1.5rem;
         font-weight: 300;
@@ -206,7 +188,6 @@
     .shopping {
         gap: 0;
         padding-inline: 10%;
-
         .tab__section {
            &:first-of-type {
             width: 40%;

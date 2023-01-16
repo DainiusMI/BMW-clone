@@ -2,8 +2,6 @@ import React, {useState, useEffect} from "react"
 import modelsJSON from "./models.json"
 
 
-
-
 export default function ModelsTab({screenSize, goBack}) {
 
     const [category, setCategory] = useState("all_models")
@@ -67,7 +65,6 @@ export default function ModelsTab({screenSize, goBack}) {
                                 <div 
                                     className="model__image" 
                                     style={{"--bg-image": `url("../models/${model.imageName}")`}}
-                                    //data-image={`../../../../public/Models/${model.imageName}`}
                                 />
                                 <p className="model__name">{model.name}</p>
                         </div>
