@@ -238,7 +238,9 @@
         color: $project-blue;
     }
 }
-
+body {
+    
+}
 // TABLET
 @media only screen and (min-width: 768px) {
     .navigate__back__row { 
@@ -251,7 +253,10 @@
 
 // DESKTOP
 @media only screen and (min-width: 1280px) {
+    .header {
 
+    }
+    // not really row ONLY A CIRCLE CLOSE
     .navigate__back__row { 
         position: static;
         border: none;

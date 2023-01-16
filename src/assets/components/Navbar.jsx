@@ -17,12 +17,15 @@ export default function Navbar({screenSize, navbarState, setNavbarState, hideMai
 
     // track users horizontal scrolling for navbar graphics
     const [scrollState, setScrollState] = React.useState({
-    position: null,
-    direction: ""
+        position: null,
+        memorized_position: null,
+        tabOpened: false,
+        direction: ""
     })
     React.useEffect(() => {
         if (screenSize === "desktop") {
             const handleScroll = () => setScrollState(prevState => ({
+                ...prevState,
                 position: window.scrollY,
                 direction: prevState.position === null ? "down" : 
                     prevState.position < window.scrollY ? "down" : "up"
@@ -33,7 +36,7 @@ export default function Navbar({screenSize, navbarState, setNavbarState, hideMai
     }, [screenSize])
     // check if page is at "HOME" position 
     useEffect(() => {
-    if (screenSize === "desktop" && navbarState.openedTabName !== "models") {
+    if (screenSize === "desktop") {
         if (scrollState.position === null || window.scrollY === 0) {
             setNavbarState(prevState => ({
                 ...prevState,
@@ -51,7 +54,7 @@ export default function Navbar({screenSize, navbarState, setNavbarState, hideMai
             setNavbarState(prevState => ({
                 ...prevState,
                 isHome: false,
-                isMinmized: true,
+                isMinmized: scrollState.tabOpened ? false : true,
                 isLight: true
             }))
         }
@@ -66,8 +69,36 @@ export default function Navbar({screenSize, navbarState, setNavbarState, hideMai
     }
     }, [scrollState.direction])
 
+    // momorizing the position tab was opened at
+    useEffect(() => {
+        if (navbarState.openedTabName !== null) {
+            setScrollState(prevState => ({
+                ...prevState,
+                memorized_position: window.scrollY,
+                tabOpened: !prevState.tabOpened
+            }))
+        }
+        else {
+            setScrollState(prevState => ({
+                ...prevState,
+                tabOpened: !prevState.tabOpened
+            }))
+        }
+    }, [navbarState.openedTabName])
+    // returning body to memorized position after tab is closed
+    useEffect(() => {
+        if (scrollState.tabOpened === true) {
+            document.body.style.position = 'fixed';
+            document.body.style.top = `-${scrollState.memorized_position}px`;
+        }
+        else {
+            document.body.style.position = '';
+            document.body.style.top = '';
+            window.scrollTo(0, parseInt(scrollState.memorized_position || '0'));
+        }
+    }, [scrollState.tabOpened])
 
-
+    
     function navbarClassName() {
         let name = "navbar"
         if (screenSize === "desktop") {
@@ -76,10 +107,10 @@ export default function Navbar({screenSize, navbarState, setNavbarState, hideMai
                 name += " hidden"
             }
         }
-        if (navbarState.isMinmized) {
+        if (navbarState.isMinmized && scrollState.tabOpened === false) {
             name += " minimized"
         }
-        if (navbarState.isLight) [
+        if (navbarState.isLight || scrollState.tabOpened) [
             name += " light"
         ]
         if (hamburgerState.isExpanded) {
@@ -87,6 +118,7 @@ export default function Navbar({screenSize, navbarState, setNavbarState, hideMai
         }
         return name
     }
+
     function openNavbarTab(event) {
         const tabID = event.target.id
         setNavbarState(prevState => ({
@@ -94,6 +126,7 @@ export default function Navbar({screenSize, navbarState, setNavbarState, hideMai
             openedTabName: prevState.openedTabName === tabID ? null : tabID
         }))
     }
+
     // expand navbar onClick DESKTOP SCRENNS ONLY
     function handleMaximize() {
         if (screenSize === "desktop") {
@@ -110,7 +143,7 @@ export default function Navbar({screenSize, navbarState, setNavbarState, hideMai
             //navbarState.openedTabName &&
                 setNavbarState(prevState => ({
                     ...prevState,
-                    isMinmized: true
+                    isMinmized: scrollState.tabOpened ? false : true
                 }))
     }
 
@@ -118,15 +151,16 @@ export default function Navbar({screenSize, navbarState, setNavbarState, hideMai
         isExpanded: false
     })
     function expandHamburger() {
-        setNavbarState(prevState => ({
-            ...prevState,
-            openedTabName: hamburgerState.isExpanded ? null : prevState.openedTabName
-        }))
         setHamburgerState(prevState => ({
             ...prevState,
             isExpanded: !prevState.isExpanded
         }))
+        setNavbarState(prevState => ({
+            ...prevState,
+            openedTabName: hamburgerState.isExpanded ? null : prevState.openedTabName
+        }))
     }
+
 
 
     function goBack() {
@@ -136,13 +170,14 @@ export default function Navbar({screenSize, navbarState, setNavbarState, hideMai
         }))
     }
 
+
     function isDefaultTab() {
         const defaultTabList = ["shopping", "owners"]
         return defaultTabList.includes(navbarState.openedTabName) ? true : false
     }
 
     return (
-        <div className={screenSize === "desktop" ? hideMainContent() ? "header fixed" : "header" : "header"}>
+        <div className={ screenSize === "desktop" ? "header fixed" : "header" }>
             <nav 
                 className={navbarClassName()}  
                 onClick={handleMaximize}
@@ -190,6 +225,9 @@ export default function Navbar({screenSize, navbarState, setNavbarState, hideMai
                     }
                 </div>
             </nav>
+
+
+            
             {
                 navbarState.openedTabName === null ?
                     hamburgerState.isExpanded  && screenSize !== "desktop" &&

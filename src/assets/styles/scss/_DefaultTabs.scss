@@ -3,6 +3,7 @@
 
 
 .default__tab {
+
     width: 100%;
     @include flex(column, flex-start, center);
     gap: 1.5rem;

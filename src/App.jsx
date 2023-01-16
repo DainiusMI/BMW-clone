@@ -37,7 +37,15 @@ export default function App() {
     const hideInCase = ["models", "owners", "shopping"]
     return hideInCase.includes(navbarState.openedTabName) ? false : true
   }
-
+  function renderHero() {
+    if (navbarState.openedTabName === "models") {
+      return false
+    }
+    if (screenSize !== "desktop" && navbarState.openedTabName !== null) {
+      return false
+    }
+    return true
+  }
   return (
     <main>
       <Navbar 
@@ -47,11 +55,11 @@ export default function App() {
         hideMainContent={hideMainContent}
       /> 
       {
-        navbarState.openedTabName !== "models" &&
+
         <Hero screenSize={screenSize}/>
       }     
       {
-        hideMainContent() &&
+
         <StaticSection 
           sectionName="news"
           dataObject={mainData.news}
@@ -59,29 +67,29 @@ export default function App() {
         />
       }
       {
-        hideMainContent() &&
+
         <StaticSection 
           sectionName="builds"
           dataObject={mainData.builds}
         />
       }
       {
-       hideMainContent() &&
+
         <Services screenSize={screenSize}/>
       }
       {
-       hideMainContent() &&
+
         <StaticSection 
             sectionName="ownership"
             dataObject={mainData.ownership}
         />
       }
       {
-        screenSize === "desktop" &&hideMainContent() &&
+        screenSize === "desktop" &&
           <Models />
       }
       {
-       hideMainContent() &&
+
         <Footer screenSize={screenSize}/>
       }
     </main>

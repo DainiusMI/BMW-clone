@@ -5,6 +5,13 @@
   align-items: flex-start;
   justify-content: center;
   background-color: #F6F6F6;
+  height: 100vh;
+  overflow-y: auto;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.models__tab::-webkit-scrollbar {
+  display: none;
 }
 .models__tab .category__list__row {
   width: 100%;
