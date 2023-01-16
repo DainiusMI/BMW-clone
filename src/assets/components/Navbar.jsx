@@ -97,7 +97,6 @@ export default function Navbar({screenSize, navbarState, setNavbarState, hideMai
             window.scrollTo(0, parseInt(scrollState.memorized_position || '0'));
         }
     }, [scrollState.tabOpened])
-
     
     function navbarClassName() {
         let name = "navbar"
