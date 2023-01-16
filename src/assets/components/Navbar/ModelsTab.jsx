@@ -79,14 +79,4 @@ export default function ModelsTab({screenSize, goBack}) {
     )
 }
 
-//<ModelImage category={category} imageName={model.imageName}/>
 
-function ModelImage({imageName}) {
-    const { loading, error, image } = useImage({folderName:"Models", fileName: imageName})
-    return (
-        <div
-            className="model__image" 
-            style={{ backgroundImage: `url(${image})` }}
-        />
-    )
-}
