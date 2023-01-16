@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 import NavbarLeftSideItem from "./Navbar/NavbarLeftSideItem";
 import NavbarRightSideItem from "./Navbar/NavbarRightSideItem";
@@ -69,24 +69,35 @@ export default function Navbar({screenSize, navbarState, setNavbarState, hideMai
     }
     }, [scrollState.direction])
 
-    // momorizing the position tab was opened at
+
+    const initialLoad = useRef(true)
+    // memorizing the position tab was opened at
     useEffect(() => {
-        if (navbarState.openedTabName !== null) {
-            setScrollState(prevState => ({
-                ...prevState,
-                memorized_position: window.scrollY,
-                tabOpened: !prevState.tabOpened
-            }))
+        console.log(`initial load: ${initialLoad.current}`)
+        if (initialLoad.current) {
+            initialLoad.current = false
         }
         else {
-            setScrollState(prevState => ({
-                ...prevState,
-                tabOpened: !prevState.tabOpened
-            }))
+            if (navbarState.openedTabName !== null) {
+                setScrollState(prevState => ({
+                    ...prevState,
+                    memorized_position: window.scrollY,
+                    tabOpened: !prevState.tabOpened
+                }))
+            }
+            else {
+                setScrollState(prevState => ({
+                    ...prevState,
+                    tabOpened: !prevState.tabOpened
+                }))
+            }
         }
+
     }, [navbarState.openedTabName])
     // returning body to memorized position after tab is closed
+    console.log(`on initial load: ${scrollState.tabOpened}`)
     useEffect(() => {
+        console.log(`in second useEffect: ${scrollState.tabOpened}`)
         if (scrollState.tabOpened === true) {
             document.body.style.position = 'fixed';
             document.body.style.top = `-${scrollState.memorized_position}px`;
