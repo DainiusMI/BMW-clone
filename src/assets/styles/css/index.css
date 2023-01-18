@@ -336,6 +336,12 @@
   }
 }
 @media only screen and (min-width: 1280px) {
+  .default__tab__container {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(11, 11, 11, 0.7);
+    cursor: pointer;
+  }
   .default__tab {
     margin-top: 6rem;
     padding-top: 5%;
@@ -344,6 +350,7 @@
     align-items: flex-start;
     justify-content: flex-start;
     gap: 3rem;
+    cursor: auto;
   }
   .default__tab > *:first-child {
     width: 40%;

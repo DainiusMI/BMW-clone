@@ -2,6 +2,8 @@
 @use "./variables" as *;
 
 
+
+
 .default__tab {
 
     width: 100%;
@@ -10,7 +12,7 @@
     background-color: $background-silver;
 
     padding-bottom: 5rem;
-
+    
     .tab__section {
         width: 100%;
         @include flex(column, flex-start, center);
@@ -156,11 +158,22 @@
 
 // DESKTOP
 @media only screen and (min-width: 1280px) {
+    .default__tab__container {
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(11, 11, 11, 0.7);
+        cursor: pointer;
+
+    }
+
     .default__tab { 
         margin-top: 6rem;
         padding-top: 5%;
         @include flex(row, flex-start, flex-start);
         gap: 3rem;
+
+        cursor: auto;
+        
         &>*:first-child {
             width: 40%;
         }
@@ -187,6 +200,7 @@
         }
     }
     .shopping {
+        
         gap: 0;
         padding-inline: 10%;
         .tab__section {

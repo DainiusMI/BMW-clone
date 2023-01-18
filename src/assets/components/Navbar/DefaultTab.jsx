@@ -77,20 +77,22 @@ export default function DefaultTab({tabName, dataObject, screenSize, goBack}) {
     }
 
     return (
-        <div className={`default__tab ${dataObject.id}`} >
-            {
-                screenSize !== "desktop" && 
-                <div className="navigate__back__row" onClick={goBack}>
-                    <i className="fa-sharp fa-solid fa-chevron-left" />
-                    <p className="tab__name">{dataObject.title}</p>
-                </div>
-            }
-            {
-                renderTabSection(firstSection, `${tabName}__first`)
-            }
-            {
-                renderTabSection(secondSection, `${tabName}__second`)
-            }
+        <div className="default__tab__container" onClick={goBack}>
+            <div className={`default__tab ${dataObject.id}`} >
+                {
+                    screenSize !== "desktop" && 
+                    <div className="navigate__back__row" onClick={goBack}>
+                        <i className="fa-sharp fa-solid fa-chevron-left" />
+                        <p className="tab__name">{dataObject.title}</p>
+                    </div>
+                }
+                {
+                    renderTabSection(firstSection, `${tabName}__first`)
+                }
+                {
+                    renderTabSection(secondSection, `${tabName}__second`)
+                }
+            </div>
         </div>
     )
 }

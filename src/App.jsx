@@ -24,42 +24,16 @@ export default function App() {
     window.addEventListener("resize", handleScreenSize)
   }, [])
   
-  // track users interaction with navbar
-  const [navbarState, setNavbarState] = React.useState({
-    className: "navbar",
-    openedTabName: null,
-    isHome: true,
-    isMinmized: false,
-    isLight: false
-  })
 
-  function hideMainContent() {
-    const hideInCase = ["models", "owners", "shopping"]
-    return hideInCase.includes(navbarState.openedTabName) ? false : true
-  }
-  function renderHero() {
-    if (navbarState.openedTabName === "models") {
-      return false
-    }
-    if (screenSize !== "desktop" && navbarState.openedTabName !== null) {
-      return false
-    }
-    return true
-  }
+
+
   return (
     <main>
-      <Navbar 
-        screenSize={screenSize}
-        navbarState={navbarState}
-        setNavbarState={setNavbarState}
-        hideMainContent={hideMainContent}
-      /> 
+      <Navbar screenSize={screenSize} /> 
       {
-
-        <Hero screenSize={screenSize}/>
+        <Hero screenSize={screenSize} />
       }     
       {
-
         <StaticSection 
           sectionName="news"
           dataObject={mainData.news}
@@ -67,29 +41,24 @@ export default function App() {
         />
       }
       {
-
         <StaticSection 
           sectionName="builds"
           dataObject={mainData.builds}
         />
       }
       {
-
         <Services screenSize={screenSize}/>
       }
       {
-
         <StaticSection 
             sectionName="ownership"
             dataObject={mainData.ownership}
         />
       }
       {
-        screenSize === "desktop" &&
-          <Models />
+        screenSize === "desktop" && <Models />
       }
       {
-
         <Footer screenSize={screenSize}/>
       }
     </main>

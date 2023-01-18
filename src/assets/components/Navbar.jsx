@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 
 import NavbarLeftSideItem from "./Navbar/NavbarLeftSideItem";
 import NavbarRightSideItem from "./Navbar/NavbarRightSideItem";
@@ -13,7 +13,16 @@ import navbarJSON from "./Navbar/navbar.json"
 
 
 
-export default function Navbar({screenSize, navbarState, setNavbarState, hideMainContent}) {
+export default function Navbar({screenSize}) {
+
+    // track users interaction with navbar
+    const [navbarState, setNavbarState] = React.useState({
+        className: "navbar",
+        openedTabName: null,
+        isHome: true,
+        isMinmized: false,
+        isLight: false
+    })
 
     // track users horizontal scrolling for navbar graphics
     const [scrollState, setScrollState] = React.useState({
